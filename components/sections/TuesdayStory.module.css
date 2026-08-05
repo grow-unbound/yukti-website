@@ -1,0 +1,125 @@
+.section {
+  padding: clamp(56px, 8vw, 96px) 20px;
+  background: var(--yk-paper);
+  border-top: 1px solid var(--yk-card-line);
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.inner {
+  max-width: var(--yk-mk-prose);
+  margin: 0 auto;
+}
+
+.h2 {
+  margin-bottom: clamp(28px, 5vw, 44px);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 16px;
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  background: var(--yk-ink);
+  color: var(--yk-on-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--yk-mk-13);
+  font-weight: var(--yk-weight-bold);
+}
+
+/* Shape, not colour — see the component comment. */
+.badgeRounded {
+  border-radius: 8px;
+}
+
+.badgeCircle {
+  border-radius: 50%;
+}
+
+.badgeDiamond {
+  border-radius: 8px;
+  transform: rotate(45deg);
+}
+
+/* Counter-rotate the numeral so it stays upright inside the diamond. */
+.badgeDiamond .badgeNum {
+  display: block;
+  transform: rotate(-45deg);
+}
+
+.badgeSquare {
+  border-radius: 2px;
+}
+
+.connector {
+  width: 1px;
+  flex: 1;
+  background: var(--yk-card-line);
+  margin: 6px 0;
+}
+
+.body {
+  padding-bottom: 30px;
+}
+
+.step:last-child .body {
+  padding-bottom: 0;
+}
+
+.time {
+  margin: 0;
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-12);
+  color: var(--yk-copper-text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.text {
+  margin: 8px 0 0;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.65;
+  color: var(--yk-ink);
+  max-width: 560px;
+  text-wrap: pretty;
+}
+
+.closer {
+  margin: clamp(28px, 5vw, 40px) 0 0;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.65;
+  color: var(--yk-sub);
+  max-width: 600px;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.link {
+  color: var(--yk-copper-text);
+  font-weight: var(--yk-weight-semibold);
+  text-decoration: none;
+  border-bottom: 1px solid var(--yk-copper-rule);
+}
+
+.link:hover {
+  border-bottom-color: var(--yk-copper-text);
+}

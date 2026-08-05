@@ -1,0 +1,94 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--yk-z-overlay);
+  background: var(--yk-scrim);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.bar {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: var(--yk-header-h);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* The desktop and mobile navs are BOTH server-rendered and swapped by this
+   one media query. The design export gated them on window.matchMedia held in
+   React state, which meant no navigation existed until JS ran, and would
+   hydration-mismatch under SSR. ~40 bytes of duplicate markup buys correctness. */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+}
+
+@media (max-width: 860px) {
+  .desktopNav {
+    display: none;
+  }
+}
+
+.navLink {
+  text-decoration: none;
+  padding: 7px 11px;
+  border-radius: var(--yk-radius-sm);
+  white-space: nowrap;
+  transition: background-color var(--yk-duration-base) var(--yk-ease);
+}
+
+.navLink:hover {
+  background: var(--yk-hover-tint);
+  color: var(--yk-ink);
+}
+
+.navLinkActive {
+  background: var(--yk-copper-wash-soft);
+  color: var(--yk-ink);
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login {
+  text-decoration: none;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-ink);
+  padding: 8px 12px;
+  border-radius: var(--yk-radius-sm);
+  transition: background-color var(--yk-duration-base) var(--yk-ease);
+}
+
+.login:hover {
+  background: var(--yk-hover-tint);
+}
+
+.login:active {
+  transform: scale(var(--yk-press-scale));
+}
+
+/* The header CTA appears on desktop only. On mobile the sticky bottom bar
+   carries it, and showing both would put two copper CTAs in one viewport —
+   the design system allows at most one. */
+.headerCta {
+  display: inline-flex;
+}
+
+@media (max-width: 860px) {
+  .headerCta {
+    display: none;
+  }
+}

@@ -1,0 +1,92 @@
+.hero {
+  padding: clamp(40px, 7vw, 80px) 20px clamp(28px, 4vw, 40px);
+}
+
+.heroInner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.sub {
+  margin: 0;
+  font-size: var(--yk-mk-lead);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.6;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}
+
+.plans {
+  padding: 0 20px;
+}
+
+/* 1, 2 or 4 columns — never 3.
+   auto-fit would give three columns around 1024px and orphan Scale onto a row
+   of its own, which reads as a mistake. The export avoided this with a nested
+   grid of two card pairs; explicit breakpoints get the same guarantee without
+   the extra wrapper, and keep the cards comparable side by side. */
+.planGrid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+@media (min-width: 620px) {
+  .planGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 1000px, not 1100 — the export fit all four across at 1024, and dropping to
+   a 2x2 there would make the page a third taller than the design it came from. */
+@media (min-width: 1000px) {
+  .planGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footnote {
+  max-width: 1120px;
+  margin: 20px auto 0;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.55;
+  color: var(--yk-faint);
+}
+
+.blocks {
+  padding: clamp(48px, 7vw, 80px) 20px 0;
+}
+
+.blockGrid {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(24px, 4vw, 40px);
+}
+
+.blockH {
+  margin: 0;
+  font-size: var(--yk-mk-18);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+  color: var(--yk-ink);
+}
+
+.blockP {
+  margin: 10px 0 0;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.65;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}

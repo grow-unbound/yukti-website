@@ -1,0 +1,73 @@
+.section {
+  padding: clamp(56px, 8vw, 96px) 20px;
+}
+
+.inner {
+  max-width: var(--yk-mk-prose);
+  margin: 0 auto;
+}
+
+.list {
+  margin-top: clamp(24px, 4vw, 36px);
+  border-top: 1px solid var(--yk-card-line);
+}
+
+.item {
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 18px 2px;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-semibold);
+  line-height: 1.45;
+  color: var(--yk-ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Hide the native disclosure triangle in both engines. */
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary::marker {
+  content: "";
+}
+
+.summary::after {
+  content: "+";
+  flex: none;
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-18);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+  line-height: 1;
+}
+
+.item[open] .summary::after {
+  content: "−";
+}
+
+.summary:hover {
+  color: var(--yk-copper-text);
+}
+
+/* The outline would otherwise hug the full-width row edge-to-edge. */
+.summary:focus-visible {
+  outline-offset: -2px;
+}
+
+.answer {
+  padding: 0 2px 20px;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.65;
+  color: var(--yk-sub);
+  max-width: 660px;
+  text-wrap: pretty;
+}

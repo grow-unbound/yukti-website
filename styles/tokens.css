@@ -1,0 +1,243 @@
+/* ============================================================
+   YUKTI DESIGN SYSTEM — tokens
+   Transcribed from Yukti_DesignSystem_R12
+   (reference/design-export/_ds/yukti-design-system-13a225a3.../styles.css)
+
+   Two deliberate differences from that file:
+     1. Its Google Fonts @import is dropped. Fonts load through next/font,
+        which self-hosts them and removes two third-party origins from the
+        critical path. See app/fonts.ts.
+     2. The extension block at the bottom adds tokens the design system does
+        not define but the site needs. Each one is justified inline.
+
+   Treat reference/_ds as read-only. Do not import from it; if the design
+   system is regenerated, diff it against this file by hand.
+   Note that _ds_manifest.json and _ds_bundle.js in that folder are stale
+   pre-R12 output (they claim Mukta / #FFFFFF / 16px base). styles.css wins.
+   ============================================================ */
+
+:root {
+  /* ── COLOR — the one palette ── */
+  --yk-ink: #221e1a; /* body text */
+  --yk-surface: #2b2825; /* dark base */
+  --yk-copper: #b5642f; /* THE MARK AND DECORATION ONLY — see extension block */
+  --yk-copper-lt: #d9894c; /* accents on dark */
+  --yk-paper: #f8f6f2; /* warm off-white — recessed surfaces */
+  --yk-card: #fcfbf8; /* bright off-white — body canvas, cards */
+  --yk-card-line: #eae3d9; /* hairline border */
+  --yk-sub: #64594e; /* muted text — 6.6:1 on canvas */
+  --yk-faint: #6f665c; /* label text — 5.4:1 on canvas */
+  --yk-on-dark: #f3eee6; /* text on charcoal — 14.3:1 */
+  --yk-sub-dark: rgba(243, 238, 230, 0.62); /* muted on dark — 6.3:1 */
+
+  --yk-bg-canvas: var(--yk-card);
+  --yk-bg-sidebar: var(--yk-paper);
+
+  /* Status — always paired with a shape glyph and a label, never colour alone */
+  --yk-success: #1f6b3a;
+  --yk-success-bg: rgba(31, 107, 58, 0.12);
+  --yk-success-border: rgba(31, 107, 58, 0.22);
+  --yk-warning: #8a5700;
+  --yk-warning-bg: rgba(138, 87, 0, 0.1);
+  --yk-warning-border: rgba(138, 87, 0, 0.2);
+  --yk-error: #9c3026;
+  --yk-error-bg: rgba(156, 48, 38, 0.12);
+  --yk-error-border: rgba(156, 48, 38, 0.22);
+  --yk-info: #2a5f8a;
+  --yk-info-bg: rgba(42, 95, 138, 0.1);
+  --yk-info-border: rgba(42, 95, 138, 0.2);
+
+  /* ── TYPOGRAPHY ──
+     Families come from next/font as CSS variables set on <html>, so all three
+     are self-hosted and no third-party font origin is contacted. */
+  --yk-font-ui: var(--font-inter), -apple-system, "Segoe UI", sans-serif;
+  --yk-font-wordmark: var(--font-wordmark), var(--yk-font-ui); /* wordmark ONLY */
+  --yk-font-mono: var(--font-mono), ui-monospace, "SF Mono", monospace;
+  --font-sans: var(--yk-font-ui);
+
+  /* App type scale. Present for fidelity with the design system, but the
+     marketing site uses the --yk-mk-* scale below instead: this is a 14px
+     app-density scale, and marketing type runs larger and looser. Keeping
+     them separate stops one drifting into the other. */
+  --yk-text-base: 14px;
+  --yk-text-xs: calc(var(--yk-text-base) * 0.786);
+  --yk-text-sm: calc(var(--yk-text-base) * 0.857);
+  --yk-text-md: calc(var(--yk-text-base) * 1.071);
+  --yk-text-lg: calc(var(--yk-text-base) * 1.286);
+  --yk-text-xl: calc(var(--yk-text-base) * 1.571);
+  --yk-text-2xl: calc(var(--yk-text-base) * 2);
+  --yk-text-3xl: calc(var(--yk-text-base) * 2.571);
+
+  --yk-weight-light: 300;
+  --yk-weight-regular: 400;
+  --yk-weight-medium: 500;
+  --yk-weight-semibold: 600;
+  --yk-weight-bold: 700;
+  --yk-weight-extrabold: 800;
+
+  --yk-leading-tight: 1.18;
+  --yk-leading-snug: 1.35;
+  --yk-leading-normal: 1.55;
+  --yk-leading-relaxed: 1.65;
+
+  --yk-tracking-display: -0.02em;
+  --yk-tracking-title: -0.02em;
+  --yk-tracking-heading: -0.02em;
+  --yk-tracking-body: -0.01em;
+  --yk-tracking-label: 0.08em;
+  --yk-tracking-mono: -0.02em;
+
+  /* ── SPACING — 4px grid ── */
+  --yk-space-1: 4px;
+  --yk-space-2: 8px;
+  --yk-space-3: 12px;
+  --yk-space-4: 16px;
+  --yk-space-5: 20px;
+  --yk-space-6: 24px;
+  --yk-space-8: 32px;
+  --yk-space-10: 40px;
+  --yk-space-12: 48px;
+  --yk-space-16: 64px;
+  --yk-space-20: 80px;
+
+  /* ── RADII ── */
+  --yk-radius-sm: 6px;
+  --yk-radius-md: 10px;
+  --yk-radius-lg: 14px;
+  --yk-radius-xl: 20px;
+  --yk-radius-full: 9999px;
+
+  /* ── SHADOWS — warm ink tint, never cool grey ── */
+  --yk-shadow-xs: 0 1px 3px rgba(34, 30, 26, 0.07);
+  --yk-shadow-sm: 0 2px 6px rgba(34, 30, 26, 0.08), 0 1px 2px rgba(34, 30, 26, 0.05);
+  --yk-shadow-md: 0 4px 14px rgba(34, 30, 26, 0.1), 0 2px 4px rgba(34, 30, 26, 0.06);
+  --yk-shadow-lg: 0 12px 32px rgba(34, 30, 26, 0.12), 0 4px 8px rgba(34, 30, 26, 0.06);
+  --yk-shadow-xl: 0 22px 44px -26px rgba(34, 30, 26, 0.4);
+
+  --yk-z-base: 0;
+  --yk-z-raised: 10;
+  --yk-z-overlay: 100;
+  --yk-z-modal: 200;
+  --yk-z-toast: 300;
+
+  /* ── MOTION ── */
+  --yk-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --yk-duration-fast: 100ms;
+  --yk-duration-base: 180ms;
+  --yk-duration-slow: 280ms;
+
+  /* ── INTERACTION ── */
+  --yk-hover-tint: rgba(34, 30, 26, 0.05);
+  --yk-active-tint: rgba(34, 30, 26, 0.08);
+  --yk-hover-tint-dark: rgba(243, 238, 230, 0.08);
+  --yk-press-scale: 0.97;
+  --yk-lift: 0 6px 18px rgba(34, 30, 26, 0.1), 0 2px 5px rgba(34, 30, 26, 0.06);
+
+  /* ============================================================
+     EXTENSION BLOCK — not in the design system.
+
+     THE RULE, and it is the whole reason this block exists:
+       --yk-copper       #B5642F  is a MARK / DECORATION colour.
+       --yk-copper-text  #6A3D18  is a TEXT colour.
+       --yk-copper-fill  #A1572A  is a FILL colour (button backgrounds).
+     Never substitute one for another. Each exists because the others fail
+     a contrast check in that role. Measured ratios are noted per token.
+     ============================================================ */
+
+  /* The design export already solved copper-on-light for text by darkening it
+     — 49 uses across the two pages. #B5642F would be 4.20:1 and fail AA at
+     the 11–14px this is used at. This is 8.9:1. Keep it. */
+  --yk-copper-text: #6a3d18;
+
+  /* Copper as a button fill. #B5642F behind #F8F6F2 label text is 4.03:1,
+     which fails AA — CTA labels run 13–17px/600 and 17px semibold does not
+     meet the WCAG "large text" exemption (that needs 18.66px bold / 24px).
+     #A1572A is 4.97:1 and is already the design system's accent-hover value,
+     so this darkens the button rather than inventing a colour. */
+  --yk-copper-fill: #a1572a;
+  --yk-copper-fill-hover: #8e4c24; /* 6.0:1 */
+
+  /* Button hover states, carried over from the design system bundle.
+     Charcoal buttons lighten on hover rather than darken — the design system
+     calls them "inverse" for that reason. */
+  --yk-ink-hover: #332d27;
+  --yk-card-hover: #f2ede4;
+  --yk-card-line-hover: #dbd1c2;
+
+  /* Copper washes, carried over from the export. */
+  --yk-copper-wash: rgba(106, 61, 24, 0.12); /* check-glyph chips */
+  --yk-copper-wash-soft: rgba(181, 100, 47, 0.09); /* active nav, campaign banner */
+  --yk-copper-rule: rgba(106, 61, 24, 0.35); /* inline link underline */
+
+  /* On charcoal, the export used #8b7f72 for footer meta and column headings
+     at 10.5–12.5px — 4.24:1, fails AA. This is 5.3:1 at the same weight. */
+  --yk-on-dark-faint: #9a8d7f;
+
+  /* ── Marketing type scale ──
+     Transcribed from the export verbatim, including its near-duplicate
+     clamps. They are almost certainly editor noise, but "almost certainly"
+     is not grounds to change rendered output during a port. Consolidate
+     later, in a change that can be diffed on its own. */
+  --yk-mk-h1: clamp(32px, 8.4vw, 58px);
+  --yk-mk-h1-sm: clamp(30px, 7.6vw, 52px); /* pricing hero */
+  --yk-mk-h2: clamp(26px, 6.4vw, 38px);
+  --yk-mk-h2-alt: clamp(25px, 6.4vw, 38px); /* export noise; kept verbatim */
+  --yk-mk-h2-sm: clamp(24px, 6vw, 34px);
+  --yk-mk-h3: clamp(21px, 5vw, 27px);
+  --yk-mk-lead: clamp(15px, 4vw, 18px);
+  --yk-mk-lead-sm: clamp(15px, 4vw, 17px);
+
+  /* Mockup density sizes. Half-pixel values are deliberate — they are what
+     make the fake product UI read as dense app chrome next to marketing copy. */
+  --yk-mk-10: 10px;
+  --yk-mk-105: 10.5px;
+  --yk-mk-11: 11px;
+  --yk-mk-115: 11.5px;
+  --yk-mk-12: 12px;
+  --yk-mk-125: 12.5px;
+  --yk-mk-13: 13px;
+  --yk-mk-135: 13.5px;
+  --yk-mk-14: 14px;
+  --yk-mk-15: 15px;
+  --yk-mk-18: 18px;
+
+  /* The rupee sign renders in Inter, scaled down, inside JetBrains Mono
+     numbers — the mono rupee glyph is too wide and sits badly on the
+     baseline. Two sizes exist in the export; both are load-bearing. */
+  --yk-rupee-scale: 0.62em;
+  --yk-rupee-scale-sm: 0.58em;
+
+  /* Status chip tints. The design system's *-bg values are tuned for solid
+     alert panels; these are the lighter washes the marketing mockups use. */
+  --yk-success-wash: rgba(31, 107, 58, 0.07);
+  --yk-success-rule: rgba(31, 107, 58, 0.3);
+  --yk-info-wash: rgba(42, 95, 138, 0.07);
+  --yk-info-rule: rgba(42, 95, 138, 0.3);
+  --yk-copper-chip: rgba(181, 100, 47, 0.08);
+  --yk-copper-chip-rule: rgba(106, 61, 24, 0.3);
+
+  /* Campaign banner in the customer app mockup. */
+  --yk-copper-banner: rgba(181, 100, 47, 0.07);
+  --yk-copper-banner-rule: rgba(181, 100, 47, 0.35);
+
+  /* Translucent backdrops behind the blurred sticky header and CTA bar. */
+  --yk-scrim: rgba(252, 251, 248, 0.94);
+  --yk-scrim-strong: rgba(252, 251, 248, 0.96);
+
+  /* Hairlines on charcoal surfaces. */
+  --yk-rule-on-dark: rgba(243, 238, 230, 0.14);
+  --yk-border-on-dark: rgba(243, 238, 230, 0.3);
+
+  /* Elevation used by the mockups, larger and softer than the app shadows. */
+  --yk-shadow-mock: 0 16px 40px rgba(34, 30, 26, 0.08);
+  --yk-shadow-card-lift: 0 12px 32px rgba(34, 30, 26, 0.08);
+  --yk-shadow-phone: 0 28px 64px rgba(34, 30, 26, 0.2);
+  --yk-shadow-step: 0 4px 14px rgba(34, 30, 26, 0.05);
+
+  /* Layout */
+  --yk-mk-maxw: 1180px;
+  --yk-mk-prose: 760px;
+  --yk-header-h: 58px;
+  --yk-sticky-cta-h: 72px;
+  --yk-mk-breakpoint: 860px; /* the one nav/mobile switch, mirrored in JS-free CSS */
+}

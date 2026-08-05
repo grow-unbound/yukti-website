@@ -1,0 +1,108 @@
+.footer {
+  background: var(--yk-ink);
+  color: var(--yk-on-dark);
+  padding: clamp(40px, 6vw, 64px) 20px 28px;
+}
+
+/* Clear the mobile sticky CTA bar so the last row is never trapped under it. */
+@media (max-width: 860px) {
+  .footer {
+    padding-bottom: calc(28px + var(--yk-sticky-cta-h));
+  }
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(28px, 4vw, 48px);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.tagline {
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.6;
+  /* #9A8D7F, not the export's #8b7f72 — that measured 4.24:1 on charcoal and
+     failed AA at this size. This is 5.3:1. */
+  color: var(--yk-on-dark-faint);
+  max-width: 260px;
+}
+
+.whatsapp {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.whatsappLabel {
+  font-size: var(--yk-mk-12);
+  font-weight: var(--yk-weight-medium);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-on-dark-faint);
+}
+
+.whatsappNumber {
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-15);
+  font-variant-numeric: tabular-nums;
+  color: var(--yk-on-dark);
+}
+
+.columns {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.heading {
+  margin: 0 0 12px;
+  font-size: var(--yk-mk-105);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--yk-on-dark-faint);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.link {
+  font-size: var(--yk-mk-135);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-on-dark);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity var(--yk-duration-base) var(--yk-ease);
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.meta {
+  max-width: 1120px;
+  margin: clamp(32px, 5vw, 48px) auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--yk-rule-on-dark);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-on-dark-faint);
+}

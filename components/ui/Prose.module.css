@@ -1,0 +1,133 @@
+/* Editorial pages: legal, about, accountants, customers. */
+
+.pageHero {
+  padding: clamp(40px, 7vw, 80px) 20px clamp(20px, 3vw, 32px);
+}
+
+.pageHeroInner {
+  max-width: var(--yk-mk-prose);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lede {
+  margin: 0;
+  font-size: var(--yk-mk-lead);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.6;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}
+
+.prose {
+  max-width: var(--yk-mk-prose);
+  margin: 0 auto;
+  padding: 0 20px clamp(40px, 6vw, 72px);
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.7;
+  color: var(--yk-sub);
+}
+
+.prose h2 {
+  margin: clamp(32px, 5vw, 48px) 0 0;
+  font-size: var(--yk-mk-h3);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+  line-height: 1.25;
+  color: var(--yk-ink);
+  text-wrap: balance;
+}
+
+.prose h3 {
+  margin: 26px 0 0;
+  font-size: var(--yk-mk-18);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+  color: var(--yk-ink);
+}
+
+.prose p {
+  margin: 14px 0 0;
+  text-wrap: pretty;
+}
+
+.prose ul {
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prose li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.prose li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.7em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--yk-copper-text);
+}
+
+.prose strong {
+  color: var(--yk-ink);
+  font-weight: var(--yk-weight-bold);
+}
+
+.prose a {
+  color: var(--yk-copper-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--yk-copper-rule);
+}
+
+.prose a:hover {
+  border-bottom-color: var(--yk-copper-text);
+}
+
+/* The "in short" summary box the brief asks legal pages to lead with. */
+.summaryBox {
+  margin: 24px 0 0;
+  background: var(--yk-paper);
+  border: 1px solid var(--yk-card-line);
+  border-left: 3px solid var(--yk-copper-text);
+  border-radius: var(--yk-radius-lg);
+  padding: 20px 22px;
+  font-size: var(--yk-mk-14);
+  line-height: 1.65;
+}
+
+.summaryBox p {
+  margin: 0;
+}
+
+/* Pre-legal-review notice. Deliberately loud: these drafts have not been
+   through counsel, and the brief lists that review as a launch gate. */
+.notice {
+  margin: 24px 0 0;
+  background: var(--yk-warning-bg);
+  border: 1px solid var(--yk-warning-border);
+  border-radius: var(--yk-radius-lg);
+  padding: 16px 18px;
+  font-size: var(--yk-mk-135);
+  line-height: 1.6;
+  color: var(--yk-warning);
+}
+
+.notice strong {
+  color: var(--yk-warning);
+}
+
+.meta {
+  margin: 8px 0 0;
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-125);
+  color: var(--yk-faint);
+}

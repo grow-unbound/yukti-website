@@ -1,0 +1,47 @@
+.band {
+  padding: clamp(32px, 5vw, 52px) 20px;
+  border-top: 1px solid var(--yk-card-line);
+  border-bottom: 1px solid var(--yk-card-line);
+  background: var(--yk-paper);
+}
+
+.inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.h2 {
+  margin: 0;
+  font-size: 27px;
+  font-weight: var(--yk-weight-extrabold);
+  letter-spacing: var(--yk-tracking-title);
+  color: var(--yk-ink);
+}
+
+.body {
+  margin: 10px 0 0;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.6;
+  color: var(--yk-sub);
+  max-width: 620px;
+  text-wrap: pretty;
+}
+
+.link {
+  flex: none;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-copper-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--yk-copper-rule);
+}
+
+.link:hover {
+  border-bottom-color: var(--yk-copper-text);
+}

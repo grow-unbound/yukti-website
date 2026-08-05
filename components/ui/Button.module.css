@@ -1,0 +1,98 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--yk-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--yk-radius-md);
+  font-family: var(--yk-font-ui);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: var(--yk-tracking-body);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--yk-duration-base) var(--yk-ease),
+    border-color var(--yk-duration-base) var(--yk-ease),
+    transform var(--yk-duration-fast) var(--yk-ease);
+}
+
+/* The design system's press "haptic". Hover and press are CSS, not JS state —
+   the bundle drove these from onMouseEnter/Down, which meant they never fired
+   on touch and never fired on keyboard focus. */
+.btn:active {
+  transform: scale(var(--yk-press-scale));
+}
+
+/* Sizes */
+.sm {
+  height: 34px;
+  padding: 0 var(--yk-space-3);
+  font-size: var(--yk-mk-13);
+}
+
+.md {
+  height: 42px;
+  padding: 0 var(--yk-space-4);
+  font-size: var(--yk-mk-15);
+}
+
+.lg {
+  height: 48px;
+  padding: 0 var(--yk-space-5);
+  font-size: var(--yk-mk-15);
+}
+
+/* Variants are written as .btn.variant rather than .variant on purpose.
+   A single class loses to a page's `.prose a` rule, which repainted the
+   charcoal CTA on /accountants in copper link colour — 1.8:1 against its own
+   background. Two classes beat it without resorting to !important.
+
+   accent — the single copper CTA. At most one per viewport, per the design
+   system. Fill is --yk-copper-fill (#A1572A), NOT the brand copper #B5642F:
+   the label is #F8F6F2, which measures 4.03:1 on #B5642F and fails AA, and
+   these labels run 13-15px/600 so the "large text" exemption does not apply.
+   #A1572A is 4.97:1 and is the design system's own accent-hover value. */
+.btn.accent {
+  color: var(--yk-paper);
+  background: var(--yk-copper-fill);
+}
+
+.btn.accent:hover {
+  background: var(--yk-copper-fill-hover);
+}
+
+/* primary — charcoal. The design system's default action colour; copper is
+   reserved, not promoted. Charcoal buttons lighten on hover, not darken. */
+.btn.primary {
+  color: var(--yk-paper);
+  background: var(--yk-ink);
+}
+
+.btn.primary:hover {
+  background: var(--yk-ink-hover);
+}
+
+.btn.secondary {
+  color: var(--yk-ink);
+  background: var(--yk-card);
+  border-color: var(--yk-card-line);
+}
+
+.btn.secondary:hover {
+  background: var(--yk-card-hover);
+  border-color: var(--yk-card-line-hover);
+}
+
+.btn.ghost {
+  color: var(--yk-ink);
+  background: transparent;
+}
+
+.btn.ghost:hover {
+  background: var(--yk-hover-tint);
+}
+
+.block {
+  width: 100%;
+}

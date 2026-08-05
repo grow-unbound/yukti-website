@@ -1,0 +1,51 @@
+.pains {
+  padding: clamp(32px, 5vw, 56px) 20px;
+  background: var(--yk-paper);
+  border-top: 1px solid var(--yk-card-line);
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.painGrid {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.pain {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.painH {
+  margin: 0;
+  font-size: var(--yk-mk-18);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+  line-height: 1.3;
+  color: var(--yk-ink);
+  text-wrap: balance;
+}
+
+.painP {
+  margin: 0;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.65;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}
+
+.features {
+  padding: clamp(56px, 8vw, 100px) 20px 0;
+}
+
+.featuresInner {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(64px, 10vw, 120px);
+}

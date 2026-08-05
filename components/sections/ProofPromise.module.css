@@ -1,0 +1,110 @@
+.section {
+  padding: clamp(56px, 8vw, 96px) 20px;
+}
+
+.inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.grid {
+  margin-top: clamp(24px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(28px, 5vw, 56px);
+  align-items: start;
+}
+
+.intro {
+  margin: 0;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.65;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}
+
+.stats {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.stat {
+  background: var(--yk-paper);
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-lg);
+  padding: 16px;
+}
+
+.statValue {
+  margin: 0;
+  font-family: var(--yk-font-mono);
+  font-size: 26px;
+  font-weight: var(--yk-weight-medium);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--yk-tracking-mono);
+  color: var(--yk-ink);
+}
+
+.statLabel {
+  margin: 6px 0 0;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.45;
+  color: var(--yk-sub);
+}
+
+.closer {
+  margin: 20px 0 0;
+  font-size: var(--yk-mk-135);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.6;
+  color: var(--yk-faint);
+  text-wrap: pretty;
+}
+
+.promiseCard {
+  background: var(--yk-ink);
+  color: var(--yk-on-dark);
+  border-radius: 20px;
+  padding: clamp(24px, 4vw, 36px);
+}
+
+.promiseEyebrow {
+  margin: 0 0 18px;
+  font-size: var(--yk-mk-11);
+  font-weight: var(--yk-weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--yk-copper-lt);
+}
+
+.promiseList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.promiseItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.55;
+}
+
+.promiseNum {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--yk-border-on-dark);
+  border-radius: var(--yk-radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-11);
+}

@@ -1,0 +1,7 @@
+/* Cascade layers are declared here, before anything else, so ordering is
+   deterministic. Without this, CSS Module chunks can land in a different
+   order between routes and component rules intermittently lose to the reset. */
+@layer tokens, reset, components, utilities;
+
+@import url("../styles/tokens.css") layer(tokens);
+@import url("../styles/reset.css") layer(reset);

@@ -1,0 +1,28 @@
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--yk-z-overlay);
+  display: none;
+  gap: 10px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: var(--yk-scrim-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--yk-card-line);
+  transform: translateY(110%);
+  transition: transform var(--yk-duration-slow) var(--yk-ease);
+}
+
+/* Mobile only. The desktop header already carries both actions, and showing
+   this too would put two copper CTAs in one viewport. */
+@media (max-width: 860px) {
+  .bar {
+    display: flex;
+  }
+}
+
+.visible {
+  transform: translateY(0);
+}

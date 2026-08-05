@@ -1,0 +1,60 @@
+.trigger {
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: var(--yk-radius-sm);
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Mirror of the header's desktop-nav query: the hamburger exists exactly where
+   the inline nav does not. */
+@media (max-width: 860px) {
+  .trigger {
+    display: flex;
+  }
+}
+
+.trigger:hover {
+  background: var(--yk-hover-tint);
+}
+
+.trigger:active {
+  transform: scale(var(--yk-press-scale));
+}
+
+.bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--yk-ink);
+  border-radius: 2px;
+}
+
+.panel {
+  border-top: 1px solid var(--yk-card-line);
+  background: var(--yk-card);
+  padding: 10px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+}
+
+/* `hidden` must win over the flex display above. */
+.panel[hidden] {
+  display: none;
+}
+
+.link {
+  text-decoration: none;
+  padding: 11px 8px;
+  border-radius: var(--yk-radius-sm);
+}
+
+.link:hover {
+  background: var(--yk-hover-tint);
+}

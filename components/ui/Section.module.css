@@ -1,0 +1,25 @@
+/* Vertical rhythm is clamp()-driven, exactly as the export had it. That is
+   what lets the whole page respond without media queries. */
+.section {
+  padding: clamp(56px, 8vw, 96px) 20px;
+}
+
+.tight {
+  padding: clamp(40px, 6vw, 64px) 20px;
+}
+
+.paper {
+  background: var(--yk-paper);
+  border-top: 1px solid var(--yk-card-line);
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.prose {
+  max-width: var(--yk-mk-prose);
+  margin: 0 auto;
+}

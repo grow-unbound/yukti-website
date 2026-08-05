@@ -1,0 +1,122 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--yk-card);
+  border: 1px solid var(--yk-card-line);
+  border-radius: 18px;
+  padding: 24px 20px 20px;
+}
+
+.featured {
+  border: 1.5px solid var(--yk-ink);
+  box-shadow: var(--yk-shadow-lg);
+}
+
+.ribbon {
+  position: absolute;
+  top: -11px;
+  left: 20px;
+  margin: 0;
+  background: var(--yk-ink);
+  color: var(--yk-on-dark);
+  font-size: var(--yk-mk-105);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: var(--yk-radius-full);
+  white-space: nowrap;
+}
+
+.name {
+  margin: 0;
+  font-size: var(--yk-mk-18);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+  color: var(--yk-ink);
+}
+
+.blurb {
+  margin: 4px 0 0;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+}
+
+.price {
+  margin: 16px 0 0;
+  color: var(--yk-ink);
+}
+
+/* An actual figure: mono, tabular numerals, per the design system. */
+.priceNum {
+  font-family: var(--yk-font-mono);
+  font-size: 24px;
+  font-weight: var(--yk-weight-medium);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--yk-tracking-mono);
+}
+
+/* Not a figure. Inter, and a step down so it does not compete with the one
+   card that does show a number. */
+.priceWord {
+  font-family: var(--yk-font-ui);
+  font-size: var(--yk-mk-18);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+  color: var(--yk-sub);
+}
+
+.priceNote {
+  margin: 4px 0 0;
+  font-size: var(--yk-mk-115);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.45;
+  color: var(--yk-faint);
+}
+
+.rows {
+  margin: 18px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  border-top: 1px solid var(--yk-card-line);
+  padding-top: 14px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.rowLabel {
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+}
+
+.rowValue {
+  margin: 0;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.tick {
+  color: var(--yk-success);
+  font-weight: var(--yk-weight-bold);
+}
+
+.dash {
+  color: var(--yk-faint);
+}
+
+/* Pushes every card's CTA to the same baseline regardless of row count. */
+.spacer {
+  flex: 1;
+  min-height: 20px;
+}

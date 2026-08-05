@@ -1,0 +1,312 @@
+/* Primitives for the fake product UI.
+
+   These are illustrations, not screenshots. Real product imagery is deferred
+   until the app's density pass ships (shooting now would mean reshooting in
+   weeks). Every frame is aria-hidden with a visually-hidden caption instead —
+   six fake price tables in the accessibility tree is noise, not information. */
+
+.frame {
+  border: 1px solid var(--yk-card-line);
+  background: var(--yk-card);
+  border-radius: var(--yk-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--yk-shadow-sm);
+}
+
+.panel {
+  padding: 12px 14px;
+}
+
+.panelPaper {
+  background: var(--yk-paper);
+}
+
+.divider {
+  border-top: 1px solid var(--yk-card-line);
+}
+
+/* A label/value row — the pattern behind every pseudo-table in the mockups. */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  font-size: var(--yk-mk-125);
+}
+
+.rowBordered {
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.rowLabel {
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+}
+
+.rowValue {
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-ink);
+  text-align: right;
+}
+
+/* Column header strip. */
+.tableHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 14px;
+  font-size: var(--yk-mk-10);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-sub);
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+/* Money. The rupee sign renders in Inter, scaled down, because the mono
+   glyph is too wide and sits badly on the baseline. Two scales exist in the
+   source and both are load-bearing. */
+.price {
+  font-family: var(--yk-font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--yk-weight-medium);
+  letter-spacing: var(--yk-tracking-mono);
+  color: var(--yk-ink);
+}
+
+.rupee {
+  font-family: var(--yk-font-ui);
+  font-size: var(--yk-rupee-scale);
+  vertical-align: baseline;
+}
+
+.rupeeSm {
+  font-family: var(--yk-font-ui);
+  font-size: var(--yk-rupee-scale-sm);
+  vertical-align: baseline;
+}
+
+.priceUnit {
+  font-family: var(--yk-font-ui);
+  font-size: var(--yk-mk-10);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+}
+
+.strike {
+  font-size: var(--yk-mk-11);
+  font-variant-numeric: tabular-nums;
+  color: var(--yk-faint);
+  text-decoration: line-through;
+}
+
+/* Campaign rate cell — the value the campaign sets, tinted to read as edited. */
+.rateCell {
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-12);
+  font-variant-numeric: tabular-nums;
+  color: var(--yk-ink);
+  background: var(--yk-copper-wash-soft);
+  border-radius: var(--yk-radius-sm);
+  padding: 3px 7px;
+}
+
+/* Status chips. Shape glyph plus label, never colour alone — roughly 8% of
+   users cannot rely on the colour. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--yk-mk-10);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--yk-radius-full);
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+.chipSuccess {
+  color: var(--yk-success);
+  background: var(--yk-success-wash);
+  border: 1px solid var(--yk-success-rule);
+}
+
+.chipInfo {
+  color: var(--yk-info);
+  background: var(--yk-info-wash);
+  border: 1px solid var(--yk-info-rule);
+}
+
+.chipCopper {
+  color: var(--yk-copper-text);
+  background: var(--yk-copper-chip);
+  border: 1px solid var(--yk-copper-chip-rule);
+}
+
+/* Filter / trust pills. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--yk-mk-12);
+  font-weight: var(--yk-weight-semibold);
+  border-radius: var(--yk-radius-full);
+  padding: 6px 12px;
+  white-space: nowrap;
+  color: var(--yk-sub);
+  background: var(--yk-card);
+  border: 1px solid var(--yk-card-line);
+}
+
+.pillActive {
+  color: var(--yk-on-dark);
+  background: var(--yk-ink);
+  border-color: var(--yk-ink);
+}
+
+.pillTrust {
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-bold);
+  padding: 5px 12px;
+}
+
+/* Pseudo-buttons inside the mockups. Not interactive, so they are spans. */
+.mockBtn {
+  font-size: var(--yk-mk-11);
+  font-weight: var(--yk-weight-semibold);
+  padding: 7px 12px;
+  border-radius: var(--yk-radius-sm);
+  white-space: nowrap;
+}
+
+.mockBtnInk {
+  background: var(--yk-ink);
+  color: var(--yk-on-dark);
+}
+
+.mockBtnCopper {
+  background: var(--yk-copper-fill);
+  color: var(--yk-card);
+  font-size: var(--yk-mk-12);
+  padding: 9px 14px;
+}
+
+.mockBtnGhost {
+  background: var(--yk-card);
+  color: var(--yk-ink);
+  border: 1px solid var(--yk-card-line);
+  font-size: var(--yk-mk-12);
+}
+
+/* Funnel bar. Widths come through as a custom property so the class keeps
+   owning everything else. */
+.barTrack {
+  display: flex;
+  gap: 3px;
+  height: 5px;
+}
+
+.bar {
+  flex: var(--bar, 1);
+  background: var(--yk-copper-fill);
+  border-radius: 999px;
+  opacity: var(--bar-opacity, 1);
+}
+
+/* Bullet list with a copper check glyph. */
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.checkItem {
+  display: flex;
+  gap: 9px;
+  align-items: baseline;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-ink);
+  line-height: 1.5;
+}
+
+.checkGlyph {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 5px;
+  background: var(--yk-copper-wash);
+  color: var(--yk-copper-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--yk-mk-11);
+  font-weight: var(--yk-weight-extrabold);
+}
+
+/* Phone frame — the customer ordering app. */
+.phone {
+  width: min(310px, 90vw);
+  border-radius: 38px;
+  background: var(--yk-ink);
+  padding: 9px;
+  box-shadow: var(--yk-shadow-phone);
+}
+
+.phoneScreen {
+  border-radius: 30px;
+  background: var(--yk-card);
+  overflow: hidden;
+  text-align: left;
+}
+
+.phoneTabs {
+  display: flex;
+  border-top: 1px solid var(--yk-card-line);
+  margin-top: 6px;
+}
+
+.phoneTab {
+  flex: 1;
+  text-align: center;
+  padding: 9px 0 12px;
+  font-size: var(--yk-mk-10);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+  border-top: 2px solid transparent;
+}
+
+.phoneTabActive {
+  font-weight: var(--yk-weight-bold);
+  color: var(--yk-ink);
+  border-top-color: var(--yk-copper);
+}
+
+/* Stat tile, used in the cockpit crop and the proof section. */
+.statTile {
+  background: var(--yk-card);
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-md);
+  padding: 12px;
+}
+
+.statLabel {
+  font-size: var(--yk-mk-105);
+  font-weight: var(--yk-weight-medium);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-sub);
+}
+
+.statValue {
+  font-family: var(--yk-font-mono);
+  font-size: 22px;
+  font-weight: var(--yk-weight-medium);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--yk-tracking-mono);
+  margin-top: 4px;
+  color: var(--yk-ink);
+}

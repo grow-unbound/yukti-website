@@ -1,0 +1,69 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+}
+
+/* See the component comment: this flips column order on wide screens and
+   collapses correctly on narrow ones, with no media query. */
+.reverse {
+  direction: rtl;
+}
+
+.child {
+  direction: ltr;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-copper-text);
+}
+
+.h3 {
+  margin: 6px 0 0;
+  font-size: var(--yk-mk-h3);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+  line-height: 1.2;
+  color: var(--yk-ink);
+  text-wrap: balance;
+}
+
+.body {
+  margin: 10px 0 0;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.5;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-copper-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--yk-copper-rule);
+  transition: border-color var(--yk-duration-base) var(--yk-ease);
+}
+
+.link:hover {
+  border-bottom-color: var(--yk-copper-text);
+}
+
+/* Shared shell for the six feature mockups. */
+.mockShell {
+  border: 1px solid var(--yk-card-line);
+  background: var(--yk-paper);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--yk-shadow-mock);
+}

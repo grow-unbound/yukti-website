@@ -1,0 +1,183 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.headTitle {
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-body);
+  color: var(--yk-ink);
+}
+
+.headMeta {
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-11);
+  color: var(--yk-sub);
+}
+
+.card {
+  background: var(--yk-card);
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-md);
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.card:first-of-type {
+  margin-top: 12px;
+}
+
+.cardLabel {
+  font-size: var(--yk-mk-105);
+  font-weight: var(--yk-weight-medium);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-sub);
+  padding: 12px 14px 0;
+}
+
+.table {
+  padding: 0;
+}
+
+.tRow {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 9px 14px;
+  font-size: var(--yk-mk-12);
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.tRow:last-child {
+  border-bottom: none;
+}
+
+.tHead {
+  font-size: var(--yk-mk-105);
+  font-weight: var(--yk-weight-medium);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-sub);
+}
+
+.tName {
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-ink);
+}
+
+.tBase {
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-115);
+  font-variant-numeric: tabular-nums;
+  color: var(--yk-faint);
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.footNote {
+  margin: 12px 0 0;
+  font-size: var(--yk-mk-12);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+}
+
+.tnum {
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-12);
+  font-variant-numeric: tabular-nums;
+}
+
+.tnumInk {
+  font-family: var(--yk-font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--yk-ink);
+}
+
+.pillRow {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.matchLine {
+  margin: 10px 0 0;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+}
+
+/* Message bubble. The clipped bottom-left corner is the WhatsApp tail. */
+.bubble {
+  margin: 8px 14px 14px;
+  background: var(--yk-paper);
+  border: 1px solid var(--yk-card-line);
+  border-radius: 12px 12px 12px 3px;
+  padding: 10px 12px;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.55;
+  max-width: 300px;
+  color: var(--yk-ink);
+}
+
+.funnelRow {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-12);
+  font-variant-numeric: tabular-nums;
+  color: var(--yk-ink);
+}
+
+.orderList {
+  overflow: hidden;
+}
+
+.orderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.orderRow:last-child {
+  border-bottom: none;
+}
+
+.orderCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.orderId {
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-115);
+  color: var(--yk-sub);
+}
+
+.orderName {
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-ink);
+}

@@ -1,0 +1,29 @@
+.section {
+  padding: clamp(60px, 9vw, 110px) 20px;
+}
+
+.inner {
+  max-width: var(--yk-mk-prose);
+  margin: 0 auto;
+}
+
+.body {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: var(--yk-mk-lead-sm);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.7;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}
+
+.pull {
+  font-size: 1.35em;
+  font-weight: var(--yk-weight-bold);
+  color: var(--yk-ink);
+  border-left: 3px solid var(--yk-copper-text);
+  padding-left: 16px;
+  line-height: 1.4;
+}
