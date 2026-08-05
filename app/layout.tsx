@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/chrome/Footer";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { organizationLd } from "@/lib/jsonld";
@@ -43,6 +44,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <JsonLd data={organizationLd()} />
+        <Analytics />
 
         {POSTHOG_KEY ? (
           <>
