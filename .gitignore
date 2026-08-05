@@ -12,6 +12,7 @@ next-env.d.ts
 # export and the GTM/positioning briefs. The briefs name the pilot customer and
 # carry their own confidentiality note, and this repo is public.
 reference/
+archived/
 
 # Rendered captures of the design export, used as the visual-diff reference.
 # Regenerate with `npm run baseline` (requires the export in reference/).

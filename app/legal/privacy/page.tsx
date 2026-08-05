@@ -7,8 +7,9 @@ export const metadata = pageMetadata({
   description:
     "What Yukti collects, how the consent model works for your customers, and how to export or delete your data. Written to be read, not skimmed past.",
   path: "/legal/privacy",
-  // Not indexed while it is an unreviewed draft. Flip this by setting
-  // LEGAL_REVIEW_PENDING to false in content/legal.ts once counsel signs off.
+  // Still noindex, and /legal/ is disallowed in app/robots.ts. Removing the
+  // on-page review banner did not change that — drop both when these should
+  // be findable in search.
   noIndex: true,
 });
 
@@ -19,7 +20,6 @@ export default function PrivacyPage() {
       updated={privacy.updated}
       summary={privacy.summary}
       sections={privacy.sections}
-      outstanding="The grievance officer and contact details in section 8 are filled in, but the DPDP obligations they carry still need a lawyer's review before this is relied on."
     />
   );
 }

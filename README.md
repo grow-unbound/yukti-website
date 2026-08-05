@@ -99,16 +99,18 @@ it earns more traffic.
 
 These are outstanding and are not code changes:
 
-1. **Legal review.** `/legal/privacy` and `/legal/terms` are working drafts,
-   render a visible warning, and are `noindex` + disallowed in robots.txt.
-   Resolve the `[bracketed]` placeholders and get counsel's sign-off, then set
-   `LEGAL_REVIEW_PENDING = false` in `content/legal.ts` and remove `/legal/`
-   from `app/robots.ts` and add them to `app/sitemap.ts`.
-2. **GST treatment on the Lite price.** Currently renders ₹5,000/month and
+1. **Legal pages are still `noindex`** and `/legal/` is disallowed in
+   robots.txt. The on-page pre-review banner has been removed, but that did not
+   change indexing. To make them findable: drop `noIndex` from the two page
+   metadata blocks, remove `/legal/` from `app/robots.ts`, and add both routes
+   to `app/sitemap.ts`.
+2. **Terms §10 still reads `[three (3) months]`.** The liability cap is a
+   commercial decision. With the banner gone there is nothing on the page
+   explaining the brackets, so this now reads as a defect to a visitor — settle
+   the number and unbracket it in `content/legal.ts`.
+3. **GST treatment on the Lite price.** Currently renders ₹5,000/month and
    ₹50,000/year with no GST line, because none was specified. One line in
    `content/plans.ts`.
-3. **The liability cap** in terms §10 is still `[three (3) months]` — a
-   commercial decision, not a detail to look up.
 4. **Trademark filing** (classes 9/42/35) before the site is public.
 5. **WhatsApp in-app browser test on a real Android device.** Verified here
    under 4G + 4× CPU throttle emulation, but the brief asks for a real device.

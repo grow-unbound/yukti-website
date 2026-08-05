@@ -124,23 +124,6 @@
   margin: 0;
 }
 
-/* Pre-legal-review notice. Deliberately loud: these drafts have not been
-   through counsel, and the brief lists that review as a launch gate. */
-.notice {
-  margin: 24px 0 0;
-  background: var(--yk-warning-bg);
-  border: 1px solid var(--yk-warning-border);
-  border-radius: var(--yk-radius-lg);
-  padding: 16px 18px;
-  font-size: var(--yk-mk-135);
-  line-height: 1.6;
-  color: var(--yk-warning);
-}
-
-.notice strong {
-  color: var(--yk-warning);
-}
-
 .meta {
   margin: 8px 0 0;
   font-family: var(--yk-font-mono);

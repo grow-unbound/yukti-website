@@ -1,22 +1,14 @@
 /**
  * Legal pages.
  *
- * Transcribed from reference/briefs/Privacy-Policy_v1.md and
- * Terms-of-Service_v1.md. Those are working drafts that have NOT been through
- * legal counsel — the brief lists that review as a launch gate (§15.5), and
- * both drafts carry their own warning to that effect.
+ * Transcribed from the privacy policy and terms drafts, with the business
+ * details filled in: grievance officer, contact address, jurisdiction, billing
+ * cadence and the effective date.
  *
- * The business details have been supplied and filled in: grievance officer,
- * contact address, jurisdiction, billing cadence and the effective date.
- *
- * One placeholder remains deliberately visible — the liability cap in terms
- * §10 — because it is a commercial decision rather than a detail to look up.
- * Placeholders are never quietly invented: an imagined liability cap on a
- * published page is worse than one that plainly shows it is unsettled.
- *
- * LEGAL_REVIEW_PENDING stays true until qualified counsel has actually read
- * these. Filling in the details is not the same as the review, and the pages
- * stay noindex until that happens.
+ * These render as published pages — the pre-review banner has been removed on
+ * instruction. Two things did not change with it and are still worth knowing:
+ * the liability cap in terms §10 remains bracketed, and both routes are still
+ * noindex (see the pages' metadata and app/robots.ts).
  */
 
 export type Block =
@@ -27,8 +19,6 @@ export type LegalSection = {
   h: string;
   blocks: Block[];
 };
-
-export const LEGAL_REVIEW_PENDING = true;
 
 export const privacy = {
   title: "Privacy policy",
