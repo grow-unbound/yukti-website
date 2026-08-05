@@ -19,8 +19,9 @@ const ROUTES: { path: string; priority: number; changeFrequency: "weekly" | "mon
     changeFrequency: "monthly" as const,
   })),
   { path: "/integrations", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/sellers", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/buyers", priority: 0.6, changeFrequency: "monthly" },
   { path: "/accountants", priority: 0.6, changeFrequency: "monthly" },
-  { path: "/customers", priority: 0.6, changeFrequency: "monthly" },
   { path: "/about", priority: 0.5, changeFrequency: "monthly" },
 ];
 

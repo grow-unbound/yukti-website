@@ -4,12 +4,28 @@
   padding: clamp(40px, 7vw, 80px) 20px 0;
 }
 
+/* Matches the top padding of the section that follows, so the hero sits the
+   same distance above it as that section sits above the next one. */
+.pageHeroSpacious {
+  padding-bottom: clamp(56px, 8vw, 100px);
+}
+
 .pageHeroInner {
   max-width: var(--yk-mk-prose);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+
+/* The wider content measure used by the sections below, so a long page title
+   is not forced to wrap inside the narrower reading column. */
+.pageHeroWide {
+  max-width: 1060px;
+}
+
+.pageHeroWide .lede {
+  max-width: 820px;
 }
 
 .lede {

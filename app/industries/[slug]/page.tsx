@@ -69,10 +69,15 @@ export default async function IndustryPage({
     <>
       <Header current="/industries" />
       <main id="main">
+        {/* wide so the long title uses the full content measure; spacious so
+            the gap down to the problems matches the gap from the problems
+            down to the product sections. */}
         <PageHero
           eyebrow={industry.name}
           title={industry.title}
           lede={industry.lede}
+          width="wide"
+          spacious
         />
 
         <section className={s.pains} data-yk-section="industry-pains">

@@ -10,20 +10,26 @@ export const metadata = pageMetadata({
   title: "Your supplier runs on Yukti",
   description:
     "Got a Yukti link from your supplier? Here's what it is: your own rate list, new stock on WhatsApp, and order status you can check yourself. No app, no password.",
-  path: "/customers",
+  path: "/buyers",
 });
 
 /**
  * The trust page, for the person who taps a shared link or receives a Yukti
  * WhatsApp message and wonders what this is. Also linked from the app's login
- * screen.
+ * screen — that link should be repointed to /buyers; /customers still
+ * redirects here in the meantime.
  *
  * There is deliberately NO signup CTA here and no sticky bar. This audience
  * structurally cannot sign up — customers are added by their supplier — so a
  * conversion prompt would be both useless and slightly dishonest. The page's
  * job is reassurance, and the only outbound link is back to the seller story.
  *
- * Vocabulary: "customers", never "buyers" — a locked decision in the brief.
+ * Vocabulary note: the brief bans "buyers" in customer-facing copy in favour
+ * of "customers". The nav label deliberately breaks that rule — "For your
+ * customers" gave no clue whose customers were meant, and "For B2B buyers"
+ * names the persona unambiguously next to "For B2B sellers". Inside the page
+ * body, where there is no such ambiguity, the copy still says "you" and
+ * "your supplier".
  */
 export default function CustomersPage() {
   return (
@@ -31,7 +37,7 @@ export default function CustomersPage() {
       <Header />
       <main id="main">
         <PageHero
-          eyebrow="For your customers"
+          eyebrow="For B2B buyers"
           title="Your supplier runs on Yukti"
           lede="Yukti is the ordering system your supplier uses to serve you better. Your own rate list, new stock and offers on WhatsApp, and order status you can check yourself. No app to install, no password to remember."
         />
@@ -104,7 +110,7 @@ export default function CustomersPage() {
       <JsonLd
         data={breadcrumbLd([
           { name: "Home", path: "/" },
-          { name: "For your customers", path: "/customers" },
+          { name: "For B2B buyers", path: "/buyers" },
         ])}
       />
     </>

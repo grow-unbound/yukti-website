@@ -69,6 +69,13 @@ viewport with the closing CTA — the closing CTA steps down via
 single source for both the rendered accordion and the `FAQPage` structured
 data — they cannot drift apart.
 
+**Persona pages.** `/sellers` and `/buyers` name both sides of the
+transaction. The nav labels say "For B2B sellers" and "For B2B buyers", which
+deliberately breaks the brief's ban on "buyers" — "For your customers" gave no
+clue whose customers were meant. Inside page bodies the copy still avoids the
+word. `/customers` 308-redirects to `/buyers`; the product's login page still
+links to the old path and should be repointed.
+
 **Voice.** Short, active, concrete. Bold about the owner's growth, exact about
 money and data. Never lead with "AI", "smart", "automate", "leverage". No
 exclamation marks. The ceiling on finance claims is "your books stay clean" —

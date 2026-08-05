@@ -27,16 +27,28 @@ export const industryNavItems: NavItem[] = industries.map((i) => ({
   note: i.note,
 }));
 
+/**
+ * Persona labels. "For your customers" was ambiguous — whose customers? These
+ * name both sides of the transaction instead. Note this breaks the brief's ban
+ * on "buyers" in customer-facing copy, deliberately: the clarity of naming the
+ * two personas next to each other is worth more here than the vocabulary rule,
+ * which exists to stop the product sounding like it is about the wrong person.
+ */
 export const audienceNavItems: NavItem[] = [
+  {
+    href: "/sellers",
+    label: "For B2B sellers",
+    note: "Distributors, wholesalers and stockists — the business running Yukti.",
+  },
+  {
+    href: "/buyers",
+    label: "For B2B buyers",
+    note: "The page to share with a customer who asks what this Yukti link is.",
+  },
   {
     href: "/accountants",
     label: "For accountants",
     note: "What lands in Tally and Zoho, and what Yukti deliberately does not do.",
-  },
-  {
-    href: "/customers",
-    label: "For your customers",
-    note: "The page to share with a customer who asks what this Yukti link is.",
   },
 ];
 

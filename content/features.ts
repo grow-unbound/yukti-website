@@ -60,7 +60,7 @@ export const features: Omit<Feature, "mock">[] = [
       "Order status and history, self-serve",
     ],
     linkLabel: "See the customer app",
-    href: "/customers",
+    href: "/buyers",
   },
   {
     id: "feature-orders",
