@@ -33,9 +33,20 @@
   border-radius: 2px;
 }
 
+/* Absolutely positioned against the sticky <header>, NOT left in normal flow.
+   This component renders a fragment, so without this the panel lands as a flex
+   item in the header's action row — it then stretches to its own height and
+   vertically centres on the 58px bar, putting the first items above the top of
+   the screen. It was doing exactly that, silently, whenever the list was tall. */
 .panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   border-top: 1px solid var(--yk-card-line);
+  border-bottom: 1px solid var(--yk-card-line);
   background: var(--yk-card);
+  box-shadow: var(--yk-shadow-md);
   padding: 10px 20px 16px;
   display: flex;
   flex-direction: column;
@@ -76,9 +87,11 @@
   color: var(--yk-faint);
 }
 
-/* The drawer can now be taller than the viewport on a small phone. */
+/* Taller than a small phone once every industry and persona is listed, so it
+   scrolls within itself rather than pushing the page. Uses dvh so the mobile
+   browser's collapsing address bar does not clip the last item. */
 .panel {
-  max-height: calc(100vh - var(--yk-header-h));
+  max-height: calc(100dvh - var(--yk-header-h));
   overflow-y: auto;
   overscroll-behavior: contain;
 }

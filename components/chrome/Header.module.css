@@ -1,7 +1,9 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: var(--yk-z-overlay);
+  /* Above the sticky mobile CTA bar. Both sat at --yk-z-overlay, and since the
+     bar comes later in the DOM it painted over the open drawer's last item. */
+  z-index: var(--yk-z-modal);
   background: var(--yk-scrim);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
