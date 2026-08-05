@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Wordmark } from "@/components/ui/Wordmark";
 import { mainNav, navGroups } from "@/content/nav";
-import { LOGIN_URL, SIGNUP_URL } from "@/lib/site";
+import { LOGIN_URL } from "@/lib/site";
+import { HeaderCta } from "./HeaderCta";
 import { MobileMenu } from "./MobileMenu";
 import { NavMenu } from "./NavMenu";
 import s from "./Header.module.css";
@@ -39,15 +40,7 @@ export function Header({ current }: { current?: string }) {
           <Button href={LOGIN_URL} variant="outline" size="sm" className={s.login}>
             Login
           </Button>
-          <Button
-            href={SIGNUP_URL}
-            variant="accent"
-            size="sm"
-            event="site_signup_click"
-            className={s.headerCta}
-          >
-            Use Yukti now
-          </Button>
+          <HeaderCta />
           <MobileMenu />
         </div>
       </div>

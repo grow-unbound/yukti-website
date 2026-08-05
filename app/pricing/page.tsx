@@ -36,6 +36,8 @@ export default function PricingPage() {
               customers actively use Yukti each month.
             </p>
           </div>
+          {/* Watched by the sticky mobile CTA bar. */}
+          <div id="hero-sentinel" aria-hidden="true" />
         </section>
 
         <section className={s.plans} data-yk-section="plans">
@@ -63,6 +65,7 @@ export default function PricingPage() {
         </section>
 
         <FinalCta
+          signupVariant="primary"
           heading="One call. One number."
           body="Tell us your catalog size and how you sell today. We'll give you a number that makes sense next to a fraction of one salesperson's salary."
         />

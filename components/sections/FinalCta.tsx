@@ -7,6 +7,12 @@ import s from "./FinalCta.module.css";
 type Props = {
   heading?: string;
   body?: string;
+  /**
+   * Set to "primary" where the page has already spent its one copper CTA
+   * elsewhere — the pricing page's elevated Growth card is short enough to
+   * share a viewport with this section.
+   */
+  signupVariant?: "accent" | "primary";
 };
 
 /**
@@ -20,6 +26,7 @@ type Props = {
 export function FinalCta({
   heading = "Grow your business with Yukti today",
   body = "Bring your rate list. We'll build a live campaign with your products and send it to your phone, so you see exactly what your customers would see.",
+  signupVariant = "accent",
 }: Props) {
   return (
     <section id="cta" className={s.section} data-yk-section="final-cta">
@@ -31,7 +38,7 @@ export function FinalCta({
         <div className={s.ctas}>
           <Button
             href={SIGNUP_URL}
-            variant="accent"
+            variant={signupVariant}
             size="lg"
             event="site_signup_click"
           >

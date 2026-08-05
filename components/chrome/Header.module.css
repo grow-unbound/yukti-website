@@ -68,15 +68,11 @@
   display: inline-flex;
 }
 
-/* Both header actions are desktop-only. On mobile the sticky bottom bar
-   carries signup and demo, and the drawer carries login. */
+/* Desktop only. On mobile the sticky bottom bar carries signup and demo, and
+   the drawer carries login. The copper CTA manages its own visibility — see
+   HeaderCta. */
 @media (max-width: 860px) {
-  .login,
-  .headerCta {
+  .login {
     display: none;
   }
-}
-
-.headerCta {
-  display: inline-flex;
 }

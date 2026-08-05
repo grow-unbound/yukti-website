@@ -61,7 +61,12 @@ export function Button({
 
   // data-yk-event is picked up by a single delegated listener in
   // lib/analytics.ts, so no button needs to be a client component.
-  const analytics = event ? { "data-yk-event": event } : {};
+  // data-copper-cta marks the accent variant so HeaderCta can watch for them
+  // and keep the design system's one-copper-per-viewport rule.
+  const analytics = {
+    ...(event ? { "data-yk-event": event } : {}),
+    ...(variant === "accent" ? { "data-copper-cta": "" } : {}),
+  };
 
   // Every off-site destination opens in a new tab: signup, login and the
   // WhatsApp handoff all continue elsewhere, and the visitor should still have

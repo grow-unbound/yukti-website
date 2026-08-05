@@ -26,6 +26,8 @@ export function PageHero({
         {lede ? <p className={s.lede}>{lede}</p> : null}
         {children}
       </div>
+      {/* Watched by the sticky mobile CTA bar. Zero height, no layout effect. */}
+      <div id="hero-sentinel" aria-hidden="true" />
     </section>
   );
 }

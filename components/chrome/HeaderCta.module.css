@@ -1,0 +1,31 @@
+/* Collapsed to nothing when hidden: no reserved gap next to Login, and the
+   button is not a focus stop while invisible. The shift when it appears is
+   scroll-driven, so it lands inside the browser's recent-input window and does
+   not count against CLS. */
+.wrap {
+  display: none;
+}
+
+.show {
+  display: inline-flex;
+  animation: appear var(--yk-duration-base) var(--yk-ease);
+}
+
+/* Desktop only. On mobile the sticky bottom bar carries signup. */
+@media (max-width: 860px) {
+  .wrap,
+  .show {
+    display: none;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

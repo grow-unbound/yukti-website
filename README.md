@@ -46,8 +46,9 @@ styles/       tokens.css (the palette) and reset.css
 reference/    the original design export and the briefs. Read-only.
 ```
 
-Only two components are client-side: `MobileMenu` and `StickyCta`. Everything
-else is a server component and every route prerenders static.
+Four small client components: `MobileMenu`, `NavMenu`, `HeaderCta` and
+`StickyCta`. Everything else is a server component and every route prerenders
+static.
 
 ## Rules worth knowing before editing
 
@@ -56,9 +57,13 @@ else is a server component and every route prerenders static.
 the others fail a contrast check in that role. `npm run check` fails the build
 if a raw colour appears outside `styles/tokens.css`.
 
-**Copper CTAs.** The design system caps these at one per viewport. The header
-and hero both carry copper by explicit instruction, which knowingly breaks that
-cap on the homepage above the fold. Everything else is charcoal.
+**Copper CTAs — one per viewport, enforced at runtime.** Every accent `Button`
+is tagged `data-copper-cta`. `HeaderCta` observes all of them and shows the
+header's copper button only while none is on screen, so it stays hidden over
+the hero and reappears once you scroll past. Where a page's own layout would
+put two coppers together — the pricing page's elevated Growth card sharing a
+viewport with the closing CTA — the closing CTA steps down via
+`signupVariant="primary"`. Everything else is charcoal.
 
 **Copy lives in `content/`, not in components.** The FAQ in particular is the
 single source for both the rendered accordion and the `FAQPage` structured
