@@ -21,17 +21,34 @@ export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!open) return;
+
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpen(false);
         triggerRef.current?.focus();
       }
     };
+
+    // Tapping the page behind the drawer closes it. The trigger is excluded
+    // because it owns its own toggle — closing here as well would run both and
+    // leave a tap on the hamburger doing nothing while the menu is open.
+    const onPointerDown = (e: PointerEvent) => {
+      const target = e.target as Node;
+      if (panelRef.current?.contains(target)) return;
+      if (triggerRef.current?.contains(target)) return;
+      setOpen(false);
+    };
+
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
   }, [open]);
 
   const close = () => setOpen(false);
@@ -52,7 +69,13 @@ export function MobileMenu() {
         <span className={s.bar} />
       </button>
 
-      <nav id={panelId} className={s.panel} hidden={!open} aria-label="Main">
+      <nav
+        ref={panelRef}
+        id={panelId}
+        className={s.panel}
+        hidden={!open}
+        aria-label="Main"
+      >
         {mainNav.map((item) => (
           <Link
             key={item.href}
