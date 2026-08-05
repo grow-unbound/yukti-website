@@ -5,8 +5,8 @@ its own Vercel project. It is not coupled to the product app in any way —
 `app.useyukti.in` is deployed separately, and this repo has no Supabase, no
 auth, and no shared code with it.
 
-Rebuilt from a Claude Design export (`reference/design-export/`), which remains
-the source of truth for visual design and copy. See `docs/BUILD-NOTES.md` for
+Rebuilt from a Claude Design export, kept locally in `reference/design-export/`
+(gitignored), which remains the source of truth for visual design and copy. See `docs/BUILD-NOTES.md` for
 what changed in the rebuild and why.
 
 ## Commands
@@ -43,8 +43,11 @@ components/
 content/      all copy, as data — faq, features, plans, legal, nav, home
 lib/          site constants, whatsapp deep link, analytics, JSON-LD, metadata
 styles/       tokens.css (the palette) and reset.css
-reference/    the original design export and the briefs. Read-only.
 ```
+
+`reference/` holds the original Claude Design export and the source briefs. It
+is gitignored — this repo is public and the briefs are not. Keep a local copy:
+`scripts/baseline.mjs` and parts of `docs/BUILD-NOTES.md` refer to it.
 
 Four small client components: `MobileMenu`, `NavMenu`, `HeaderCta` and
 `StickyCta`. Everything else is a server component and every route prerenders

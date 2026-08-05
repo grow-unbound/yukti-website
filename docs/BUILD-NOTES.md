@@ -3,6 +3,10 @@
 What changed moving from the Claude Design export to this project, and why.
 Written so the decisions can be argued with later rather than rediscovered.
 
+The export and the source briefs are kept locally under `reference/` and are
+gitignored — this repo is public, and the briefs carry their own
+confidentiality note. Paths below refer to that local folder.
+
 ## What the audit actually found
 
 The brief for this rebuild said the SEO layer was "entirely absent." It was
@@ -108,7 +112,8 @@ Without that, only the homepage had a card.
   2500ms / 0.1 targets.
 - **Layout drift** against the frozen export baseline at 360/414/768/1024/
   1280/1440: home within 3%, pricing within 9%.
-- The pilot customer is not named anywhere in the source or the build output.
+- The pilot customer is not named anywhere in the source or the build output;
+  the proof block is anonymised to "a security-products distributor in Hyderabad".
 
 The rendered export is frozen in `.baseline/` (gitignored; regenerate with
 `scripts/baseline.mjs`). Worth keeping in mind that it can only be regenerated

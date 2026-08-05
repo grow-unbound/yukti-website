@@ -8,6 +8,11 @@ out/
 next-env.d.ts
 .vercel
 
+# Source material kept locally, deliberately not published: the Claude Design
+# export and the GTM/positioning briefs. The briefs name the pilot customer and
+# carry their own confidentiality note, and this repo is public.
+reference/
+
 # Rendered captures of the design export, used as the visual-diff reference.
 # Regenerate with `npm run baseline` (requires the export in reference/).
 .baseline/
