@@ -56,7 +56,9 @@ else is a server component and every route prerenders static.
 the others fail a contrast check in that role. `npm run check` fails the build
 if a raw colour appears outside `styles/tokens.css`.
 
-**One copper CTA per viewport.** Everything else is charcoal.
+**Copper CTAs.** The design system caps these at one per viewport. The header
+and hero both carry copper by explicit instruction, which knowingly breaks that
+cap on the homepage above the fold. Everything else is charcoal.
 
 **Copy lives in `content/`, not in components.** The FAQ in particular is the
 single source for both the rendered accordion and the `FAQPage` structured
@@ -71,8 +73,12 @@ never "replace Tally", never "books keep themselves", never "error-free".
 The customer is not named anywhere, and there is deliberately no security/CCTV
 industry page, because one would make them identifiable.
 
-**Industry pages ship only when validated** against real customer
-conversations. Cosmetics is validated. The other four in the brief are not.
+**Industry pages** are one template, five instances, driven from
+`content/industries.ts` — adding one updates the nav, the home strip, the
+footer and the sitemap automatically. Only Cosmetics has been validated against
+a real customer conversation; the other four carry `validated: false`. If a
+real conversation contradicts any of their pain copy, change that page before
+it earns more traffic.
 
 ## Before launch
 
@@ -86,8 +92,10 @@ These are outstanding and are not code changes:
 2. **GST treatment on the Lite price.** Currently renders ₹5,000/month and
    ₹50,000/year with no GST line, because none was specified. One line in
    `content/plans.ts`.
-3. **Trademark filing** (classes 9/42/35) before the site is public.
-4. **WhatsApp in-app browser test on a real Android device.** Verified here
+3. **The liability cap** in terms §10 is still `[three (3) months]` — a
+   commercial decision, not a detail to look up.
+4. **Trademark filing** (classes 9/42/35) before the site is public.
+5. **WhatsApp in-app browser test on a real Android device.** Verified here
    under 4G + 4× CPU throttle emulation, but the brief asks for a real device.
-5. **Real product screenshots**, once the app's density pass ships. Every
+6. **Real product screenshots**, once the app's density pass ships. Every
    mockup is CSS today; swap them behind `components/mock/`.

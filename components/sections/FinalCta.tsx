@@ -39,7 +39,7 @@ export function FinalCta({
           </Button>
           <Button
             href={DEMO_URL}
-            variant="secondary"
+            variant="primary"
             size="lg"
             event="site_demo_click"
           >

@@ -2,19 +2,20 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { mainNav, mobileExtraNav } from "@/content/nav";
+import { mainNav, navGroups } from "@/content/nav";
+import { LOGIN_URL } from "@/lib/site";
 import s from "./MobileMenu.module.css";
 
 /**
- * The only stateful part of the header, and one of two client components on
- * the site. It owns a single boolean.
+ * The mobile drawer. Owns a single boolean.
  *
  * Server renders closed, client hydrates closed — no mismatch. The panel is
  * always in the DOM and toggled with `hidden`, so navigation exists before JS
  * runs and layout is never decided in JS.
  *
- * The export's version had none of the following: aria-expanded, aria-controls,
- * Escape to close, or focus returning to the trigger on close.
+ * Groups are flattened into labelled sections rather than nested accordions:
+ * on a phone, a second level of tapping to reach an industry page is friction
+ * for no gain, and the whole list still fits one scroll.
  */
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -33,6 +34,8 @@ export function MobileMenu() {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
+  const close = () => setOpen(false);
+
   return (
     <>
       <button
@@ -50,16 +53,43 @@ export function MobileMenu() {
       </button>
 
       <nav id={panelId} className={s.panel} hidden={!open} aria-label="Main">
-        {[...mainNav, ...mobileExtraNav].map((item) => (
+        {mainNav.map((item) => (
           <Link
             key={item.href}
             href={item.href}
             className={s.link}
-            onClick={() => setOpen(false)}
+            onClick={close}
           >
             {item.label}
           </Link>
         ))}
+
+        {navGroups.map((group) => (
+          <div key={group.label} className={s.group}>
+            <p className={s.groupLabel}>{group.label}</p>
+            {group.items.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={s.link}
+                onClick={close}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        ))}
+
+        <div className={s.group}>
+          <a
+            href={LOGIN_URL}
+            className={s.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Login
+          </a>
+        </div>
       </nav>
     </>
   );

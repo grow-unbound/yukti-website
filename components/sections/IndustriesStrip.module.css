@@ -34,22 +34,22 @@
   border-radius: var(--yk-radius-lg);
   padding: 18px;
   text-decoration: none;
-}
-
-/* Only the linked card gets hover and press affordances — the others are not
-   interactive, so they must not look like they are. */
-.cardLink {
   transition:
     box-shadow var(--yk-duration-base) var(--yk-ease),
     transform var(--yk-duration-fast) var(--yk-ease);
 }
 
-.cardLink:hover {
+.card:hover {
   box-shadow: var(--yk-lift);
 }
 
-.cardLink:active {
+.card:active {
   transform: scale(var(--yk-press-scale));
+}
+
+.icon {
+  color: var(--yk-copper-text);
+  margin-bottom: 2px;
 }
 
 .name {
@@ -66,10 +66,3 @@
   color: var(--yk-sub);
 }
 
-.arrow {
-  margin-top: auto;
-  padding-top: 8px;
-  font-size: var(--yk-mk-125);
-  font-weight: var(--yk-weight-semibold);
-  color: var(--yk-copper-text);
-}

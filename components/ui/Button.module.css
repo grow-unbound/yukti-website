@@ -84,6 +84,19 @@
   border-color: var(--yk-card-line-hover);
 }
 
+/* outline — transparent with a charcoal rule. Used for Login, which is a
+   destination for people who already have an account and should not compete
+   with either conversion CTA. */
+.btn.outline {
+  color: var(--yk-ink);
+  background: transparent;
+  border-color: var(--yk-ink);
+}
+
+.btn.outline:hover {
+  background: var(--yk-hover-tint);
+}
+
 .btn.ghost {
   color: var(--yk-ink);
   background: transparent;

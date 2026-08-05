@@ -10,7 +10,7 @@ import styles from "./Heading.module.css";
 type Props = {
   children: ReactNode;
   level: 1 | 2 | 3;
-  size?: "h1" | "h1sm" | "h2" | "h2sm" | "h3" | "cardTitle";
+  size?: "h1" | "h1sm" | "h1fit" | "h2" | "h2sm" | "h3" | "cardTitle";
   id?: string;
   className?: string;
 };

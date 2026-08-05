@@ -17,6 +17,14 @@
   line-height: 1.1;
 }
 
+/* For page titles that read best on a single line in the 760px prose column.
+   Sized to fit rather than forced with nowrap — nowrap would overflow a 360px
+   phone, which is the primary viewport. */
+.h1fit {
+  font-size: clamp(28px, 6.4vw, 44px);
+  line-height: 1.12;
+}
+
 .h2 {
   font-size: var(--yk-mk-h2);
   line-height: 1.15;

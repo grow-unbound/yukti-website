@@ -87,7 +87,10 @@ export const pilot = {
   stats: [
     { value: "₹11L", label: "in customer-submitted estimates, week one" },
     { value: "56%", label: "of customers ordering self-serve in the first week" },
-    { value: "40% → 72%", label: "estimate-to-invoice conversion, improving for six weeks" },
+    {
+      value: "40→72%",
+      label: "estimate-to-invoice conversion, improving for six weeks",
+    },
     { value: "0", label: "additional staff hired to handle it" },
   ],
   closer:
@@ -96,7 +99,7 @@ export const pilot = {
 
 /** Commitments, not outcomes. Keep it that way. */
 export const promises = [
-  "First campaign live within 14 days. Our team migrates your stock and customers from Tally, Zoho, or Excel.",
+  "First campaign live within 2 days. Our team migrates your stock and customers from Tally, Zoho, or Excel.",
   "We reply on WhatsApp within one working day.",
   "Your data is yours. Export everything, anytime. No lock-in.",
   "Your customers can opt out of messages anytime, and we enforce it.",

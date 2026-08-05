@@ -50,6 +50,7 @@
 }
 
 .link {
+  display: block;
   text-decoration: none;
   padding: 11px 8px;
   border-radius: var(--yk-radius-sm);
@@ -57,4 +58,27 @@
 
 .link:hover {
   background: var(--yk-hover-tint);
+}
+
+.group {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--yk-card-line);
+}
+
+.groupLabel {
+  margin: 0 0 2px;
+  padding: 0 8px;
+  font-size: var(--yk-mk-105);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-faint);
+}
+
+/* The drawer can now be taller than the viewport on a small phone. */
+.panel {
+  max-height: calc(100vh - var(--yk-header-h));
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }

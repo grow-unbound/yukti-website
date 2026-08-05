@@ -17,7 +17,7 @@ export default function TermsPage() {
       updated={terms.updated}
       summary={terms.summary}
       sections={terms.sections}
-      outstanding="Billing cadence (section 6), the liability cap (section 10), and jurisdiction (section 12) need deliberate business decisions, not just a lawyer's sign-off."
+      outstanding="Billing cadence and jurisdiction are settled. The liability cap in section 10 is still a commercial decision to make, not just a lawyer's sign-off."
     />
   );
 }

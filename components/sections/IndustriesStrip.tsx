@@ -1,17 +1,13 @@
 import Link from "next/link";
 import { Heading } from "@/components/ui/Heading";
-import { industries } from "@/content/home";
+import { IndustryIcon } from "@/components/ui/IndustryIcon";
+import { industries } from "@/content/industries";
 import s from "./IndustriesStrip.module.css";
 
 /**
- * Only Cosmetics links anywhere. The brief gates industry pages on validation
- * against real customer conversations, and Cosmetics is the only one that has
- * cleared it — a thin page written in a trade's own language, with the wrong
- * pains in it, does more damage than no page at all.
- *
- * The other four render as plain cards, not links. The export styled all five
- * as non-focusable divs with cursor:pointer and no handler, which promised a
- * click that never existed.
+ * All five industries link to their own page. The cards carry no explicit
+ * "see the page" affordance — they are whole-card links and the hover lift
+ * already says so; a second arrow inside a clickable card is noise.
  */
 export function IndustriesStrip() {
   return (
@@ -26,27 +22,17 @@ export function IndustriesStrip() {
         </p>
 
         <ul className={s.grid}>
-          {industries.map((ind) => {
-            const isLinked = ind.name === "Cosmetics & Salon Supply";
-            const inner = (
-              <>
+          {industries.map((ind) => (
+            <li key={ind.slug}>
+              <Link href={`/industries/${ind.slug}`} className={s.card}>
+                <span className={s.icon}>
+                  <IndustryIcon name={ind.icon} />
+                </span>
                 <span className={s.name}>{ind.name}</span>
                 <span className={s.note}>{ind.note}</span>
-                {isLinked ? <span className={s.arrow}>See the page&nbsp;→</span> : null}
-              </>
-            );
-            return (
-              <li key={ind.name}>
-                {isLinked ? (
-                  <Link href="/industries/cosmetics" className={`${s.card} ${s.cardLink}`}>
-                    {inner}
-                  </Link>
-                ) : (
-                  <div className={s.card}>{inner}</div>
-                )}
-              </li>
-            );
-          })}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

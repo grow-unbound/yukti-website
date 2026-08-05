@@ -28,6 +28,7 @@ export default function AccountantsPage() {
         <PageHero
           eyebrow="For accountants & CAs"
           title="Less punching. More reviewing."
+          titleSize="h1fit"
           lede="Yukti is where your client runs their selling. You get the output: clean, structured, ready for the books."
         />
 

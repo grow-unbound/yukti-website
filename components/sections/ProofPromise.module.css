@@ -38,14 +38,18 @@
   padding: 16px;
 }
 
+/* Every stat value must hold one line — the widest ("40→72%") set the size.
+   A value that wraps makes its tile taller than the three beside it, which
+   reads as a layout bug rather than a longer number. */
 .statValue {
   margin: 0;
   font-family: var(--yk-font-mono);
-  font-size: 26px;
+  font-size: clamp(20px, 4.4vw, 26px);
   font-weight: var(--yk-weight-medium);
   font-variant-numeric: tabular-nums;
   letter-spacing: var(--yk-tracking-mono);
   color: var(--yk-ink);
+  white-space: nowrap;
 }
 
 .statLabel {

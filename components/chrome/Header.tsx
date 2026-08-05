@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Wordmark } from "@/components/ui/Wordmark";
-import { mainNav } from "@/content/nav";
+import { mainNav, navGroups } from "@/content/nav";
 import { LOGIN_URL, SIGNUP_URL } from "@/lib/site";
 import { MobileMenu } from "./MobileMenu";
+import { NavMenu } from "./NavMenu";
 import s from "./Header.module.css";
 
 export function Header({ current }: { current?: string }) {
@@ -23,20 +24,24 @@ export function Header({ current }: { current?: string }) {
               {item.label}
             </Link>
           ))}
+          {navGroups.map((group) => (
+            <NavMenu
+              key={group.label}
+              group={group}
+              active={
+                group.label === "Industries" && current === "/industries"
+              }
+            />
+          ))}
         </nav>
 
         <div className={s.actions}>
-          <a href={LOGIN_URL} className={s.login}>
+          <Button href={LOGIN_URL} variant="outline" size="sm" className={s.login}>
             Login
-          </a>
-          {/* Charcoal, not copper. The design system allows at most one copper
-              CTA per viewport, and the hero's is already copper — the export
-              avoided the clash by hiding this button until the hero scrolled
-              away, which meant gating a visible element on a scroll listener.
-              Making it charcoal holds the rule with no JS and no popping in. */}
+          </Button>
           <Button
             href={SIGNUP_URL}
-            variant="primary"
+            variant="accent"
             size="sm"
             event="site_signup_click"
             className={s.headerCta}

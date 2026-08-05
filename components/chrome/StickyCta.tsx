@@ -52,7 +52,7 @@ export function StickyCta() {
       </Button>
       <Button
         href={DEMO_URL}
-        variant="secondary"
+        variant="primary"
         size="md"
         block
         event="site_demo_click"

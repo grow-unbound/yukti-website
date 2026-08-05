@@ -1,26 +1,55 @@
+import { industries } from "./industries";
+
 /**
  * Navigation.
  *
- * Integrations is deliberately not a main-nav item: with only Tally, Busy and
- * Zoho shown it is too thin to hold one of four slots. It stays reachable from
- * the home feature section and the footer.
+ * "For accountants" and "For your customers" were footer-only, which buries
+ * two of the highest-intent pages on the site: a distributor's CA and a
+ * distributor's own customer both arrive wanting exactly one of them. They now
+ * sit in a header menu.
  *
- * Every route listed here exists. Nothing in the footer points at a page that
- * was never built — the design export's footer promised About, Book a demo,
- * privacy, terms and five industry pages, none of which resolved.
+ * Every route listed here exists. The design export's footer promised About,
+ * Book a demo, privacy, terms and five industry pages, none of which resolved.
  */
 
-export type NavItem = { href: string; label: string };
+export type NavItem = { href: string; label: string; note?: string };
 
+export type NavGroup = {
+  label: string;
+  /** Where the group's own label points, if anywhere. */
+  href?: string;
+  items: NavItem[];
+};
+
+export const industryNavItems: NavItem[] = industries.map((i) => ({
+  href: `/industries/${i.slug}`,
+  label: i.name,
+  note: i.note,
+}));
+
+export const audienceNavItems: NavItem[] = [
+  {
+    href: "/accountants",
+    label: "For accountants",
+    note: "What lands in Tally and Zoho, and what Yukti deliberately does not do.",
+  },
+  {
+    href: "/customers",
+    label: "For your customers",
+    note: "The page to share with a customer who asks what this Yukti link is.",
+  },
+];
+
+/** Flat links in the header. */
 export const mainNav: NavItem[] = [
   { href: "/how-it-works", label: "How it works" },
-  { href: "/industries/cosmetics", label: "Industries" },
   { href: "/pricing", label: "Pricing" },
 ];
 
-/** Shown only in the mobile drawer, where there is room for a fourth. */
-export const mobileExtraNav: NavItem[] = [
-  { href: "/accountants", label: "For accountants" },
+/** Grouped links, rendered as popovers on desktop and sections in the drawer. */
+export const navGroups: NavGroup[] = [
+  { label: "Industries", items: industryNavItems },
+  { label: "Who it's for", items: audienceNavItems },
 ];
 
 export const footerNav: { heading: string; items: NavItem[] }[] = [
@@ -30,25 +59,16 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
       { href: "/how-it-works", label: "How it works" },
       { href: "/pricing", label: "Pricing" },
       { href: "/integrations", label: "Integrations" },
+      { href: "/about", label: "About" },
     ],
   },
   {
     heading: "Industries",
-    items: [
-      // Only Cosmetics has been validated against real customer conversations.
-      // The brief's rule is explicit: ship only pages that survive validation,
-      // because a thin industry page in a visitor's own trade language is
-      // worse than no page. The other four are held, not stubbed.
-      { href: "/industries/cosmetics", label: "Cosmetics & salon supply" },
-    ],
+    items: industryNavItems.map(({ href, label }) => ({ href, label })),
   },
   {
-    heading: "Also on Yukti",
-    items: [
-      { href: "/accountants", label: "For accountants" },
-      { href: "/customers", label: "For your customers" },
-      { href: "/about", label: "About" },
-    ],
+    heading: "Who it's for",
+    items: audienceNavItems.map(({ href, label }) => ({ href, label })),
   },
   {
     heading: "Legal",

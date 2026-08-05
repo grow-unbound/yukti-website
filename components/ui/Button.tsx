@@ -15,7 +15,12 @@ import styles from "./Button.module.css";
  * nesting two interactive elements.
  */
 
-export type ButtonVariant = "accent" | "primary" | "secondary" | "ghost";
+export type ButtonVariant =
+  | "accent"
+  | "primary"
+  | "secondary"
+  | "outline"
+  | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
 type Props = {
@@ -58,15 +63,17 @@ export function Button({
   // lib/analytics.ts, so no button needs to be a client component.
   const analytics = event ? { "data-yk-event": event } : {};
 
+  // Every off-site destination opens in a new tab: signup, login and the
+  // WhatsApp handoff all continue elsewhere, and the visitor should still have
+  // the marketing page behind them when they come back.
   if (isExternal(href)) {
     return (
       <a
         href={href}
         className={cls}
+        target="_blank"
+        rel="noopener noreferrer"
         {...analytics}
-        {...(href.startsWith("https://wa.me/")
-          ? { target: "_blank", rel: "noopener noreferrer" }
-          : {})}
       >
         {children}
       </a>

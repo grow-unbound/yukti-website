@@ -5,12 +5,26 @@
   border-bottom: 1px solid var(--yk-card-line);
 }
 
+/* Exactly three per row so six pains fill two clean rows. A four- or
+   five-item grid leaves a half-empty second row, which reads as unfinished. */
 .painGrid {
   max-width: 1060px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: clamp(20px, 3vw, 32px);
+  grid-template-columns: 1fr;
+  gap: clamp(22px, 3vw, 34px);
+}
+
+@media (min-width: 620px) {
+  .painGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 940px) {
+  .painGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .pain {

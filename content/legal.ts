@@ -6,11 +6,17 @@
  * legal counsel — the brief lists that review as a launch gate (§15.5), and
  * both drafts carry their own warning to that effect.
  *
- * Every unresolved placeholder is preserved verbatim in [brackets] rather than
- * quietly filled or dropped. They must be visible: shipping a privacy policy
- * with an invented grievance officer would be worse than shipping one that
- * plainly shows the field is outstanding. The pages render noindex until the
- * placeholders are resolved and counsel has signed off.
+ * The business details have been supplied and filled in: grievance officer,
+ * contact address, jurisdiction, billing cadence and the effective date.
+ *
+ * One placeholder remains deliberately visible — the liability cap in terms
+ * §10 — because it is a commercial decision rather than a detail to look up.
+ * Placeholders are never quietly invented: an imagined liability cap on a
+ * published page is worse than one that plainly shows it is unsettled.
+ *
+ * LEGAL_REVIEW_PENDING stays true until qualified counsel has actually read
+ * these. Filling in the details is not the same as the review, and the pages
+ * stay noindex until that happens.
  */
 
 export type Block =
@@ -26,7 +32,7 @@ export const LEGAL_REVIEW_PENDING = true;
 
 export const privacy = {
   title: "Privacy policy",
-  updated: "Last updated: [date] · Effective date: [date]",
+  updated: "Last updated: 31 July 2026 · Effective date: 31 July 2026",
   summary:
     "Yukti is the software distributors use to run their catalog, pricing, campaigns, and orders, and that their customers use to browse and order. We collect what's needed to run that, nothing more. Your business owns its data; you can export or delete it anytime. Every marketing message we help you send carries an opt-out, and we enforce it platform-wide. This summary isn't the whole policy — read on for the details, but this is the shape of it.",
   sections: [
@@ -134,10 +140,10 @@ export const privacy = {
         {
           kind: "ul",
           items: [
-            "Grievance Officer: [Name]",
-            "Email: [email]",
-            "WhatsApp: [phone number]",
-            "Address: [registered business address]",
+            "Grievance Officer: Phani Krishna",
+            "Email: legal@useyukti.in",
+            "WhatsApp: +91 94907 44841",
+            "Address: Hyderabad, Telangana, India",
           ],
         },
         { kind: "p", text: "We aim to respond to all requests within the timelines required by applicable law." },
@@ -154,7 +160,7 @@ export const privacy = {
 
 export const terms = {
   title: "Terms of service",
-  updated: "Last updated: [date] · Effective date: [date]",
+  updated: "Last updated: 31 July 2026 · Effective date: 31 July 2026",
   summary:
     "These terms cover using Yukti as a business — running your catalog, pricing, and orders — and using useyukti.in. You're responsible for the accuracy of what you enter and for having the right to message your own customers. We're responsible for keeping the platform running, keeping your data yours, and being straightforward about what Yukti does and doesn't do.",
   sections: [
@@ -221,7 +227,7 @@ export const terms = {
           kind: "ul",
           items: [
             "Yukti is offered on the plans described on our pricing page, priced by active customer usage and transaction volume, as applicable to your plan.",
-            "Fees are billed [monthly/annually — confirm cadence] and are non-refundable except as required by law or as separately agreed in writing.",
+            "Fees are billed monthly or annually, according to the subscription you choose, and are non-refundable except as required by law or as separately agreed in writing.",
             "We'll provide reasonable notice before any pricing change takes effect for existing accounts.",
             "WhatsApp messaging is billed via included monthly credits per plan, with transparent per-message top-up pricing beyond the included bundle, reflecting costs charged to us by Meta.",
           ],
@@ -268,7 +274,7 @@ export const terms = {
     {
       h: "12. Governing law",
       blocks: [
-        { kind: "p", text: "These terms are governed by the laws of India. Any disputes arising from these terms will be subject to the exclusive jurisdiction of the courts of [city — confirm registered jurisdiction]." },
+        { kind: "p", text: "These terms are governed by the laws of India. Any disputes arising from these terms will be subject to the exclusive jurisdiction of the courts of Hyderabad, Telangana." },
       ],
     },
     {
@@ -280,7 +286,7 @@ export const terms = {
     {
       h: "14. Contact",
       blocks: [
-        { kind: "p", text: "Questions about these terms: [email] · WhatsApp: [phone number] · [registered business address]" },
+        { kind: "p", text: "Questions about these terms: legal@useyukti.in · WhatsApp: +91 94907 44841 · Hyderabad, Telangana, India" },
       ],
     },
   ] satisfies LegalSection[],

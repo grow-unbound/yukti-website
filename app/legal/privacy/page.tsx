@@ -19,7 +19,7 @@ export default function PrivacyPage() {
       updated={privacy.updated}
       summary={privacy.summary}
       sections={privacy.sections}
-      outstanding="Section 8 in particular — the DPDP grievance officer details — has real regulatory weight and needs both a named person and a lawyer's review."
+      outstanding="The grievance officer and contact details in section 8 are filled in, but the DPDP obligations they carry still need a lawyer's review before this is relied on."
     />
   );
 }

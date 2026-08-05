@@ -62,33 +62,21 @@
   gap: 10px;
 }
 
+/* Login is a low-emphasis outline button: it is a destination for people who
+   already have an account, and must not compete with either conversion CTA. */
 .login {
-  text-decoration: none;
-  font-size: var(--yk-mk-14);
-  font-weight: var(--yk-weight-semibold);
-  color: var(--yk-ink);
-  padding: 8px 12px;
-  border-radius: var(--yk-radius-sm);
-  transition: background-color var(--yk-duration-base) var(--yk-ease);
-}
-
-.login:hover {
-  background: var(--yk-hover-tint);
-}
-
-.login:active {
-  transform: scale(var(--yk-press-scale));
-}
-
-/* The header CTA appears on desktop only. On mobile the sticky bottom bar
-   carries it, and showing both would put two copper CTAs in one viewport —
-   the design system allows at most one. */
-.headerCta {
   display: inline-flex;
 }
 
+/* Both header actions are desktop-only. On mobile the sticky bottom bar
+   carries signup and demo, and the drawer carries login. */
 @media (max-width: 860px) {
+  .login,
   .headerCta {
     display: none;
   }
+}
+
+.headerCta {
+  display: inline-flex;
 }
