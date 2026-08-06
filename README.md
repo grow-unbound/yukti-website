@@ -93,6 +93,13 @@ clue whose customers were meant. Inside page bodies the copy still avoids the
 word. `/customers` 308-redirects to `/buyers`; the product's login page still
 links to the old path and should be repointed.
 
+**Two h1 tiers, and no page invents a third.** `h1` is the home hero, `h1sm`
+is every interior page title. Where a title needs more room, widen the *column*
+(`PageHero`'s `width` prop) rather than shrinking the type — sizing a font to
+fit one particular string is how this briefly ended up with four near-identical
+variants. Headlines are written to the scale, not the scale to the headline,
+and a hero wrapping to two or three lines is normal rather than a defect.
+
 **Voice.** Short, active, concrete. Bold about the owner's growth, exact about
 money and data. Never lead with "AI", "smart", "automate", "leverage". No
 exclamation marks. The ceiling on finance claims is "your books stay clean" —

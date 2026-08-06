@@ -19,7 +19,7 @@
    modules cannot fight over font-size depending on chunk order. */
 .sub {
   margin: 18px 0 0;
-  max-width: 660px;
+  max-width: 720px;
 }
 
 .ctas {

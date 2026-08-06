@@ -11,7 +11,7 @@
 
 export const heroCopy = {
   eyebrow: "The ordering platform for B2B sellers",
-  h1: "Run your entire business on one platform. Digital catalogs, custom rates, and orders that come to you.",
+  h1: "Run your entire business on one platform. Then grow it.",
   /**
    * The engagement-led alternate, held for the H1 A/B the brief defers until
    * traffic allows (§13). Kept here so running that test is a config change
@@ -23,7 +23,7 @@ export const heroCopy = {
    * second line of the pitch, so it belongs in the document outline. Styled as
    * lead copy so it still reads as a subhead.
    */
-  sub: "Stop losing orders and enquiries in WhatsApp. Yukti turns your stock, rates, and customers into growth: digital catalogs, custom rates, and a real ordering app your customers actually use.",
+  sub: "Digital catalogs, custom rates, and orders that come to you through a real ordering app your customers use. Stop losing orders and enquiries in WhatsApp. Keep it for notifications and tracking.",
   micro: "Signup now. First campaign live in hours, not days, not months.",
 };
 

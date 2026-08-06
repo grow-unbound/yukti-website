@@ -6,7 +6,6 @@ export function PageHero({
   eyebrow,
   title,
   lede,
-  titleSize = "h1sm",
   width = "prose",
   spacious = false,
   ledeAs = "p",
@@ -15,8 +14,6 @@ export function PageHero({
   eyebrow?: string;
   title: string;
   lede?: string;
-  /** "h1fit" keeps a short title on one line in the prose column. */
-  titleSize?: "h1sm" | "h1fit";
   /**
    * "wide" matches the 1060px content column used by the sections below, so a
    * long page title uses the full measure instead of wrapping early inside the
@@ -49,7 +46,7 @@ export function PageHero({
         className={`${s.pageHeroInner} ${width === "wide" ? s.pageHeroWide : ""}`}
       >
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-        <Heading level={1} size={titleSize}>
+        <Heading level={1} size="h1sm">
           {title}
         </Heading>
         {lede ? (

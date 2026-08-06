@@ -6,32 +6,22 @@
   color: var(--yk-ink);
 }
 
+/* Exactly two h1 tiers, and no page invents a third.
+     .h1    the home hero
+     .h1sm  every interior page title
+   Where a title needs more room, widen the COLUMN (PageHero's `width` prop),
+   never the type. Sizing the font to fit a particular string is how this ended
+   up with four near-identical variants; headlines are written to the scale, not
+   the other way round. Two or three lines in a hero is normal, not a defect. */
 .h1 {
   font-size: var(--yk-mk-h1);
   line-height: 1.08;
   max-width: 820px;
 }
 
-/* A wider measure for longer headlines. The 820px default wraps the home h1
-   to four lines, which reads as a wall; 960px lands it on three without
-   running the full container width. */
-.h1wide {
-  font-size: var(--yk-mk-h1);
-  line-height: 1.08;
-  max-width: 960px;
-}
-
 .h1sm {
   font-size: var(--yk-mk-h1-sm);
   line-height: 1.1;
-}
-
-/* For page titles that read best on a single line in the 760px prose column.
-   Sized to fit rather than forced with nowrap — nowrap would overflow a 360px
-   phone, which is the primary viewport. */
-.h1fit {
-  font-size: clamp(28px, 6.4vw, 44px);
-  line-height: 1.12;
 }
 
 .h2 {

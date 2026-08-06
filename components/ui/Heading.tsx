@@ -15,7 +15,7 @@ type Props = {
    * hero subheads, which belong in the document outline but must not look like
    * section headings.
    */
-  size?: "h1" | "h1wide" | "h1sm" | "h1fit" | "h2" | "h2sm" | "h3" | "cardTitle" | "lead";
+  size?: "h1" | "h1sm" | "h2" | "h2sm" | "h3" | "cardTitle" | "lead";
   id?: string;
   className?: string;
 };

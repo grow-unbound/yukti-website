@@ -25,10 +25,13 @@ export default function AccountantsPage() {
     <>
       <Header />
       <main id="main">
+        {/* width="wide": the title needs 789px to hold one line at the
+            standard size and the prose column is 760. Widen the column, do not
+            shrink the type. */}
         <PageHero
           eyebrow="For accountants & CAs"
           title="Less punching. More reviewing."
-          titleSize="h1fit"
+          width="wide"
           lede="Yukti is where your client runs their selling. You get the output: clean, structured, ready for the books."
         />
 

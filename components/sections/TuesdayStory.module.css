@@ -10,8 +10,12 @@
   margin: 0 auto;
 }
 
+/* Roughly double the 30px gap between timeline steps. At the previous
+   clamp(28px, 5vw, 44px) the heading sat 44px above the first step against
+   30px between steps — too close to the step rhythm to read as the heading for
+   the whole list, so it looked attached to step one. */
 .h2 {
-  margin-bottom: clamp(28px, 5vw, 44px);
+  margin-bottom: clamp(44px, 6vw, 64px);
 }
 
 .timeline {
