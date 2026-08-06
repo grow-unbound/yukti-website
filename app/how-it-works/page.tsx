@@ -29,9 +29,11 @@ export default function HowItWorksPage() {
       <Header current="/how-it-works" />
       <main id="main">
         <PageHero
-          eyebrow="How it works"
-          title="Decide. Reach. Capture. Know."
-          lede="Yukti runs on a loop, not a list of features. Here is one day of it, start to finish, with real numbers from a real campaign shape."
+          eyebrow="Decide. Reach. Capture. Know."
+          title="Yukti runs on a loop, not a list of features."
+          lede="Yukti captures the work that drives your business, stock, rates, customers, orders, and turns it into growth. Here is one day of it, start to finish."
+          ledeAs="h2"
+          spacious="cta"
         />
         <TuesdayStory extraScenes={MONTH_END} showLink={false} />
         <FinalCta />

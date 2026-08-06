@@ -22,8 +22,9 @@ const ALLOWED = new Set([
   // The single source of truth for colour.
   "styles/tokens.css",
   // Rendered by satori at build time, which cannot resolve CSS custom
-  // properties — the OG image has to inline its values.
+  // properties — these have to inline their values.
   "app/opengraph-image.tsx",
+  "app/apple-icon.tsx",
   // viewport.themeColor is consumed by the browser chrome, not the page, so
   // it cannot be a var(). Must stay equal to --yk-card.
   "app/layout.tsx",

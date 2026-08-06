@@ -10,6 +10,12 @@
   padding-bottom: clamp(56px, 8vw, 100px);
 }
 
+/* Same idea, sized against FinalCta's top padding — used where the section
+   after the hero runs straight into the closing CTA. */
+.pageHeroSpaciousCta {
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
+
 .pageHeroInner {
   max-width: var(--yk-mk-prose);
   margin: 0 auto;
@@ -28,11 +34,14 @@
   max-width: 820px;
 }
 
+/* Matches Heading's `lead` size, so the lede looks identical whether it is
+   rendered as a <p> or promoted to an <h2>. */
 .lede {
   margin: 0;
   font-size: var(--yk-mk-lead);
   font-weight: var(--yk-weight-medium);
   line-height: 1.6;
+  letter-spacing: var(--yk-tracking-body);
   color: var(--yk-sub);
   text-wrap: pretty;
 }

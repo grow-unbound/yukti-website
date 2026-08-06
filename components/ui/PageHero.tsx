@@ -9,6 +9,7 @@ export function PageHero({
   titleSize = "h1sm",
   width = "prose",
   spacious = false,
+  ledeAs = "p",
   children,
 }: {
   eyebrow?: string;
@@ -26,11 +27,24 @@ export function PageHero({
    * Adds bottom padding equal to the top padding of the section that follows,
    * so the gap above that section matches the gap below it.
    */
-  spacious?: boolean;
+  spacious?: boolean | "cta";
+  /**
+   * Render the lede as an <h2> where it carries real keyword-bearing copy and
+   * belongs in the document outline. Styled identically either way.
+   */
+  ledeAs?: "p" | "h2";
   children?: ReactNode;
 }) {
   return (
-    <section className={`${s.pageHero} ${spacious ? s.pageHeroSpacious : ""}`}>
+    <section
+      className={[
+        s.pageHero,
+        spacious === true ? s.pageHeroSpacious : "",
+        spacious === "cta" ? s.pageHeroSpaciousCta : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div
         className={`${s.pageHeroInner} ${width === "wide" ? s.pageHeroWide : ""}`}
       >
@@ -38,7 +52,15 @@ export function PageHero({
         <Heading level={1} size={titleSize}>
           {title}
         </Heading>
-        {lede ? <p className={s.lede}>{lede}</p> : null}
+        {lede ? (
+          ledeAs === "h2" ? (
+            <Heading level={2} size="lead" className={s.lede}>
+              {lede}
+            </Heading>
+          ) : (
+            <p className={s.lede}>{lede}</p>
+          )
+        ) : null}
         {children}
       </div>
       {/* Watched by the sticky mobile CTA bar. Zero height, no layout effect. */}

@@ -30,11 +30,13 @@ export function Hero() {
             variant span inside the same element; the brief defers that test
             until traffic allows, so the alternate line lives in content/home.ts
             rather than in the markup. */}
-        <Heading level={1} size="h1" className={s.h1}>
+        <Heading level={1} size="h1wide" className={s.h1}>
           {heroCopy.h1}
         </Heading>
 
-        <p className={s.sub}>{heroCopy.sub}</p>
+        <Heading level={2} size="lead" className={s.sub}>
+          {heroCopy.sub}
+        </Heading>
 
         <div className={s.ctas}>
           <Button

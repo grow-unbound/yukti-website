@@ -26,6 +26,58 @@ export function organizationLd() {
   };
 }
 
+/**
+ * SoftwareApplication.
+ *
+ * Only Lite carries a public figure, so that is the only price stated. The
+ * other tiers are quote-based and are described rather than priced — inventing
+ * a number here to satisfy the schema would put a price in search results that
+ * the pricing page does not honour.
+ */
+export function softwareApplicationLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${SITE_ORIGIN}/#software`,
+    name: "Yukti",
+    url: `${SITE_ORIGIN}/`,
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Order management and B2B commerce",
+    operatingSystem: "Web browser, Android, iOS",
+    description:
+      "Yukti is the ordering platform for businesses that sell to other businesses: digital catalogs, customer-specific rates, WhatsApp campaigns, and an ordering app customers use without installing anything.",
+    inLanguage: "en-IN",
+    publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+    offers: {
+      "@type": "Offer",
+      name: "Lite",
+      description: "WhatsApp engagement, with unlimited contacts.",
+      price: "5000",
+      priceCurrency: "INR",
+      url: `${SITE_ORIGIN}/pricing`,
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: "5000",
+        priceCurrency: "INR",
+        referenceQuantity: {
+          "@type": "QuantitativeValue",
+          value: 1,
+          unitCode: "MON",
+        },
+      },
+    },
+    featureList: [
+      "Digital catalogs with customer-specific rates",
+      "Campaigns with time-limited pricing",
+      "WhatsApp engagement with delivery and open tracking",
+      "Customer ordering app with no install and no password",
+      "Order management from enquiry to delivery",
+      "Tally, Busy, Zoho Books and Zoho Inventory integrations",
+    ],
+  };
+}
+
 export function faqLd() {
   return {
     "@context": "https://schema.org",

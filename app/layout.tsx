@@ -3,7 +3,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/chrome/Footer";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { organizationLd } from "@/lib/jsonld";
+import { organizationLd, softwareApplicationLd } from "@/lib/jsonld";
 import { POSTHOG_HOST, POSTHOG_KEY, analyticsBootstrap } from "@/lib/analytics";
 import { SITE_ORIGIN } from "@/lib/site";
 import { baloo, inter, jetbrainsMono } from "./fonts";
@@ -43,7 +43,10 @@ export default function RootLayout({
         </a>
         {children}
         <Footer />
+        {/* Server components — these land in the initial HTML response, so a
+            crawler gets the full graph without executing any JavaScript. */}
         <JsonLd data={organizationLd()} />
+        <JsonLd data={softwareApplicationLd()} />
         <Analytics />
 
         {POSTHOG_KEY ? (

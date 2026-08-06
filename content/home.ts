@@ -10,15 +10,20 @@
  */
 
 export const heroCopy = {
-  eyebrow: "Run it. Grow it. One place.",
-  h1: "Run your whole business in one place. Then grow it.",
+  eyebrow: "The ordering platform for B2B sellers",
+  h1: "Run your entire business on one platform. Digital catalogs, custom rates, and orders that come to you.",
   /**
    * The engagement-led alternate, held for the H1 A/B the brief defers until
    * traffic allows (§13). Kept here so running that test is a config change
    * rather than a markup change — and so it is not a dead <span> inside the h1.
    */
   h1Alternate: "Every customer on WhatsApp. Every order in one place.",
-  sub: "Yukti captures the work that drives your business: stock, rates, customers, orders. It turns that into growth. Publish campaigns, reach every customer on WhatsApp, and take orders in an app they'll actually use.",
+  /**
+   * Rendered as an <h2>, not a paragraph — it carries the keyword-bearing
+   * second line of the pitch, so it belongs in the document outline. Styled as
+   * lead copy so it still reads as a subhead.
+   */
+  sub: "Stop losing orders and enquiries in WhatsApp. Yukti turns your stock, rates, and customers into growth: digital catalogs, custom rates, and a real ordering app your customers actually use.",
   micro: "Signup now. First campaign live in hours, not days, not months.",
 };
 

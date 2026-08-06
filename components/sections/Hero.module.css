@@ -15,14 +15,11 @@
   margin-top: 18px;
 }
 
+/* Layout only. Typography belongs to Heading's `lead` size, so the two
+   modules cannot fight over font-size depending on chunk order. */
 .sub {
   margin: 18px 0 0;
-  font-size: var(--yk-mk-lead);
-  font-weight: var(--yk-weight-medium);
-  line-height: 1.6;
-  color: var(--yk-sub);
-  max-width: 620px;
-  text-wrap: pretty;
+  max-width: 660px;
 }
 
 .ctas {

@@ -12,6 +12,15 @@
   max-width: 820px;
 }
 
+/* A wider measure for longer headlines. The 820px default wraps the home h1
+   to four lines, which reads as a wall; 960px lands it on three without
+   running the full container width. */
+.h1wide {
+  font-size: var(--yk-mk-h1);
+  line-height: 1.08;
+  max-width: 960px;
+}
+
 .h1sm {
   font-size: var(--yk-mk-h1-sm);
   line-height: 1.1;
@@ -38,6 +47,18 @@
 .h3 {
   font-size: var(--yk-mk-h3);
   line-height: 1.2;
+}
+
+/* A heading by markup, supporting copy by eye. Weight and colour deliberately
+   drop below every other heading tier so it never competes with the h1 above
+   it — the outline gains a level, the page does not gain a second headline. */
+.lead {
+  font-size: var(--yk-mk-lead);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.6;
+  letter-spacing: var(--yk-tracking-body);
+  color: var(--yk-sub);
+  text-wrap: pretty;
 }
 
 .cardTitle {

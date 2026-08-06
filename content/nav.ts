@@ -52,10 +52,18 @@ export const audienceNavItems: NavItem[] = [
   },
 ];
 
-/** Flat links in the header. */
+/**
+ * Flat links in the header.
+ *
+ * FAQ points at the home page section rather than a page of its own: the
+ * answers are the FAQPage structured data source, and splitting them onto a
+ * separate route would either duplicate that markup or move it off the page
+ * that earns the traffic.
+ */
 export const mainNav: NavItem[] = [
   { href: "/how-it-works", label: "How it works" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 /** Grouped links, rendered as popovers on desktop and sections in the drawer. */
@@ -71,6 +79,7 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
       { href: "/how-it-works", label: "How it works" },
       { href: "/pricing", label: "Pricing" },
       { href: "/integrations", label: "Integrations" },
+      { href: "/#faq", label: "FAQ" },
       { href: "/about", label: "About" },
     ],
   },

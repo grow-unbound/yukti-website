@@ -16,7 +16,21 @@ npm install
 npm run dev          # http://localhost:3000
 npm run build        # production build (all routes prerender static)
 npm run check        # typecheck + lint + token discipline
+npm run verify       # end-to-end checks against a running build (see below)
 ```
+
+`npm run verify` needs a production build being served:
+
+```bash
+npm run build && npx next start -p 3100 &
+npm run verify
+```
+
+It checks what a passing build does not: that every route renders fully with
+JavaScript disabled, that the three JSON-LD graphs are in the initial HTML,
+that no two copper CTAs share a viewport, that every text pair clears WCAG AA
+computed from rendered pixels, that no link 404s, and that the page makes zero
+third-party requests.
 
 ## Environment
 
