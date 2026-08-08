@@ -22,7 +22,7 @@ import s from "./page.module.css";
  * language rather than a generic one.
  *
  * There is deliberately no security/CCTV page, and there must not be one while
- * the pilot proof on the home page is anonymised: it would make that
+ * the pilot proof is anonymised: it would make that
  * distributor trivially identifiable.
  */
 

@@ -79,6 +79,11 @@ export const industries = [
 /**
  * Anonymised pilot results, April–June 2026.
  *
+ * NOT RENDERED. Held back until the figures are finalised. Kept here rather
+ * than deleted so restoring the proof block is a content change: re-import
+ * this into components/sections/OurPromise.tsx alongside the promises.
+ * The claim rules below still apply the moment it goes back on the page.
+ *
  * Claim rules, and they are not negotiable: these are ORDERING-APP results
  * only. Never attribute campaign or WhatsApp-broadcast outcomes to this pilot.
  * Do not restate beyond what the source reports say. The customer stays

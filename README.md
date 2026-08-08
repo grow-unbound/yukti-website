@@ -105,9 +105,11 @@ money and data. Never lead with "AI", "smart", "automate", "leverage". No
 exclamation marks. The ceiling on finance claims is "your books stay clean" —
 never "replace Tally", never "books keep themselves", never "error-free".
 
-**The pilot figures on the home page are anonymised and must stay that way.**
-The customer is not named anywhere, and there is deliberately no security/CCTV
-industry page, because one would make them identifiable.
+**The pilot figures are withheld from the site** until the numbers are
+finalised — `pilot` in `content/home.ts` holds the copy and the claim rules but
+nothing renders it. When it goes back: the customer is never named, the claims
+are ordering-app only, and there is deliberately no security/CCTV industry page
+because one would make them identifiable.
 
 **Industry pages** are one template, five instances, driven from
 `content/industries.ts` — adding one updates the nav, the home strip, the

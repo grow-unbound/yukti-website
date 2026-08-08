@@ -1,0 +1,65 @@
+.section {
+  padding: clamp(56px, 8vw, 96px) 20px;
+}
+
+/* Single column now that the pilot figures are withheld. The prose measure
+   rather than the full 1060px content column — a four-item list stretched
+   across the wide column would read as a table of unrelated cells. */
+.inner {
+  max-width: var(--yk-mk-prose);
+  margin: 0 auto;
+}
+
+.lede {
+  margin: 14px 0 0;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.6;
+  color: var(--yk-sub);
+  max-width: 560px;
+  text-wrap: pretty;
+}
+
+.promiseCard {
+  margin-top: clamp(24px, 4vw, 36px);
+  background: var(--yk-ink);
+  color: var(--yk-on-dark);
+  border-radius: 20px;
+  padding: clamp(24px, 4vw, 36px);
+}
+
+/* Two columns where there is room — the list is short lines, and a single
+   column across the prose measure left long ragged gaps. */
+.promiseList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px clamp(20px, 3vw, 32px);
+}
+
+@media (min-width: 620px) {
+  .promiseList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.promiseItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.55;
+}
+
+.promiseNum {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--yk-border-on-dark);
+  border-radius: var(--yk-radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-11);
+}
