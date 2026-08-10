@@ -7,10 +7,10 @@ import s from "./OurPromise.module.css";
  * Keep it that way: the moment a line here predicts a result it becomes a claim
  * that has to be defended.
  *
- * This section previously paired the promises with anonymised pilot figures.
- * Those are withheld until the numbers are finalised; the copy is still in
- * content/home.ts as `pilot`, along with the claim rules that govern it, so
- * restoring the two-column layout is a content change rather than a rebuild.
+ * The pilot figures that used to sit beside these now have their own section
+ * (PilotProof) directly above. Kept separate: proof is what happened for
+ * someone else, promises are what we owe you, and merging them blurs which is
+ * which.
  */
 export function OurPromise() {
   return (

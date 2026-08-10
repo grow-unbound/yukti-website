@@ -77,34 +77,69 @@ export const industries = [
 ];
 
 /**
- * Anonymised pilot results, April–June 2026.
+ * Anonymised pilot results — a 10-week pilot with a security-products
+ * distributor. Approved for publication.
  *
- * NOT RENDERED. Held back until the figures are finalised. Kept here rather
- * than deleted so restoring the proof block is a content change: re-import
- * this into components/sections/OurPromise.tsx alongside the promises.
- * The claim rules below still apply the moment it goes back on the page.
+ * Claim rules, and they are not negotiable:
+ *  - The customer stays anonymous. No name, no logo, no identifying detail,
+ *    anywhere on the site or in this repo. There is deliberately no
+ *    security/CCTV industry page for the same reason: one would make this
+ *    block trivially identifiable.
+ *  - Do not restate beyond what is here. No extrapolating to a run rate, no
+ *    projecting these onto a prospect's own numbers, no rounding up.
+ *  - `derivation` exists so a claim that rests on an assumption says so on the
+ *    card. The hours figure is 388 x 3 min; that assumption is shown, not
+ *    buried, because it is the one number here that is calculated rather than
+ *    counted.
  *
- * Claim rules, and they are not negotiable: these are ORDERING-APP results
- * only. Never attribute campaign or WhatsApp-broadcast outcomes to this pilot.
- * Do not restate beyond what the source reports say. The customer stays
- * anonymous — no name, no logo, no identifying detail, anywhere on the site or
- * in this repo. There is deliberately no security/CCTV industry page for the
- * same reason: it would make this block trivially identifiable.
+ * The figures cross-check: 388 x 3 min = 19.4 hrs; 30 of ~49 returning
+ * customers = 61%; ~49 first orders at 33% activation implies ~148 invited.
+ *
+ * Vocabulary: the source copy said "buyers". Changed to "customers" to match
+ * the rest of the site — the brief bans "buyers" in body copy, and the nav
+ * labels are the one deliberate exception.
  */
 export const pilot = {
+  eyebrow: "10-week pilot",
   intro:
-    "A security-products distributor in Hyderabad put 119 customers on Yukti's ordering app across 4 outlets. No training. No app installs.",
+    "A security-products distributor ran Yukti for 10 weeks. Their customers ordered from a digital catalog, with no sales team in the middle and nobody hired to handle it.",
+  /** The stickiness number leads: repeat ordering is the signal that a habit formed. */
+  headline:
+    "Three in five customers who placed one order came back for another — inside ten weeks, without anyone chasing them.",
   stats: [
-    { value: "₹11L", label: "in customer-submitted estimates, week one" },
-    { value: "56%", label: "of customers ordering self-serve in the first week" },
     {
-      value: "40→72%",
-      label: "estimate-to-invoice conversion, improving for six weeks",
+      value: "61%",
+      label: "of customers came back",
+      note: "Of the customers who placed one order, 30+ returned. Habit formed without nudging.",
+      featured: true,
     },
-    { value: "0", label: "additional staff hired to handle it" },
+    {
+      value: "₹45L+",
+      label: "demand generated in 10 weeks",
+      note: "Orders placed through the digital catalog, with no sales team involved.",
+    },
+    {
+      value: "0",
+      label: "additional staff hired",
+      note: "388 enquiries handled end-to-end — quoting, WhatsApp, Zoho sync — by the platform.",
+    },
+    {
+      value: "33%",
+      label: "activation in weeks",
+      note: "One in three invited customers placed their first digital order. No training, no hand-holding.",
+    },
+    {
+      value: "97%",
+      label: "of orders auto-confirmed",
+      note: "WhatsApp confirmations sent automatically, with no staff needed to follow up.",
+    },
+    {
+      value: "19+ hrs",
+      label: "saved on manual work",
+      note: "Across the same 388 enquiries — time back for higher-value work.",
+      derivation: "Calculated at 3 minutes per enquiry.",
+    },
   ],
-  closer:
-    "Six weeks in, self-serve orders were running at a pace of ₹17L+ a month — ahead of the distributor's own target.",
 };
 
 /** Commitments, not outcomes. Keep it that way. */

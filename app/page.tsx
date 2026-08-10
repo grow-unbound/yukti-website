@@ -9,6 +9,7 @@ import { Hero } from "@/components/sections/Hero";
 import { IndustriesStrip } from "@/components/sections/IndustriesStrip";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { OurPromise } from "@/components/sections/OurPromise";
+import { PilotProof } from "@/components/sections/PilotProof";
 import { TuesdayStory } from "@/components/sections/TuesdayStory";
 import { featureMocks } from "@/components/sections/featureMocks";
 import { features } from "@/content/features";
@@ -48,6 +49,7 @@ export default function HomePage() {
         </section>
 
         <IndustriesStrip />
+        <PilotProof />
         <OurPromise />
         <AccountantsBand />
         <Faq />
