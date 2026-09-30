@@ -111,7 +111,7 @@ export const pilot = {
     "A security-products distributor ran Yukti for 10 weeks. Their customers ordered from a digital catalog, with no sales team in the middle and nobody hired to handle it.",
   /** The stickiness number leads: repeat ordering is the signal that a habit formed. */
   headline:
-    "Three in five customers who placed one order came back for another — inside ten weeks, without anyone chasing them.",
+    "Three in five customers who placed one order came back for another, inside ten weeks, without anyone chasing them.",
   stats: [
     {
       value: "61%",
@@ -127,7 +127,7 @@ export const pilot = {
     {
       value: "0",
       label: "additional staff hired",
-      note: "388 enquiries handled end-to-end — quoting, WhatsApp, Zoho sync — by the platform.",
+      note: "388 enquiries handled end-to-end: quoting, WhatsApp, Zoho sync, by the platform.",
     },
     {
       value: "33%",
@@ -142,7 +142,7 @@ export const pilot = {
     {
       value: "19+ hrs",
       label: "saved on manual work",
-      note: "Across the same 388 enquiries — time back for higher-value work.",
+      note: "Across the same 388 enquiries: time back for higher-value work.",
       derivation: "Calculated at 3 minutes per enquiry.",
     },
   ],

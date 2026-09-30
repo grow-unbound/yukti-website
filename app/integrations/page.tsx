@@ -86,19 +86,19 @@ export default function IntegrationsPage() {
             <h2>What syncs</h2>
             <ul>
               <li>
-                <strong>Items</strong> — codes, units, tax rates, HSN where
+                <strong>Items</strong>: codes, units, tax rates, HSN where
                 entered.
               </li>
               <li>
-                <strong>Parties</strong> — customers with GSTIN, addresses and
+                <strong>Parties</strong>: customers with GSTIN, addresses and
                 credit terms.
               </li>
               <li>
-                <strong>Orders and invoices</strong> — with the rate that was
+                <strong>Orders and invoices</strong>: with the rate that was
                 actually applied, resolved from your pricelist.
               </li>
               <li>
-                <strong>Estimates</strong> — so enquiries that converted and
+                <strong>Estimates</strong>: so enquiries that converted and
                 those that didn&apos;t are both on record.
               </li>
             </ul>
@@ -116,7 +116,7 @@ export default function IntegrationsPage() {
           <section>
             <h2>Your data stays yours</h2>
             <p>
-              Export everything, anytime, in full — you do not have to ask us
+              Export everything, anytime, in full, you do not have to ask us
               for a special export, and you do not need an active integration to
               get your data out. No lock-in is a commitment, not a feature.
             </p>

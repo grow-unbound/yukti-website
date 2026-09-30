@@ -38,7 +38,7 @@ export const audienceNavItems: NavItem[] = [
   {
     href: "/sellers",
     label: "For B2B sellers",
-    note: "Distributors, wholesalers and stockists — the business running Yukti.",
+    note: "Distributors, wholesalers and stockists, the business running Yukti.",
   },
   {
     href: "/buyers",

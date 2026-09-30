@@ -17,7 +17,7 @@ export function PlanCard({ plan }: { plan: Plan }) {
       <p className={s.blurb}>{plan.blurb}</p>
 
       {/* Mono and tabular numerals are for figures meant to be scanned. "Price on
-          request" is a sentence, so it gets Inter — setting it in mono made it
+          request" is a sentence, so it gets Inter, setting it in mono made it
           read as a number that had failed to load. */}
       <p className={`${s.price} ${/\d/.test(plan.price) ? s.priceNum : s.priceWord}`}>
         {plan.price}
