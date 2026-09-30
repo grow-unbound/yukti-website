@@ -33,7 +33,9 @@
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
   ::view-transition-old(*),
-  ::view-transition-new(*) {
+  ::view-transition-new(*),
+  ::view-transition-old(.page-fade),
+  ::view-transition-new(.page-fade) {
     animation: none;
   }
 }
