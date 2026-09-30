@@ -3,6 +3,7 @@ import { StickyCta } from "@/components/chrome/StickyCta";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Eyebrow, Heading } from "@/components/ui/Heading";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { BillingToggle } from "@/components/sections/BillingToggle";
 import { PlanCard } from "@/components/sections/PlanCard";
 import { LITE, plansFor, pricingBlocks } from "@/content/plans";
 import { REGIONS, REGION_LABEL, type Region } from "@/lib/region";
@@ -44,6 +45,7 @@ export function PricingView({ region }: { region: Region }) {
         </section>
 
         <section className={s.plans} data-yk-section="plans">
+          <BillingToggle />
           <div className={s.planGrid}>
             {plans.map((plan) => (
               <PlanCard key={plan.name} plan={plan} />

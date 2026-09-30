@@ -48,13 +48,14 @@
   color: var(--yk-ink);
 }
 
-/* An actual figure: mono, tabular numerals, per the design system. */
+/* An actual figure: Inter with tabular numerals. Mono is reserved for codes
+   and IDs; a price is read, not copied. */
 .priceNum {
-  font-family: var(--yk-font-mono);
-  font-size: 24px;
-  font-weight: var(--yk-weight-medium);
+  font-family: var(--yk-font-ui);
+  font-size: 28px;
+  font-weight: var(--yk-weight-extrabold);
   font-variant-numeric: tabular-nums;
-  letter-spacing: var(--yk-tracking-mono);
+  letter-spacing: var(--yk-tracking-heading);
 }
 
 /* Not a figure. Inter, and a step down so it does not compete with the one

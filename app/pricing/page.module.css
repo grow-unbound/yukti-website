@@ -104,3 +104,10 @@
   color: var(--yk-ink);
   text-decoration: underline;
 }
+
+/* Annual is preselected. The radios live in BillingToggle; these rules pick
+   which figure each plan card shows, with no script. */
+.plans:has(input[value="annual"]:checked) [data-billing="monthly"],
+.plans:has(input[value="monthly"]:checked) [data-billing="annual"] {
+  display: none;
+}

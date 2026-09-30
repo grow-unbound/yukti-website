@@ -16,13 +16,26 @@ export function PlanCard({ plan }: { plan: Plan }) {
       <h2 className={s.name}>{plan.name}</h2>
       <p className={s.blurb}>{plan.blurb}</p>
 
-      {/* Mono and tabular numerals are for figures meant to be scanned. "Price on
-          request" is a sentence, so it gets Inter, setting it in mono made it
-          read as a number that had failed to load. */}
-      <p className={`${s.price} ${/\d/.test(plan.price) ? s.priceNum : s.priceWord}`}>
-        {plan.price}
-      </p>
-      {plan.priceNote ? <p className={s.priceNote}>{plan.priceNote}</p> : null}
+      {/* Figures are Inter with tabular numerals, per the design system: mono
+          is for codes and IDs. Plans with a billing choice render both
+          variants; the page-level toggle (pure CSS) shows one. */}
+      {plan.billing ? (
+        (["annual", "monthly"] as const).map((mode) => (
+          <div key={mode} data-billing={mode}>
+            <p className={`${s.price} ${s.priceNum}`}>{plan.billing![mode].price}</p>
+            <p className={s.priceNote}>{plan.billing![mode].note}</p>
+          </div>
+        ))
+      ) : (
+        <>
+          <p
+            className={`${s.price} ${/\d/.test(plan.price) ? s.priceNum : s.priceWord}`}
+          >
+            {plan.price}
+          </p>
+          {plan.priceNote ? <p className={s.priceNote}>{plan.priceNote}</p> : null}
+        </>
+      )}
 
       <dl className={s.rows}>
         {plan.rows.map((row) => (

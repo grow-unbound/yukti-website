@@ -24,6 +24,11 @@ export type Plan = {
   blurb: string;
   price: string;
   priceNote?: string;
+  /** When set, the card renders both figures and the page's toggle picks one. */
+  billing?: {
+    monthly: { price: string; note: string };
+    annual: { price: string; note: string };
+  };
   /** Elevates the card and shows the ribbon. */
   featured?: boolean;
   cta: { label: string; kind: "signup" | "demo" };
@@ -109,33 +114,26 @@ const basePlans: Plan[] = [
  */
 export const LITE: Record<
   Region,
-  { price: string; amount: string; currency: string; priceNote: string }
+  { price: string; annualPrice: string; amount: string; currency: string }
 > = {
-  in: {
-    price: "₹5,000",
-    amount: "5000",
-    currency: "INR",
-    priceNote: "per month, or ₹50,000 a year, two months free",
-  },
-  eu: {
-    price: "€300",
-    amount: "300",
-    currency: "EUR",
-    priceNote: "per month, or €3,000 a year, two months free",
-  },
-  row: {
-    price: "$300",
-    amount: "300",
-    currency: "USD",
-    priceNote: "per month, or $3,000 a year, two months free",
-  },
+  in: { price: "₹5,000", annualPrice: "₹50,000", amount: "5000", currency: "INR" },
+  eu: { price: "€300", annualPrice: "€3,000", amount: "300", currency: "EUR" },
+  row: { price: "$300", annualPrice: "$3,000", amount: "300", currency: "USD" },
 };
 
 export function plansFor(region: Region): Plan[] {
   const lite = LITE[region];
   return basePlans.map((plan) =>
     plan.name === "Lite"
-      ? { ...plan, price: lite.price, priceNote: lite.priceNote }
+      ? {
+          ...plan,
+          price: lite.price,
+          priceNote: "per month",
+          billing: {
+            monthly: { price: lite.price, note: "per month" },
+            annual: { price: lite.annualPrice, note: "per year, two months free" },
+          },
+        }
       : plan
   );
 }
