@@ -46,15 +46,15 @@
    only, so nothing shifts. */
 [data-reveal-state="pending"] {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(20px);
 }
 
 [data-reveal-state="in"] {
   opacity: 1;
   transform: none;
   transition:
-    opacity 560ms var(--yk-ease),
-    transform 560ms var(--yk-ease);
+    opacity 800ms var(--yk-ease),
+    transform 800ms var(--yk-ease);
 }
 
 @media (prefers-reduced-motion: reduce) {

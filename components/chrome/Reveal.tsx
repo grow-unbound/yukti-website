@@ -20,9 +20,13 @@ import { useEffect } from "react";
  * Opt out with data-no-reveal. Opt in a specific element with data-reveal.
  */
 
-const STAGGER_MS = 70;
+// Trigger line, as a fraction of the viewport height measured from the top.
+// An element reveals once it has travelled above this line, i.e. clearly
+// inside the viewport rather than as its edge first appears.
+const TRIGGER = 0.8;
+const STAGGER_MS = 110;
 const MAX_STAGGER = 4;
-const SETTLE_MS = 1000;
+const SETTLE_MS = 1500;
 
 function isCollection(el: Element): boolean {
   const n = el.children.length;
@@ -66,10 +70,18 @@ export function Reveal() {
       targetsIn(s).forEach((t) => targets.add(t));
     });
 
-    const fold = window.innerHeight - 40;
+    const fold = window.innerHeight * TRIGGER;
+    const maxScroll = Math.max(
+      0,
+      document.documentElement.scrollHeight - window.innerHeight
+    );
     const pending: Element[] = [];
     targets.forEach((el) => {
-      if (el.getBoundingClientRect().top < fold) return; // already on screen
+      const top = el.getBoundingClientRect().top;
+      if (top < fold) return; // already inside the viewport
+      // Near the foot of a short page the trigger line can never be reached by
+      // scrolling. Leave those visible rather than hiding them for good.
+      if (top - maxScroll >= fold) return;
       el.setAttribute("data-reveal-state", "pending");
       pending.push(el);
     });
@@ -99,7 +111,7 @@ export function Reveal() {
           );
         });
       },
-      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 }
+      { rootMargin: "0px 0px -20% 0px", threshold: 0.15 }
     );
     pending.forEach((el) => io.observe(el));
 

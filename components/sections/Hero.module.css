@@ -80,7 +80,7 @@
   .micro,
   .visual,
   .trust {
-    animation: rise 560ms var(--yk-ease) both;
+    animation: rise 700ms var(--yk-ease) both;
   }
   .sub {
     animation-delay: 60ms;

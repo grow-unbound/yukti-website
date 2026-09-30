@@ -111,3 +111,16 @@
 .plans:has(input[value="monthly"]:checked) [data-billing="annual"] {
   display: none;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .sub {
+    animation: heroRise 700ms var(--yk-ease) 120ms both;
+  }
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
