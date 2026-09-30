@@ -21,9 +21,11 @@ import { useEffect } from "react";
  */
 
 // Trigger line, as a fraction of the viewport height measured from the top.
-// An element reveals once it has travelled above this line, i.e. clearly
-// inside the viewport rather than as its edge first appears.
-const TRIGGER = 0.8;
+// An element reveals once its top has travelled above this line. Set low on
+// the screen (92%) so nothing sits blank in view: the usual range in scroll
+// libraries is 80 to 90% (AOS, ScrollTrigger), and going lower reads as content
+// failing to load.
+const TRIGGER = 0.92;
 const STAGGER_MS = 110;
 const MAX_STAGGER = 4;
 const SETTLE_MS = 1500;
@@ -111,7 +113,7 @@ export function Reveal() {
           );
         });
       },
-      { rootMargin: "0px 0px -20% 0px", threshold: 0.15 }
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
     );
     pending.forEach((el) => io.observe(el));
 
