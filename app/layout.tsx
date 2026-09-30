@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/chrome/Footer";
@@ -41,7 +42,11 @@ export default function RootLayout({
         <a href="#main" className="skipLink">
           Skip to content
         </a>
-        {children}
+        {/* Route changes crossfade instead of snapping. Only the page content is
+            wrapped: the footer and scripts stay put. First loads do not
+            animate, so LCP is unaffected. See the .page-fade rules in
+            globals.css. */}
+        <ViewTransition default="page-fade">{children}</ViewTransition>
         <Footer />
         {/* Server components — these land in the initial HTML response, so a
             crawler gets the full graph without executing any JavaScript. */}

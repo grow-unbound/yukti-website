@@ -5,3 +5,35 @@
 
 @import url("../styles/tokens.css") layer(tokens);
 @import url("../styles/reset.css") layer(reset);
+
+/* Page transitions: a pure fade. The outgoing page fades quickly and the
+   incoming one eases in slightly slower, so the change reads as one movement
+   rather than a cut. No movement on purpose: the header is rendered per page
+   and would visibly slide with the content. */
+::view-transition-old(.page-fade) {
+  animation: 180ms var(--yk-ease, ease) both yk-page-out;
+}
+
+::view-transition-new(.page-fade) {
+  animation: 320ms var(--yk-ease, ease) both yk-page-in;
+}
+
+@keyframes yk-page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes yk-page-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
+}
