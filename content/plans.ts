@@ -103,9 +103,9 @@ const basePlans: Plan[] = [
 ];
 
 /**
- * Lite, quoted per region. The three figures are the owner's; the annual
- * discount is stated only for India, where it was supplied. Do not invent
- * annual figures for the others.
+ * Lite, quoted per region. The monthly figures are the owner's. Annual is ten
+ * months' worth in every region (the rule supplied for India), confirmed by
+ * the owner for EU and rest of world on 2026-09-30.
  */
 export const LITE: Record<
   Region,
@@ -117,8 +117,18 @@ export const LITE: Record<
     currency: "INR",
     priceNote: "per month, or ₹50,000 a year, two months free",
   },
-  eu: { price: "€300", amount: "300", currency: "EUR", priceNote: "per month" },
-  row: { price: "$300", amount: "300", currency: "USD", priceNote: "per month" },
+  eu: {
+    price: "€300",
+    amount: "300",
+    currency: "EUR",
+    priceNote: "per month, or €3,000 a year, two months free",
+  },
+  row: {
+    price: "$300",
+    amount: "300",
+    currency: "USD",
+    priceNote: "per month, or $3,000 a year, two months free",
+  },
 };
 
 export function plansFor(region: Region): Plan[] {
