@@ -158,9 +158,23 @@
   text-decoration: none;
 }
 
+.card {
+  transition:
+    transform var(--yk-duration-base) var(--yk-ease),
+    box-shadow var(--yk-duration-base) var(--yk-ease),
+    border-color var(--yk-duration-base) var(--yk-ease);
+}
+
 .card:hover {
   border-color: var(--yk-card-line-hover);
   background: var(--yk-card-hover);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--yk-shadow-md);
+  }
 }
 
 .card:focus-visible {

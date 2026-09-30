@@ -214,3 +214,45 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* The mock assembles once on load: the queue fills top to bottom, then the
+   selected order builds up in reading order. About a second end to end. The
+   queue is hidden on phones, so there the detail pane carries the sequence
+   alone. */
+@media (prefers-reduced-motion: no-preference) {
+  .item,
+  .group,
+  .detailHead,
+  .orderLine,
+  .context,
+  .alert,
+  .actions {
+    animation: settle 480ms var(--yk-ease) both;
+  }
+  .item,
+  .group {
+    animation-delay: calc(360ms + var(--n, 0) * 60ms);
+  }
+  .detailHead {
+    animation-delay: 420ms;
+  }
+  .orderLine {
+    animation-delay: 520ms;
+  }
+  .context {
+    animation-delay: 620ms;
+  }
+  .alert {
+    animation-delay: 760ms;
+  }
+  .actions {
+    animation-delay: 900ms;
+  }
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

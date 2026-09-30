@@ -39,3 +39,28 @@
     animation: none;
   }
 }
+
+/* Scroll reveal (see components/chrome/Reveal.tsx). Elements are only ever
+   "pending" after hydration and only below the fold; the transition lives on
+   the "in" state so hiding is instant and showing eases. Opacity and transform
+   only, so nothing shifts. */
+[data-reveal-state="pending"] {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+[data-reveal-state="in"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 560ms var(--yk-ease),
+    transform 560ms var(--yk-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal-state] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

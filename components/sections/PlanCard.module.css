@@ -121,3 +121,18 @@
   flex: 1;
   min-height: 20px;
 }
+
+/* Hover lift, on devices that actually hover. On touch it would stick after a
+   tap, so it is not offered there. */
+.card {
+  transition:
+    transform var(--yk-duration-base) var(--yk-ease),
+    box-shadow var(--yk-duration-base) var(--yk-ease);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--yk-shadow-md);
+  }
+}

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { MockButton, MockFigure, Pill, StatusChip } from "@/components/mock/primitives";
 import s from "./InboxMock.module.css";
 
@@ -42,13 +43,14 @@ export function InboxMock({ className }: { className?: string }) {
           <ul className={s.list}>
             {QUEUE.map((q, i) =>
               "group" in q ? (
-                <li key={i} className={s.group}>
+                <li key={i} className={s.group} style={{ "--n": i } as CSSProperties}>
                   {q.group}
                 </li>
               ) : (
                 <li
                   key={q.name}
                   className={`${s.item} ${"selected" in q ? s.itemSelected : ""}`}
+                  style={{ "--n": i } as CSSProperties}
                 >
                   <span>
                     <span className={s.itemName}>{q.name}</span>

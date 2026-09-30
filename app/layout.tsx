@@ -3,6 +3,7 @@ import { ViewTransition } from "react";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/chrome/Footer";
+import { Reveal } from "@/components/chrome/Reveal";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { organizationLd, softwareApplicationLd } from "@/lib/jsonld";
 import { POSTHOG_HOST, POSTHOG_KEY, analyticsBootstrap } from "@/lib/analytics";
@@ -48,6 +49,7 @@ export default function RootLayout({
             globals.css. */}
         <ViewTransition default="page-fade">{children}</ViewTransition>
         <Footer />
+        <Reveal />
         {/* Server components — these land in the initial HTML response, so a
             crawler gets the full graph without executing any JavaScript. */}
         <JsonLd data={organizationLd()} />

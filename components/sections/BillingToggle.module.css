@@ -1,7 +1,7 @@
 .group {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: fit-content;
   margin: 0 auto clamp(24px, 4vw, 36px);
   padding: 4px;
@@ -10,8 +10,27 @@
   background: var(--yk-card);
 }
 
+/* The sliding thumb. It sits behind the labels and moves with the checked
+   radio, so the choice glides instead of swapping. */
+.group::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: var(--yk-radius-full);
+  background: var(--yk-ink);
+  transition: transform 320ms var(--yk-ease);
+}
+
+.group:has(input[value="annual"]:checked)::before {
+  transform: translateX(100%);
+}
+
 .option {
   position: relative;
+  z-index: 1;
   cursor: pointer;
 }
 
@@ -25,20 +44,21 @@
 }
 
 .label {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  height: 100%;
   padding: 8px 18px;
   border-radius: var(--yk-radius-full);
   font-size: var(--yk-mk-14);
   font-weight: var(--yk-weight-semibold);
   color: var(--yk-sub);
-  transition: background var(--yk-duration-fast) var(--yk-ease),
-    color var(--yk-duration-fast) var(--yk-ease);
+  white-space: nowrap;
+  transition: color 240ms var(--yk-ease);
 }
 
 .input:checked + .label {
-  background: var(--yk-ink);
   color: var(--yk-card);
 }
 
@@ -53,4 +73,11 @@
   letter-spacing: var(--yk-tracking-label);
   text-transform: uppercase;
   opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group::before,
+  .label {
+    transition: none;
+  }
 }
