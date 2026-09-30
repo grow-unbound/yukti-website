@@ -95,22 +95,20 @@ export function MockTableHead({ cols }: { cols: string[] }) {
   );
 }
 
-/** Money, with the rupee sign in Inter at a reduced size. */
+/** Money, drawn without a currency symbol: the site is global and the mocks must not belong to one country. */
 export function Price({
   value,
   unit,
-  small = false,
   className,
 }: {
   value: string;
   unit?: string;
-  /** Uses the 0.58em rupee, for large stat values. */
+  /** Kept for call-site compatibility; no symbol is drawn. */
   small?: boolean;
   className?: string;
 }) {
   return (
     <span className={`${s.price} ${className ?? ""}`}>
-      <span className={small ? s.rupeeSm : s.rupee}>₹</span>
       {value}
       {unit ? <span className={s.priceUnit}> {unit}</span> : null}
     </span>

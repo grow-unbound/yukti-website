@@ -18,13 +18,13 @@ import { pageMetadata } from "@/lib/metadata";
 import s from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Yukti — WhatsApp campaigns, rates & orders for distributors",
+  title: "Yukti: One inbox for every buyer enquiry, with full context",
   description:
-    "Yukti is the operating layer for Indian distributors: publish campaigns, reach every customer on WhatsApp, and take orders in an app they'll actually use.",
+    "Every WhatsApp message and email in one inbox, with buyer history, dues and live stock beside it. Plus a storefront so half your buyers stop asking.",
   path: "/",
-  ogTitle: "Run your whole business in one place. Then grow it.",
+  ogTitle: "Stop losing 3-5 minutes to tab switches on every customer enquiry.",
   ogDescription:
-    "Campaigns, WhatsApp reach, and an ordering app your customers will actually use. Works with Tally and Zoho.",
+    "One inbox for WhatsApp and email, with buyer history and live stock beside every message. Plus a storefront so half your buyers stop asking.",
 });
 
 export default function HomePage() {

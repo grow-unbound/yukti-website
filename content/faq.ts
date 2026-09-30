@@ -18,11 +18,11 @@ export type FaqItem = {
 export const faq: FaqItem[] = [
   {
     q: "Do my customers need to install an app?",
-    a: "No. They open a WhatsApp link, verify with an OTP, and order in the browser. Any phone works.",
+    a: "No. They open a link from WhatsApp or email, verify with an OTP, and order in the browser. Any phone works.",
   },
   {
-    q: "Does it work with my Tally, Busy, Zoho, or ERP tools?",
-    a: "Yes. Clean CSV exports for items, sales vouchers, and ledgers for Tally. Busy, Zoho Books, and Zoho Inventory sync directly. Integrations are included in every plan.",
+    q: "Does it work with my Tally, Busy, Zoho, QuickBooks, or ERP tools?",
+    a: "Yes. Zoho and QuickBooks sync directly, Busy connects, and Tally gets clean CSV exports for items, sales vouchers, and ledgers. You can also start without connecting anything and link your accounting when you are ready. Integrations are included in every plan.",
   },
   {
     q: "Can I just use the WhatsApp part?",
@@ -34,14 +34,34 @@ export const faq: FaqItem[] = [
   },
   {
     q: "What does it cost?",
-    a: "Plans are sized by how many of your customers actively use Yukti each month. You pay as adoption grows, not before. Lite starts at ₹5,000 a month; for the rest, talk to us for a number. Most businesses compare it to a fraction of one salesperson’s salary.",
+    a: "Plans are sized by how many of your customers actively use Yukti each month. You pay as adoption grows, not before. Lite starts at ₹5,000 a month in India, €300 a month in the EU, and $300 a month in the rest of the world. For the rest, talk to us for a number. Most businesses compare it to a fraction of one salesperson’s salary.",
   },
   {
     q: "How fast is setup?",
-    a: "Most businesses send their first broadcast on day one and publish their first campaign within two days.",
+    a: "Publish your first catalog in under 2 hours with self-serve setup. If you would rather hand it over, our team migrates your stock and customers from Tally, Zoho, QuickBooks, or Excel within 2 days.",
   },
   {
     q: "Is my data safe from other businesses on Yukti?",
     a: "Yes. Every account is fully isolated. Your customers see only what you publish to them, and your rates are visible only to you.",
+  },
+  {
+    q: "Does Yukti work if my buyers use email instead of WhatsApp?",
+    a: "Yes. Emails land in the same inbox as WhatsApp messages, next to the buyer's order history, dues, and your live stock. Your buyers do not have to change how they reach you.",
+  },
+  {
+    q: "Can the same buyer order over WhatsApp one day and email the next?",
+    a: "Yes. Both channels attach to the same buyer, so the history, rates, and dues you see are the same whichever way they got in touch.",
+  },
+  {
+    q: "Do you support ERPs outside India, like QuickBooks, NetSuite, or SAP Business One?",
+    a: "QuickBooks works today, alongside Zoho, Tally, and Busy. For NetSuite, SAP Business One, or anything else, tell us what you run. You can start without connecting anything and add the link later.",
+  },
+  {
+    q: "What happens if a buyer emails a purchase order instead of using the catalog link?",
+    a: "It lands in the same inbox as everything else, with the buyer's history, dues, and live stock beside it, so you can confirm it quickly.",
+  },
+  {
+    q: "Does pricing change by region or currency?",
+    a: "Yes. Lite is ₹5,000 a month in India, €300 a month in the EU, and $300 a month in the rest of the world. Other plans are quoted to your catalog size, in the currency of your region.",
   },
 ];

@@ -15,8 +15,8 @@ export function organizationLd() {
     name: "Yukti",
     url: `${SITE_ORIGIN}/`,
     description:
-      "Software for Indian distributors and wholesalers: campaigns, WhatsApp engagement, a customer ordering app, rates and orders.",
-    areaServed: "IN",
+      "Software for businesses that sell to businesses: one inbox for WhatsApp and email with buyer and stock context, a customer storefront, rates, campaigns and orders.",
+    areaServed: ["IN", "EU", "Worldwide"],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
@@ -45,7 +45,7 @@ export function softwareApplicationLd() {
     applicationSubCategory: "Order management and B2B commerce",
     operatingSystem: "Web browser, Android, iOS",
     description:
-      "Yukti is the ordering platform for businesses that sell to other businesses: digital catalogs, customer-specific rates, WhatsApp campaigns, and an ordering app customers use without installing anything.",
+      "Yukti is the ordering platform for businesses that sell to other businesses: one inbox for WhatsApp and email with buyer and stock context, digital catalogs, customer-specific rates, campaigns, and an ordering app customers use without installing anything.",
     inLanguage: "en-IN",
     publisher: { "@id": `${SITE_ORIGIN}/#organization` },
     offers: {
@@ -68,12 +68,13 @@ export function softwareApplicationLd() {
       },
     },
     featureList: [
+      "Multi-channel inbox with buyer history, dues and live stock beside every message",
       "Digital catalogs with customer-specific rates",
       "Campaigns with time-limited pricing",
       "WhatsApp engagement with delivery and open tracking",
       "Customer ordering app with no install and no password",
       "Order management from enquiry to delivery",
-      "Tally, Busy, Zoho Books and Zoho Inventory integrations",
+      "Zoho, Tally, Busy and QuickBooks integrations",
     ],
   };
 }

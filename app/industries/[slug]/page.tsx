@@ -7,6 +7,7 @@ import { FeatureRow } from "@/components/sections/FeatureRow";
 import { FinalCta } from "@/components/sections/FinalCta";
 import {
   CampaignsMock,
+  ContextMock,
   OrderingAppMock,
   WhatsappMock,
 } from "@/components/sections/featureMocks";
@@ -49,8 +50,9 @@ export async function generateMetadata({
   });
 }
 
-const SHOWN = ["feature-campaigns", "feature-whatsapp", "feature-app"];
+const SHOWN = ["feature-inbox", "feature-app", "feature-campaigns"];
 const MOCKS = {
+  "feature-inbox": <ContextMock />,
   "feature-campaigns": <CampaignsMock />,
   "feature-whatsapp": <WhatsappMock />,
   "feature-app": <OrderingAppMock />,

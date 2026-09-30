@@ -11,27 +11,27 @@
 
 export const heroCopy = {
   eyebrow: "The ordering platform for B2B sellers",
-  h1: "Run your entire business on one platform. Then grow it.",
+  h1: "Stop losing 3-5 minutes to tab switches on every customer enquiry.",
   /**
    * The engagement-led alternate, held for the H1 A/B the brief defers until
    * traffic allows (§13). Kept here so running that test is a config change
    * rather than a markup change — and so it is not a dead <span> inside the h1.
    */
-  h1Alternate: "Every customer on WhatsApp. Every order in one place.",
+  h1Alternate: "One inbox. Every channel. Full context.",
   /**
    * Rendered as an <h2>, not a paragraph — it carries the keyword-bearing
    * second line of the pitch, so it belongs in the document outline. Styled as
    * lead copy so it still reads as a subhead.
    */
-  sub: "Digital catalogs, custom rates, and orders that come to you through a real ordering app your customers use. Stop losing orders and enquiries in WhatsApp. Keep it for notifications and tracking.",
-  micro: "Signup now. First campaign live in hours, not days, not months.",
+  sub: "Every WhatsApp message and email, with full buyer and stock context, in one inbox. Plus a storefront so half your buyers stop asking altogether.",
+  micro: "Sign up now. Publish your first catalog in as little as 2 hours.",
 };
 
 export const manifesto = {
   h2: "Most software makes you serve the system",
   lines: [
     "Feed it data. Configure it. Reconcile it. File through it. Somewhere along the way, the tool became the boss.",
-    "Yukti inverts that. You decide. The platform carries the weight.",
+    "Yukti inverts that. You already know how you want to run this. Yukti just makes it faster to do.",
     "We build against one enemy: the busywork that sits between you and your next good decision.",
   ],
   /** Index of the line rendered as the copper-ruled pull quote. */
@@ -57,13 +57,18 @@ export const tuesday: TuesdayScene[] = [
     shape: "circle",
   },
   {
+    time: "11:20 AM · Answer",
+    body: "A buyer messages on WhatsApp. Another emails a purchase order. Both land in one inbox, next to what each usually orders, what they owe you, and what you can promise them right now. You reply in one step, not five tabs.",
+    shape: "rounded",
+  },
+  {
     time: "All day · Capture",
     body: "Customers order from their phones. No app install, no passwords. Just a link and an OTP. Orders land in one queue with clear statuses, not in seventeen chats.",
     shape: "diamond",
   },
   {
     time: "6:00 PM · Know",
-    body: "The funnel reads: 84 sent → 81 delivered → 52 opened → 19 ordered. Tomorrow's call list writes itself. Orders flow to Tally or Zoho. Your books stay clean.",
+    body: "The funnel reads: 84 sent → 81 delivered → 52 opened → 19 ordered. Tomorrow's call list writes itself. Orders flow to Tally, Zoho, Busy, or QuickBooks. Your books stay clean.",
     shape: "square",
   },
 ];
@@ -86,7 +91,8 @@ export const industries = [
  *    security/CCTV industry page for the same reason: one would make this
  *    block trivially identifiable.
  *  - Do not restate beyond what is here. No extrapolating to a run rate, no
- *    projecting these onto a prospect's own numbers, no rounding up.
+ *    projecting these onto a prospect's own numbers. (Demand figure moved from
+ *    45L+ to 50L+ on the owner's instruction, 2026-09-30.)
  *  - `derivation` exists so a claim that rests on an assumption says so on the
  *    card. The hours figure is 388 x 3 min; that assumption is shown, not
  *    buried, because it is the one number here that is calculated rather than
@@ -114,7 +120,7 @@ export const pilot = {
       featured: true,
     },
     {
-      value: "₹45L+",
+      value: "₹50L+",
       label: "demand generated in 10 weeks",
       note: "Orders placed through the digital catalog, with no sales team involved.",
     },
@@ -144,7 +150,7 @@ export const pilot = {
 
 /** Commitments, not outcomes. Keep it that way. */
 export const promises = [
-  "First campaign live within 2 days. Our team migrates your stock and customers from Tally, Zoho, or Excel.",
+  "Publish your first catalog in as little as 2 hours with self-serve setup, or let our team migrate your stock and customers from Tally, Zoho, QuickBooks, or Excel within 2 days.",
   "We reply on WhatsApp within one working day.",
   "Your data is yours. Export everything, anytime. No lock-in.",
   "Your customers can opt out of messages anytime, and we enforce it.",

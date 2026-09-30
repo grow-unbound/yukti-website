@@ -1,0 +1,214 @@
+/* Drawn from the app's Today view. Illustration, not a screenshot: every
+   value is token-driven so the mock follows the site theme. */
+
+.window {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr);
+  width: min(920px, 100%);
+  margin: 0 auto;
+  text-align: left;
+  border: 1px solid var(--yk-card-line);
+  background: var(--yk-card);
+  border-radius: var(--yk-radius-xl);
+  box-shadow: var(--yk-shadow-mock);
+  overflow: hidden;
+  min-height: 440px;
+}
+
+.label {
+  font-size: var(--yk-mk-105);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-sub);
+}
+
+.mono {
+  font-family: var(--yk-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── queue ── */
+
+.queue {
+  background: var(--yk-paper);
+  border-right: 1px solid var(--yk-card-line);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.queueHead {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.queueTitle {
+  font-size: var(--yk-mk-18);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.group {
+  margin-top: 8px;
+  font-size: var(--yk-mk-10);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-faint);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: var(--yk-radius-md);
+}
+
+.itemSelected {
+  background: var(--yk-copper-wash-soft);
+}
+
+.itemName {
+  display: block;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-semibold);
+}
+
+.itemMeta {
+  display: block;
+  font-size: var(--yk-mk-11);
+  color: var(--yk-sub);
+}
+
+.count {
+  flex: none;
+  min-width: 22px;
+  padding: 1px 7px;
+  text-align: center;
+  border-radius: var(--yk-radius-full);
+  background: var(--yk-surface);
+  font-size: var(--yk-mk-11);
+  font-weight: var(--yk-weight-semibold);
+}
+
+/* ── detail ── */
+
+.detail {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detailHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.detailName {
+  font-size: var(--yk-mk-18);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+}
+
+.orderLine {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.orderValue {
+  font-size: var(--yk-mk-h3);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+}
+
+.orderMeta {
+  font-size: var(--yk-mk-125);
+  color: var(--yk-sub);
+}
+
+.context {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-md);
+  background: var(--yk-card);
+}
+
+.context dt {
+  font-size: var(--yk-mk-10);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-sub);
+}
+
+.context dd {
+  margin: 3px 0 0;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-semibold);
+}
+
+.alert {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  border: 1px solid var(--yk-copper-banner-rule);
+  border-left: 3px solid var(--yk-copper);
+  background: var(--yk-copper-banner);
+  border-radius: var(--yk-radius-md);
+  font-size: var(--yk-mk-125);
+}
+
+.alertActions,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.actions {
+  margin-top: auto;
+}
+
+/* On phones the queue drops away: the selected item is the story, and the
+   two-pane layout would shrink both halves past legibility. */
+@media (max-width: 720px) {
+  .window {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+  .queue {
+    display: none;
+  }
+  .context {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
