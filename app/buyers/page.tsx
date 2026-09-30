@@ -71,7 +71,7 @@ export default function CustomersPage() {
             <p>
               A one-time code sent to your WhatsApp to confirm the phone number
               is yours. It replaces a password. There is nothing to remember and
-              nothing to install — the ordering page opens in your phone&apos;s
+              nothing to install, the ordering page opens in your phone&apos;s
               browser like any other link.
             </p>
           </section>
@@ -82,7 +82,7 @@ export default function CustomersPage() {
               Every promotional message carries an opt-out link. Tap it once and
               the promotional messages stop. You can also reply to your supplier
               directly and ask them to remove you. Businesses on Yukti cannot
-              send you more than one marketing message a day in any case — the
+              send you more than one marketing message a day in any case, the
               platform enforces that cap, not the sender.
             </p>
           </section>
@@ -92,7 +92,7 @@ export default function CustomersPage() {
             <p>
               Open the same link your supplier sent you and go to Orders. You
               will see what you ordered, what it cost, and where each order has
-              reached — received, confirmed, dispatched, delivered. You do not
+              reached, received, confirmed, dispatched, delivered. You do not
               need to call to ask.
             </p>
           </section>

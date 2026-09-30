@@ -1,4 +1,5 @@
 import { Heading } from "@/components/ui/Heading";
+import { CountUp } from "@/components/ui/CountUp";
 import { pilot } from "@/content/home";
 import s from "./PilotProof.module.css";
 
@@ -32,7 +33,9 @@ export function PilotProof() {
               key={stat.value + stat.label}
               className={`${s.card} ${"featured" in stat && stat.featured ? s.featured : ""}`}
             >
-              <p className={s.value}>{stat.value}</p>
+              <p className={s.value}>
+                <CountUp value={stat.value} />
+              </p>
               <p className={s.label}>{stat.label}</p>
               <p className={s.note}>{stat.note}</p>
               {"derivation" in stat && stat.derivation ? (

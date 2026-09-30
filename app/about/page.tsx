@@ -10,9 +10,9 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 import s from "@/components/ui/Prose.module.css";
 
 export const metadata = pageMetadata({
-  title: "About — the name, the belief, the ambition",
+  title: "About: the name, the belief, the ambition",
   description:
-    "Yukti means practical intelligence: the right move under constraint. Built alongside real operators, India-first, for the businesses that sell to businesses.",
+    "Yukti means practical intelligence: the right move under constraint. Built alongside real operators, for the businesses that sell to businesses.",
   path: "/about",
 });
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
         <PageHero
           eyebrow="About"
           title="Yukti (युक्ति)"
-          lede="Practical intelligence: the right move under constraint. From yuj, to join — everything joined into one working whole. Both meanings are the product."
+          lede="Practical intelligence: the right move under constraint. From yuj, to join, everything joined into one working whole. Both meanings are the product."
         />
 
         <div className={s.prose}>
@@ -57,8 +57,7 @@ export default function AboutPage() {
           <section>
             <h2>The ambition</h2>
             <p>
-              The operating layer modern businesses run, grow, and win on —
-              starting with the businesses that sell to businesses.
+              The operating layer modern businesses run, grow, and win on: starting with the businesses that sell to businesses.
             </p>
             <p>
               That is a long way off and we would rather say so. Today Yukti
@@ -81,7 +80,7 @@ export default function AboutPage() {
             </p>
             <p>
               India-first, and built to travel. Lakh and crore, GST and
-              WhatsApp, are in the foundations rather than bolted on — but the
+              WhatsApp, are in the foundations rather than bolted on, but the
               loop underneath them is not specific to any one market.
             </p>
           </section>

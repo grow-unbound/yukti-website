@@ -40,10 +40,8 @@
 .visual {
   margin-top: clamp(36px, 6vw, 60px);
   display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
@@ -51,175 +49,12 @@
   height: 0;
 }
 
-/* ── phone contents ── */
-
-.phoneHead {
-  padding: 14px 16px 10px;
-  border-bottom: 1px solid var(--yk-card-line);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.avatar {
-  flex: none;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--yk-radius-full);
-  background: var(--yk-copper-wash);
-  color: var(--yk-copper-text);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--yk-mk-11);
-  font-weight: var(--yk-weight-bold);
-}
-
-.supplierName {
-  display: block;
-  font-size: var(--yk-mk-135);
-  font-weight: var(--yk-weight-bold);
-  letter-spacing: var(--yk-tracking-body);
-}
-
-.supplierMeta {
-  display: block;
-  font-size: var(--yk-mk-11);
-  font-weight: var(--yk-weight-medium);
-  color: var(--yk-sub);
-}
-
-.campaignBanner {
-  margin: 12px 14px 0;
-  padding: 10px 12px;
-  border: 1px solid var(--yk-copper-banner-rule);
-  background: var(--yk-copper-banner);
-  border-radius: var(--yk-radius-md);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-
-.campaignTitle {
-  display: block;
-  font-size: var(--yk-mk-125);
-  font-weight: var(--yk-weight-bold);
-  color: var(--yk-copper-text);
-}
-
-.campaignSub {
-  display: block;
-  font-size: var(--yk-mk-105);
-  font-weight: var(--yk-weight-medium);
-  color: var(--yk-sub);
-}
-
-.campaignEnds {
-  font-family: var(--yk-font-mono);
-  font-size: var(--yk-mk-105);
-  color: var(--yk-copper-text);
-  white-space: nowrap;
-}
-
-.productList {
-  padding: 10px 14px 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.productRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border: 1px solid var(--yk-card-line);
-  border-radius: var(--yk-radius-md);
-  background: var(--yk-card);
-}
-
-.productCol {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  align-items: flex-start;
-}
-
-.productName {
-  font-size: var(--yk-mk-125);
-  font-weight: var(--yk-weight-semibold);
-  letter-spacing: var(--yk-tracking-body);
-}
-
-.productPrice {
-  font-size: var(--yk-mk-14);
-}
-
-/* ── cockpit crop + trust strip ── */
-
-.aside {
-  width: min(340px, 90vw);
-  align-self: center;
-  text-align: left;
-}
-
-.cockpit {
-  border: 1px solid var(--yk-card-line);
-  background: var(--yk-paper);
-  border-radius: 16px;
-  padding: 14px 16px;
-  box-shadow: var(--yk-shadow-card-lift);
-}
-
-.cockpitLabel {
-  font-size: var(--yk-mk-11);
-  font-weight: var(--yk-weight-medium);
-  letter-spacing: var(--yk-tracking-label);
-  text-transform: uppercase;
-  color: var(--yk-sub);
-  margin-bottom: 10px;
-}
-
-.cockpitGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-/* Label and value share one row, unlike the two stat tiles above it. */
-.funnelTile {
-  grid-column: 1 / -1;
-  background: var(--yk-card);
-  border: 1px solid var(--yk-card-line);
-  border-radius: var(--yk-radius-md);
-  padding: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-
-.funnelLabel {
-  font-size: var(--yk-mk-105);
-  font-weight: var(--yk-weight-medium);
-  letter-spacing: var(--yk-tracking-label);
-  text-transform: uppercase;
-  color: var(--yk-sub);
-}
-
-.funnelValue {
-  font-family: var(--yk-font-mono);
-  font-size: var(--yk-mk-13);
-  font-variant-numeric: tabular-nums;
-  color: var(--yk-ink);
-}
+/* ── trust strip ── */
 
 .trust {
-  margin-top: 18px;
+  margin-top: 22px;
   padding: 0 4px;
+  text-align: center;
 }
 
 .trustLabel {
@@ -230,7 +65,43 @@
 }
 
 .trustPills {
+  justify-content: center;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+/* First-load choreography. The h1 is deliberately left alone: it is the LCP
+   element, and animating it from zero opacity would delay the metric. The rest
+   follows it in quick succession. */
+@media (prefers-reduced-motion: no-preference) {
+  .sub,
+  .ctas,
+  .micro,
+  .visual,
+  .trust {
+    animation: rise 700ms var(--yk-ease) both;
+  }
+  .sub {
+    animation-delay: 60ms;
+  }
+  .ctas {
+    animation-delay: 140ms;
+  }
+  .micro {
+    animation-delay: 200ms;
+  }
+  .visual {
+    animation-delay: 260ms;
+  }
+  .trust {
+    animation-delay: 700ms;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
 }

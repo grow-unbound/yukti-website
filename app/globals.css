@@ -5,3 +5,62 @@
 
 @import url("../styles/tokens.css") layer(tokens);
 @import url("../styles/reset.css") layer(reset);
+
+/* Page transitions: a pure fade. The outgoing page fades quickly and the
+   incoming one eases in slightly slower, so the change reads as one movement
+   rather than a cut. No movement on purpose: the header is rendered per page
+   and would visibly slide with the content. */
+::view-transition-old(.page-fade) {
+  animation: 180ms var(--yk-ease, ease) both yk-page-out;
+}
+
+::view-transition-new(.page-fade) {
+  animation: 320ms var(--yk-ease, ease) both yk-page-in;
+}
+
+@keyframes yk-page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes yk-page-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-old(.page-fade),
+  ::view-transition-new(.page-fade) {
+    animation: none;
+  }
+}
+
+/* Scroll reveal (see components/chrome/Reveal.tsx). Elements are only ever
+   "pending" after hydration and only below the fold; the transition lives on
+   the "in" state so hiding is instant and showing eases. Opacity and transform
+   only, so nothing shifts. */
+[data-reveal-state="pending"] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+[data-reveal-state="in"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 800ms var(--yk-ease),
+    transform 800ms var(--yk-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal-state] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

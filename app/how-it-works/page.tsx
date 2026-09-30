@@ -8,7 +8,7 @@ import { breadcrumbLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "How it works — one Tuesday on Yukti",
+  title: "How it works: one Tuesday on Yukti",
   description:
     "Decide, reach, capture, know. A single day on Yukti, from building a campaign at 9am to reading the funnel at 6pm, with nothing to re-enter at month end.",
   path: "/how-it-works",

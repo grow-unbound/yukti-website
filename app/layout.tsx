@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/chrome/Footer";
+import { Reveal } from "@/components/chrome/Reveal";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { organizationLd, softwareApplicationLd } from "@/lib/jsonld";
 import { POSTHOG_HOST, POSTHOG_KEY, analyticsBootstrap } from "@/lib/analytics";
@@ -12,11 +14,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
   title: {
-    default: "Yukti — WhatsApp campaigns, rates & orders for distributors",
+    default: "Yukti: One inbox for every buyer enquiry, with full context",
     template: "%s · Yukti",
   },
   description:
-    "Yukti is the operating layer for Indian distributors: publish campaigns, reach every customer on WhatsApp, and take orders in an app they'll actually use.",
+    "Every WhatsApp message and email in one inbox, with buyer history, dues and live stock beside it. Plus a storefront so half your buyers stop asking.",
   applicationName: "Yukti",
   formatDetection: { telephone: false },
 };
@@ -41,8 +43,13 @@ export default function RootLayout({
         <a href="#main" className="skipLink">
           Skip to content
         </a>
-        {children}
+        {/* Route changes crossfade instead of snapping. Only the page content is
+            wrapped: the footer and scripts stay put. First loads do not
+            animate, so LCP is unaffected. See the .page-fade rules in
+            globals.css. */}
+        <ViewTransition default="page-fade">{children}</ViewTransition>
         <Footer />
+        <Reveal />
         {/* Server components — these land in the initial HTML response, so a
             crawler gets the full graph without executing any JavaScript. */}
         <JsonLd data={organizationLd()} />

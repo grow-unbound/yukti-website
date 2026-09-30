@@ -90,3 +90,37 @@
   color: var(--yk-sub);
   text-wrap: pretty;
 }
+
+.region {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 20px 28px;
+  text-align: center;
+  font-size: var(--yk-mk-125);
+  color: var(--yk-sub);
+}
+
+.region a {
+  color: var(--yk-ink);
+  text-decoration: underline;
+}
+
+/* Annual is preselected. The radios live in BillingToggle; these rules pick
+   which figure each plan card shows, with no script. */
+.plans:has(input[value="annual"]:checked) [data-billing="monthly"],
+.plans:has(input[value="monthly"]:checked) [data-billing="annual"] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sub {
+    animation: heroRise 700ms var(--yk-ease) 120ms both;
+  }
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}

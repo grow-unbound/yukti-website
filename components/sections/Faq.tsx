@@ -1,5 +1,6 @@
 import { Heading } from "@/components/ui/Heading";
-import { faq } from "@/content/faq";
+import { faqFor } from "@/content/faq";
+import type { Region } from "@/lib/region";
 import s from "./Faq.module.css";
 
 /**
@@ -11,7 +12,8 @@ import s from "./Faq.module.css";
  * open/closed semantics right for free, works with JS disabled, and removes a
  * client component. The +/− marker is a CSS pseudo-element.
  */
-export function Faq() {
+export function Faq({ region }: { region: Region }) {
+  const faq = faqFor(region);
   return (
     <section id="faq" className={s.section} data-yk-section="faq">
       <div className={s.inner}>

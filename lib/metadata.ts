@@ -34,7 +34,7 @@ const OG_IMAGE = {
   url: `${SITE_ORIGIN}/opengraph-image`,
   width: 1200,
   height: 630,
-  alt: "Yukti — run your whole business in one place. Then grow it.",
+  alt: "Yukti: one inbox for every buyer enquiry, with full context.",
 };
 
 export function pageMetadata({

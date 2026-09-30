@@ -139,3 +139,22 @@
   font-size: var(--yk-mk-125);
   color: var(--yk-faint);
 }
+
+/* First-load rise for everything under the page title. The h1 is the LCP
+   element and is left alone. */
+@media (prefers-reduced-motion: no-preference) {
+  .pageHeroInner > :not(h1) {
+    animation: heroRise 700ms var(--yk-ease) both;
+    animation-delay: 80ms;
+  }
+  .pageHeroInner > :not(h1) ~ :not(h1) {
+    animation-delay: 180ms;
+  }
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}

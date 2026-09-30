@@ -38,7 +38,7 @@ export const audienceNavItems: NavItem[] = [
   {
     href: "/sellers",
     label: "For B2B sellers",
-    note: "Distributors, wholesalers and stockists — the business running Yukti.",
+    note: "Distributors, wholesalers and stockists, the business running Yukti.",
   },
   {
     href: "/buyers",
@@ -79,6 +79,7 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
       { href: "/how-it-works", label: "How it works" },
       { href: "/pricing", label: "Pricing" },
       { href: "/integrations", label: "Integrations" },
+      { href: "/compare", label: "Compare" },
       { href: "/#faq", label: "FAQ" },
       { href: "/about", label: "About" },
     ],

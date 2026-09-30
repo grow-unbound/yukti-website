@@ -71,3 +71,27 @@
   max-width: 660px;
   text-wrap: pretty;
 }
+
+/* Smooth open and close. Where the browser supports animating to intrinsic
+   height, the answer eases; elsewhere it simply toggles, as before. */
+@supports (interpolate-size: allow-keywords) {
+  .item {
+    interpolate-size: allow-keywords;
+  }
+  .item::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition:
+      block-size 320ms var(--yk-ease),
+      content-visibility 320ms allow-discrete;
+  }
+  .item[open]::details-content {
+    block-size: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item::details-content {
+    transition: none;
+  }
+}

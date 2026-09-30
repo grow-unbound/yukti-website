@@ -17,7 +17,7 @@ import { ImageResponse } from "next/og";
  */
 
 export const alt =
-  "Yukti — run your whole business in one place. Then grow it.";
+  "Yukti: one inbox for every buyer enquiry, with full context.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -63,10 +63,10 @@ export default function OpengraphImage() {
               maxWidth: 940,
             }}
           >
-            Run your whole business in one place. Then grow it.
+            Stop losing 3-5 minutes to tab switches on every customer enquiry.
           </span>
           <span style={{ fontSize: 30, fontWeight: 500, color: SUB }}>
-            Campaigns · WhatsApp · Orders · Works with Tally and Zoho
+            WhatsApp · Email · Buyer and stock context · Storefront
           </span>
         </div>
       </div>

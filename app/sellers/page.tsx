@@ -9,13 +9,13 @@ import { pageMetadata } from "@/lib/metadata";
 import s from "@/components/ui/Prose.module.css";
 
 export const metadata = pageMetadata({
-  title: "For B2B sellers — distributors, wholesalers and stockists",
+  title: "For B2B sellers: distributors, wholesalers and stockists",
   description:
     "If you sell to other businesses on relationships, rates and repeat orders, Yukti is the side of the product you run. Catalog, rates, campaigns and orders in one place.",
   path: "/sellers",
   ogTitle: "Yukti for the business doing the selling",
   ogDescription:
-    "Distributors, wholesalers and stockists. Your catalog, your rates, your customers, your orders — in one place.",
+    "Distributors, wholesalers and stockists. Your catalog, your rates, your customers, your orders, in one place.",
 });
 
 /**
@@ -38,7 +38,7 @@ export default function SellersPage() {
         <PageHero
           eyebrow="For B2B sellers"
           title="You're the business doing the selling"
-          lede="Distributors, wholesalers and stockists who sell to other businesses on relationships, rates and repeat orders. Yukti is the side of the product you run — your catalog, your rates, your customers, your orders."
+          lede="Distributors, wholesalers and stockists who sell to other businesses on relationships, rates and repeat orders. Yukti is the side of the product you run, your catalog, your rates, your customers, your orders."
         />
 
         <div className={s.prose}>
@@ -80,7 +80,7 @@ export default function SellersPage() {
               <li>
                 <strong>WhatsApp engagement.</strong> Reach everyone in an area,
                 everyone who hasn&apos;t ordered in 30 days, or everyone with
-                dues — computed from your own data, sent one to one, tracked.
+                dues, computed from your own data, sent one to one, tracked.
               </li>
               <li>
                 <strong>Orders.</strong> Enquiry to delivered in one queue with

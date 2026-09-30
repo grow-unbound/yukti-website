@@ -36,9 +36,9 @@ export function CampaignsMock() {
       </div>
 
       <div className={s.card}>
-        <MockRow label="Name" value="Monsoon Stock-Up" bordered={false} />
-        <MockRow label="Customer group" value="A-class · Hyderabad (84)" bordered={false} />
-        <MockRow label="Valid" value={<span className={s.tnum}>5 Jul – 12 Jul</span>} bordered={false} />
+        <MockRow label="Name" value="Autumn Stock-Up" bordered={false} />
+        <MockRow label="Customer group" value="Wholesale A · North region (84)" bordered={false} />
+        <MockRow label="Valid" value={<span className={s.tnum}>5 Oct to 12 Oct</span>} bordered={false} />
       </div>
 
       <div className={`${s.card} ${s.table}`}>
@@ -69,13 +69,13 @@ export function CampaignsMock() {
 export function WhatsappMock() {
   return (
     <MockFigure
-      description="A WhatsApp targeting screen: filters for customers who haven't ordered in 30 days and are in Secunderabad, matching 46 customers with 3 opted out and excluded, above a re-engagement message template."
+      description="A WhatsApp targeting screen: filters for customers who haven't ordered in 30 days and are in the East region, matching 46 customers with 3 opted out and excluded, above a re-engagement message template."
       className={f.mockShell}
     >
       <div className={s.headTitle}>Send to</div>
       <div className={s.pillRow}>
         <Pill active>Hasn&apos;t ordered in 30 days</Pill>
-        <Pill active>Area: Secunderabad</Pill>
+        <Pill active>Area: East region</Pill>
         <Pill>Has dues</Pill>
         <Pill>Customer group</Pill>
       </div>
@@ -86,7 +86,7 @@ export function WhatsappMock() {
       <div className={s.card}>
         <div className={s.cardLabel}>Template · Re-engagement</div>
         <div className={s.bubble}>
-          Namaste Ramesh ji — new monsoon stock has landed at Anand Agencies.
+          Hi Daniel, new autumn stock has landed at Harbor Supply.
           Your rates are ready in your catalog. Tap to see what&apos;s new.
         </div>
       </div>
@@ -107,7 +107,7 @@ export function OrderingAppMock() {
       className={f.mockShell}
     >
       <div className={s.head}>
-        <span className={s.headTitle}>Sri Balaji Electricals</span>
+        <span className={s.headTitle}>Summit Electrical</span>
         <StatusChip glyph="✓" tone="success">
           Verified
         </StatusChip>
@@ -134,10 +134,10 @@ export function OrderingAppMock() {
 
 export function OrdersMock() {
   const orders = [
-    { id: "YK-2026-00214", name: "Sri Balaji Electricals", amt: "18,640", glyph: "○", tone: "info" as const, status: "Received" },
-    { id: "YK-2026-00213", name: "Kumar Traders", amt: "7,120", glyph: "✓", tone: "copper" as const, status: "Confirmed" },
-    { id: "YK-2026-00211", name: "Deccan Hardware", amt: "42,300", glyph: "→", tone: "info" as const, status: "Dispatched" },
-    { id: "YK-2026-00208", name: "Ramesh Agencies", amt: "9,450", glyph: "✓", tone: "success" as const, status: "Delivered" },
+    { id: "YK-2026-00214", name: "Summit Electrical", amt: "18,640", glyph: "○", tone: "info" as const, status: "Received" },
+    { id: "YK-2026-00213", name: "Lakeside Traders", amt: "7,120", glyph: "✓", tone: "copper" as const, status: "Confirmed" },
+    { id: "YK-2026-00211", name: "Ridge Hardware", amt: "42,300", glyph: "→", tone: "info" as const, status: "Dispatched" },
+    { id: "YK-2026-00208", name: "Baker Wholesale", amt: "9,450", glyph: "✓", tone: "success" as const, status: "Delivered" },
   ];
   return (
     <MockFigure
@@ -167,17 +167,17 @@ export function OrdersMock() {
 export function RatesMock() {
   return (
     <MockFigure
-      description="Customer groups with their own pricelists: A-class Hyderabad, B-class Secunderabad, and a project-rates group, each showing how many customers it covers."
+      description="Customer groups with their own pricelists: Wholesale A North, Wholesale B East, and a project-rates group, each showing how many customers it covers."
       className={f.mockShell}
     >
       <div className={s.headTitle}>Customer groups</div>
       <div className={s.card}>
-        <MockRow label="A-class · Hyderabad" value={<span className={s.tnum}>84 customers</span>} />
-        <MockRow label="B-class · Secunderabad" value={<span className={s.tnum}>46 customers</span>} />
+        <MockRow label="Wholesale A · North" value={<span className={s.tnum}>84 customers</span>} />
+        <MockRow label="Wholesale B · East" value={<span className={s.tnum}>46 customers</span>} />
         <MockRow label="Project rates" value={<span className={s.tnum}>12 customers</span>} bordered={false} />
       </div>
       <div className={s.card}>
-        <div className={s.cardLabel}>Pricelist · A-class</div>
+        <div className={s.cardLabel}>Pricelist · Wholesale A</div>
         <MockRow label="FR Wire 1.5 sq mm" value={<Price value="1,289" />} bordered={false} />
         <MockRow label="Valid until" value={<span className={s.tnum}>31 Mar 2027</span>} bordered={false} />
       </div>
@@ -188,23 +188,23 @@ export function RatesMock() {
 export function IntegrationsMock() {
   return (
     <MockFigure
-      description="Integration status: Zoho Books and Zoho Inventory connected with two-way sync, Tally exporting clean CSV, and Busy marked coming soon."
+      description="Integration status: Zoho connected with two-way sync, QuickBooks connected, Tally exporting clean CSV, and Busy connected."
       className={f.mockShell}
     >
       <div className={s.headTitle}>Connected</div>
       <div className={s.card}>
         <MockRow
-          label="Zoho Books"
+          label="Zoho"
           value={<StatusChip glyph="✓" tone="success">Two-way</StatusChip>}
         />
         <MockRow
-          label="Zoho Inventory"
-          value={<StatusChip glyph="✓" tone="success">Two-way</StatusChip>}
+          label="QuickBooks"
+          value={<StatusChip glyph="✓" tone="success">Connected</StatusChip>}
         />
         <MockRow label="Tally Prime" value={<MockButton tone="ghost">Download CSV</MockButton>} />
         <MockRow
           label="Busy"
-          value={<StatusChip glyph="◷" tone="info">Coming soon</StatusChip>}
+          value={<StatusChip glyph="✓" tone="success">Connected</StatusChip>}
           bordered={false}
         />
       </div>
@@ -215,7 +215,39 @@ export function IntegrationsMock() {
   );
 }
 
+export function ContextMock() {
+  return (
+    <MockFigure
+      description="A WhatsApp message from MobileMart asking for 500 units of CAT6 cable at the usual rate, shown beside what they usually order, what they owe, their price list and live stock."
+      className={f.mockShell}
+    >
+      <div className={s.head}>
+        <span className={s.headTitle}>MobileMart</span>
+        <StatusChip glyph="●" tone="success">
+          WhatsApp
+        </StatusChip>
+      </div>
+      <div className={s.card}>
+        <div className={s.bubble}>
+          Can you do 500 CAT6 cable at the usual rate? Need it by Friday.
+        </div>
+      </div>
+      <div className={s.card}>
+        <MockRow label="Usually orders" value="Cables, adapters" />
+        <MockRow label="Owes you" value={<Price value="22,000" />} />
+        <MockRow label="Their rate" value={<Price value="41" unit="/ unit" />} />
+        <MockRow
+          label="In stock now"
+          value={<span className={s.tnum}>460 (40 at Warehouse B)</span>}
+          bordered={false}
+        />
+      </div>
+    </MockFigure>
+  );
+}
+
 export const featureMocks = {
+  "feature-inbox": <ContextMock />,
   "feature-campaigns": <CampaignsMock />,
   "feature-whatsapp": <WhatsappMock />,
   "feature-app": <OrderingAppMock />,

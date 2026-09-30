@@ -8,7 +8,7 @@ import { DEMO_URL } from "@/lib/whatsapp";
 import s from "@/components/ui/Prose.module.css";
 
 export const metadata = pageMetadata({
-  title: "For accountants — less punching, more reviewing",
+  title: "For accountants: less punching, more reviewing",
   description:
     "Yukti is where your client runs their selling. You get the output: clean items, parties and vouchers, synced to Zoho or exported for Tally. It is not accounting software.",
   path: "/accountants",
@@ -44,20 +44,20 @@ export default function AccountantsPage() {
             </p>
             <ul>
               <li>
-                <strong>Items</strong> — product master with codes, units, tax
+                <strong>Items</strong>: product master with codes, units, tax
                 rates and HSN where the client has entered it.
               </li>
               <li>
-                <strong>Parties</strong> — customer master with GSTIN, billing
+                <strong>Parties</strong>: customer master with GSTIN, billing
                 and shipping details, and credit terms.
               </li>
               <li>
-                <strong>Sales vouchers and invoices</strong> — with the rate
+                <strong>Sales vouchers and invoices</strong>: with the rate
                 that was actually applied, resolved from the client&apos;s own
                 pricelist rather than typed in per order.
               </li>
               <li>
-                <strong>Estimates</strong> — so the enquiries that became
+                <strong>Estimates</strong>: so the enquiries that became
                 orders, and the ones that didn&apos;t, are both on record.
               </li>
             </ul>
@@ -101,7 +101,7 @@ export default function AccountantsPage() {
           <section>
             <h2>Have a client drowning in WhatsApp orders?</h2>
             <p>
-              Send them our way, or talk to us first — whichever you would
+              Send them our way, or talk to us first, whichever you would
               rather. We will not pitch them anything that makes your job
               harder.
             </p>

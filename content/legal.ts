@@ -24,7 +24,7 @@ export const privacy = {
   title: "Privacy policy",
   updated: "Last updated: 31 July 2026 · Effective date: 31 July 2026",
   summary:
-    "Yukti is the software distributors use to run their catalog, pricing, campaigns, and orders, and that their customers use to browse and order. We collect what's needed to run that, nothing more. Your business owns its data; you can export or delete it anytime. Every marketing message we help you send carries an opt-out, and we enforce it platform-wide. This summary isn't the whole policy — read on for the details, but this is the shape of it.",
+    "Yukti is the software distributors use to run their catalog, pricing, campaigns, and orders, and that their customers use to browse and order. We collect what's needed to run that, nothing more. Your business owns its data; you can export or delete it anytime. Every marketing message we help you send carries an opt-out, and we enforce it platform-wide. This summary isn't the whole policy, read on for the details, but this is the shape of it.",
   sections: [
     {
       h: "1. Who this applies to",
@@ -33,8 +33,8 @@ export const privacy = {
         {
           kind: "ul",
           items: [
-            "Visitors to useyukti.in — anyone browsing this website or contacting us about a demo.",
-            "Users of the Yukti platform — businesses that run their operations on Yukti, their team members, and the business customers those sellers add to their account who use the ordering app.",
+            "Visitors to useyukti.in, anyone browsing this website or contacting us about a demo.",
+            "Users of the Yukti platform, businesses that run their operations on Yukti, their team members, and the business customers those sellers add to their account who use the ordering app.",
           ],
         },
       ],
@@ -42,7 +42,7 @@ export const privacy = {
     {
       h: "2. What we collect",
       blocks: [
-        { kind: "p", text: "On this website: basic analytics — pages visited, time on page, general location at city or country level, device type. This is collected to understand what's working on the site, not to identify you personally. If you contact us on WhatsApp, we hold that conversation as we would any business enquiry." },
+        { kind: "p", text: "On this website: basic analytics, pages visited, time on page, general location at city or country level, device type. This is collected to understand what's working on the site, not to identify you personally. If you contact us on WhatsApp, we hold that conversation as we would any business enquiry." },
         { kind: "p", text: "On the Yukti platform:" },
         {
           kind: "ul",
@@ -64,7 +64,7 @@ export const privacy = {
           kind: "ul",
           items: [
             "To operate the platform: authentication, order processing, catalog and pricing management, reporting.",
-            "To send the messages a business asks Yukti to send on their behalf — campaigns, order updates, payment reminders — always through the consent model in Section 4.",
+            "To send the messages a business asks Yukti to send on their behalf, campaigns, order updates, payment reminders, always through the consent model in Section 4.",
             "To improve the product. Understanding usage patterns helps us build features that matter, not to build profiles for advertising. Yukti does not run advertising and does not share platform data with advertisers.",
             "To provide support: responding to questions and resolving issues.",
             "To meet legal obligations, including tax, accounting, and regulatory requirements applicable in India.",
@@ -80,7 +80,7 @@ export const privacy = {
           kind: "ul",
           items: [
             "A business's customers are added to Yukti by that business, not by signing up themselves. When a customer first logs in via WhatsApp OTP, they explicitly consent to receive order-related and marketing communications from that business through Yukti.",
-            "Every marketing message includes a clear opt-out. Opting out is one tap, and it is enforced platform-wide — once a customer opts out, no business on Yukti can send them further marketing messages, only transactional ones tied to an order they placed themselves.",
+            "Every marketing message includes a clear opt-out. Opting out is one tap, and it is enforced platform-wide, once a customer opts out, no business on Yukti can send them further marketing messages, only transactional ones tied to an order they placed themselves.",
             "We cap marketing messages at one per customer per day, regardless of how many campaigns a business runs. This is enforced by the platform, not left to individual sellers' discretion.",
             "Customers can see who has access to their data at any time, and can request it be corrected or removed by contacting the business directly, or by contacting us.",
           ],
@@ -108,7 +108,7 @@ export const privacy = {
         {
           kind: "ul",
           items: [
-            "Your business owns its data. Catalog, pricing, customer lists, order history — all of it is yours.",
+            "Your business owns its data. Catalog, pricing, customer lists, order history, all of it is yours.",
             "You can export your data at any time, in full, without needing to ask us for a special export.",
             "You can request deletion of your account and associated data by contacting us. We'll confirm what's deleted and what we're required to retain, for example financial records we're legally obligated to keep under Indian tax law, and for how long.",
             "If your business stops using Yukti, we retain data for a limited period in case you return, then delete it. Details available on request.",
@@ -152,7 +152,7 @@ export const terms = {
   title: "Terms of service",
   updated: "Last updated: 31 July 2026 · Effective date: 31 July 2026",
   summary:
-    "These terms cover using Yukti as a business — running your catalog, pricing, and orders — and using useyukti.in. You're responsible for the accuracy of what you enter and for having the right to message your own customers. We're responsible for keeping the platform running, keeping your data yours, and being straightforward about what Yukti does and doesn't do.",
+    "These terms cover using Yukti as a business, running your catalog, pricing, and orders, and using useyukti.in. You're responsible for the accuracy of what you enter and for having the right to message your own customers. We're responsible for keeping the platform running, keeping your data yours, and being straightforward about what Yukti does and doesn't do.",
   sections: [
     {
       h: "1. Acceptance of terms",
@@ -163,7 +163,7 @@ export const terms = {
     {
       h: "2. What Yukti is",
       blocks: [
-        { kind: "p", text: "Yukti is a platform that helps businesses that sell to other businesses manage their catalog, pricing, customer relationships, campaigns, and orders, and gives their customers a self-serve way to browse and order. Yukti is not accounting software, does not file taxes on your behalf, and does not make journal entries. It feeds clean, structured data to the accounting tools you already use — Tally, Zoho Books, Zoho Inventory — it doesn't replace them." },
+        { kind: "p", text: "Yukti is a platform that helps businesses that sell to other businesses manage their catalog, pricing, customer relationships, campaigns, and orders, and gives their customers a self-serve way to browse and order. Yukti is not accounting software, does not file taxes on your behalf, and does not make journal entries. It feeds clean, structured data to the accounting tools you already use, Tally, Zoho Books, Zoho Inventory, it doesn't replace them." },
       ],
     },
     {
@@ -186,9 +186,9 @@ export const terms = {
         {
           kind: "ul",
           items: [
-            "You own your business data. Catalog, pricing, customer lists, orders — Yukti stores it on your behalf; it doesn't become ours.",
+            "You own your business data. Catalog, pricing, customer lists, orders, Yukti stores it on your behalf; it doesn't become ours.",
             "You are responsible for the customers you add to Yukti and the consent you have to message them. When you add a customer and enable them for the ordering app or campaigns, you're representing that you have a legitimate business relationship with them and the right to communicate with them for that purpose. Yukti provides the consent and opt-out mechanisms; you're responsible for using them honestly.",
-            "You are responsible for the accuracy of pricing, stock, and order information you publish through Yukti. Yukti is a tool for managing that information — it doesn't verify or guarantee its accuracy on your behalf.",
+            "You are responsible for the accuracy of pricing, stock, and order information you publish through Yukti. Yukti is a tool for managing that information, it doesn't verify or guarantee its accuracy on your behalf.",
           ],
         },
       ],
