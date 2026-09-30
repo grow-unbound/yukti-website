@@ -88,12 +88,12 @@ export function softwareApplicationLd() {
   };
 }
 
-export function faqLd() {
+export function faqLd(items: { q: string; a: string }[] = faq) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${SITE_ORIGIN}/#faq`,
-    mainEntity: faq.map((item) => ({
+    mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: { "@type": "Answer", text: item.a },

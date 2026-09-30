@@ -1,0 +1,67 @@
+.scroll {
+  max-width: 1060px;
+  margin: 0 auto;
+  overflow-x: auto;
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-lg);
+  background: var(--yk-card);
+}
+
+.scroll:focus-visible {
+  outline: 2px solid var(--yk-ink);
+  outline-offset: 2px;
+}
+
+.table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-size: var(--yk-mk-14);
+  line-height: 1.55;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 14px 18px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table thead th {
+  font-size: var(--yk-mk-12);
+  font-weight: var(--yk-weight-semibold);
+  letter-spacing: var(--yk-tracking-label);
+  text-transform: uppercase;
+  color: var(--yk-sub);
+  background: var(--yk-paper);
+}
+
+.table thead .yuktiHead {
+  color: var(--yk-copper-text);
+}
+
+.corner {
+  width: 22%;
+}
+
+.rowHead {
+  width: 22%;
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-ink);
+}
+
+.table td {
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+}
+
+.table .yukti {
+  color: var(--yk-ink);
+  background: var(--yk-copper-wash-soft);
+}

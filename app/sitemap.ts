@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { competitors } from "@/content/compare";
 import { industries } from "@/content/industries";
 import { SITE_ORIGIN } from "@/lib/site";
 
@@ -16,6 +17,12 @@ const ROUTES: { path: string; priority: number; changeFrequency: "weekly" | "mon
   ...industries.map((i) => ({
     path: `/industries/${i.slug}`,
     priority: 0.8,
+    changeFrequency: "monthly" as const,
+  })),
+  { path: "/compare", priority: 0.7, changeFrequency: "monthly" },
+  ...competitors.map((c) => ({
+    path: `/compare/${c.slug}`,
+    priority: 0.7,
     changeFrequency: "monthly" as const,
   })),
   { path: "/integrations", priority: 0.7, changeFrequency: "monthly" },
