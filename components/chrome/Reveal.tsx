@@ -22,10 +22,10 @@ import { useEffect } from "react";
 
 // Trigger line, as a fraction of the viewport height measured from the top.
 // An element reveals once its top has travelled above this line. Set low on
-// the screen (92%) so nothing sits blank in view: the usual range in scroll
+// the screen (85%) so nothing sits blank in view: the usual range in scroll
 // libraries is 80 to 90% (AOS, ScrollTrigger), and going lower reads as content
 // failing to load.
-const TRIGGER = 0.92;
+const TRIGGER = 0.85;
 const STAGGER_MS = 110;
 const MAX_STAGGER = 4;
 const SETTLE_MS = 1500;
@@ -34,6 +34,10 @@ function isCollection(el: Element): boolean {
   const n = el.children.length;
   if (n < 2) return false;
   if (el.tagName === "UL" || el.tagName === "OL") return true;
+  // A run of disclosure rows (the FAQ) is a list even though it is a plain div.
+  if (n >= 3 && Array.from(el.children).every((c) => c.tagName === "DETAILS")) {
+    return true;
+  }
   if (n < 3) return false;
   const display = getComputedStyle(el).display;
   return display === "grid" || display === "flex";
@@ -90,34 +94,56 @@ export function Reveal() {
     if (pending.length === 0) return;
 
     const timers: number[] = [];
+    const remaining = new Set<Element>(pending);
+
+    const show = (el: Element, delay: number) => {
+      if (!remaining.delete(el)) return;
+      io.unobserve(el);
+      (el as HTMLElement).style.transitionDelay = `${delay}ms`;
+      el.setAttribute("data-reveal-state", "in");
+      // Hand the element back to its own styles (hover lifts and so on).
+      timers.push(
+        window.setTimeout(() => {
+          el.removeAttribute("data-reveal-state");
+          (el as HTMLElement).style.transitionDelay = "";
+        }, SETTLE_MS)
+      );
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
-        const visible = entries
+        entries
           .filter((e) => e.isIntersecting)
           .map((e) => e.target)
           .sort((a, b) =>
             a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1
-          );
-        visible.forEach((el, i) => {
-          io.unobserve(el);
-          (el as HTMLElement).style.transitionDelay = `${
-            Math.min(i, MAX_STAGGER) * STAGGER_MS
-          }ms`;
-          el.setAttribute("data-reveal-state", "in");
-          // Hand the element back to its own styles (hover lifts and so on).
-          timers.push(
-            window.setTimeout(() => {
-              el.removeAttribute("data-reveal-state");
-              (el as HTMLElement).style.transitionDelay = "";
-            }, SETTLE_MS)
-          );
-        });
+          )
+          .forEach((el, i) => show(el, Math.min(i, MAX_STAGGER) * STAGGER_MS));
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+      { rootMargin: "0px 0px -15% 0px", threshold: 0.05 }
     );
+
+    // A jump (an anchor link, a fling, the End key) can carry the reader past
+    // elements without the observer ever seeing them on screen. Anything left
+    // wholly above the viewport is shown at once, so scrolling back up never
+    // finds blank sections.
+    let raf = 0;
+    const sweep = () => {
+      raf = 0;
+      remaining.forEach((el) => {
+        if (el.getBoundingClientRect().bottom < 0) show(el, 0);
+      });
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(sweep);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     pending.forEach((el) => io.observe(el));
 
     return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
       io.disconnect();
       timers.forEach((t) => window.clearTimeout(t));
       // Never leave anything hidden if we are torn down mid-flight.

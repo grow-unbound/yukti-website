@@ -13,7 +13,7 @@ import {
 } from "@/components/sections/featureMocks";
 import { features } from "@/content/features";
 import { industries, industryBySlug } from "@/content/industries";
-import { breadcrumbLd, faqLd } from "@/lib/jsonld";
+import { breadcrumbLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 import s from "./page.module.css";
 
@@ -116,7 +116,6 @@ export default async function IndustryPage({
           { name: industry.name, path: `/industries/${industry.slug}` },
         ])}
       />
-      <JsonLd data={faqLd()} />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import { faq } from "@/content/faq";
 import { LITE } from "@/content/plans";
 import { REGION_LABEL } from "./region";
 import { CONTACT_LANGUAGES, SITE_ORIGIN, WHATSAPP_NUMBER } from "./site";
@@ -88,7 +87,7 @@ export function softwareApplicationLd() {
   };
 }
 
-export function faqLd(items: { q: string; a: string }[] = faq) {
+export function faqLd(items: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",

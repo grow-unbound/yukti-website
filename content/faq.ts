@@ -10,12 +10,16 @@
  * Copy is verbatim from the export, which is the approved source of truth.
  */
 
+import { LITE } from "@/content/plans";
+import type { Region } from "@/lib/region";
+
 export type FaqItem = {
   q: string;
-  a: string;
+  /** A fixed answer, or one written for the visitor's region. */
+  a: string | ((region: Region) => string);
 };
 
-export const faq: FaqItem[] = [
+const items: FaqItem[] = [
   {
     q: "Do my customers need to install an app?",
     a: "No. They open a link from WhatsApp or email, verify with an OTP, and order in the browser. Any phone works.",
@@ -34,7 +38,8 @@ export const faq: FaqItem[] = [
   },
   {
     q: "What does it cost?",
-    a: "Plans are sized by how many of your customers actively use Yukti each month. You pay as adoption grows, not before. Lite starts at ₹5,000 a month in India, €300 a month in the EU, and $300 a month in the rest of the world. For the rest, talk to us for a number. Most businesses compare it to a fraction of one salesperson’s salary.",
+    a: (r) =>
+      `Plans are sized by how many of your customers actively use Yukti each month. You pay as adoption grows, not before. Lite starts at ${LITE[r].price} a month, or ${LITE[r].annualPrice} a year. For the rest, talk to us for a number. Most businesses compare it to a fraction of one salesperson’s salary.`,
   },
   {
     q: "How fast is setup?",
@@ -62,6 +67,12 @@ export const faq: FaqItem[] = [
   },
   {
     q: "Does pricing change by region or currency?",
-    a: "Yes. Lite is ₹5,000 a month in India, €300 a month in the EU, and $300 a month in the rest of the world. Other plans are quoted to your catalog size, in the currency of your region.",
+    a: (r) =>
+      `Yes. Pricing is set by region and shown in your local currency. For you, Lite is ${LITE[r].price} a month, or ${LITE[r].annualPrice} a year. Other plans are quoted to your catalog size. You can switch region on the pricing page.`,
   },
 ];
+
+/** The FAQ as the visitor's region should read it: every answer a plain string. */
+export function faqFor(region: Region): { q: string; a: string }[] {
+  return items.map(({ q, a }) => ({ q, a: typeof a === "function" ? a(region) : a }));
+}
