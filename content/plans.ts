@@ -4,7 +4,7 @@
  * Lite is the only tier with a public number — it is the self-serve
  * acquisition rung and needs no sales call. The other three genuinely require
  * a conversation to price honestly (catalog size and migration scope), so
- * they stay ₹-on-request.
+ * they stay price-on-request.
  *
  * The annual figure is ten months' worth: ₹50,000 against ₹60,000 billed
  * monthly. Say that plainly rather than making the visitor do the arithmetic.
@@ -17,6 +17,8 @@
  * from the design export. The brief still marks them directional.
  */
 
+import type { Region } from "@/lib/region";
+
 export type Plan = {
   name: string;
   blurb: string;
@@ -28,29 +30,28 @@ export type Plan = {
   rows: { label: string; value: string }[];
 };
 
-export const plans: Plan[] = [
+const basePlans: Plan[] = [
   {
     name: "Lite",
     blurb: "WhatsApp engagement only",
-    price: "₹5,000",
-    priceNote: "per month, or ₹50,000 a year — two months free",
+    price: "",
     cta: { label: "Use Yukti now", kind: "signup" },
     rows: [
-      { label: "Ordering app", value: "—" },
-      { label: "Locations", value: "—" },
+      { label: "Ordering app", value: "-" },
+      { label: "Locations", value: "-" },
       { label: "Active customers", value: "Unlimited contacts" },
-      { label: "Transactions / month", value: "—" },
-      { label: "Campaigns, rates, orders", value: "—" },
+      { label: "Transactions / month", value: "-" },
+      { label: "Campaigns, rates, orders", value: "-" },
       { label: "WhatsApp targeting & tracking", value: "✓" },
       { label: "Business insights", value: "✓" },
-      { label: "Tally / Zoho integrations", value: "✓" },
+      { label: "Zoho, Tally, Busy, QuickBooks", value: "✓" },
       { label: "Onboarding & support", value: "Self-serve" },
     ],
   },
   {
     name: "Starter",
     blurb: "The full platform",
-    price: "₹ on request",
+    price: "Price on request",
     cta: { label: "Talk to us", kind: "demo" },
     rows: [
       { label: "Ordering app", value: "✓" },
@@ -60,14 +61,14 @@ export const plans: Plan[] = [
       { label: "Campaigns, rates, orders", value: "✓" },
       { label: "WhatsApp targeting & tracking", value: "✓" },
       { label: "Business insights", value: "✓" },
-      { label: "Tally / Zoho integrations", value: "✓" },
+      { label: "Zoho, Tally, Busy, QuickBooks", value: "✓" },
       { label: "Onboarding & support", value: "Assisted" },
     ],
   },
   {
     name: "Growth",
     blurb: "The full platform",
-    price: "₹ on request",
+    price: "Price on request",
     featured: true,
     cta: { label: "Talk to us", kind: "demo" },
     rows: [
@@ -78,14 +79,14 @@ export const plans: Plan[] = [
       { label: "Campaigns, rates, orders", value: "✓" },
       { label: "WhatsApp targeting & tracking", value: "✓" },
       { label: "Business insights", value: "✓" },
-      { label: "Tally / Zoho integrations", value: "✓" },
+      { label: "Zoho, Tally, Busy, QuickBooks", value: "✓" },
       { label: "Onboarding & support", value: "Assisted migration" },
     ],
   },
   {
     name: "Scale",
     blurb: "The full platform",
-    price: "₹ on request",
+    price: "Price on request",
     cta: { label: "Talk to us", kind: "demo" },
     rows: [
       { label: "Ordering app", value: "✓" },
@@ -95,11 +96,39 @@ export const plans: Plan[] = [
       { label: "Campaigns, rates, orders", value: "✓" },
       { label: "WhatsApp targeting & tracking", value: "✓" },
       { label: "Business insights", value: "✓" },
-      { label: "Tally / Zoho integrations", value: "✓" },
+      { label: "Zoho, Tally, Busy, QuickBooks", value: "✓" },
       { label: "Onboarding & support", value: "White-glove" },
     ],
   },
 ];
+
+/**
+ * Lite, quoted per region. The three figures are the owner's; the annual
+ * discount is stated only for India, where it was supplied. Do not invent
+ * annual figures for the others.
+ */
+export const LITE: Record<
+  Region,
+  { price: string; amount: string; currency: string; priceNote: string }
+> = {
+  in: {
+    price: "₹5,000",
+    amount: "5000",
+    currency: "INR",
+    priceNote: "per month, or ₹50,000 a year, two months free",
+  },
+  eu: { price: "€300", amount: "300", currency: "EUR", priceNote: "per month" },
+  row: { price: "$300", amount: "300", currency: "USD", priceNote: "per month" },
+};
+
+export function plansFor(region: Region): Plan[] {
+  const lite = LITE[region];
+  return basePlans.map((plan) =>
+    plan.name === "Lite"
+      ? { ...plan, price: lite.price, priceNote: lite.priceNote }
+      : plan
+  );
+}
 
 export const pricingBlocks = [
   {
@@ -111,7 +140,7 @@ export const pricingBlocks = [
     p: "Every plan includes a monthly credit bundle. Beyond that, transparent per-message credits. Top up anytime, pay for what you send. Meta charges per message; we pass it through with a clear markup, never hidden in your plan.",
   },
   {
-    h: "Why ₹ on request above Lite?",
+    h: "Why no price above Lite?",
     p: "Your number depends on catalog size and migration scope. One call, one number, and it will make sense next to a fraction of one salesperson's salary.",
   },
 ];

@@ -10,14 +10,14 @@ import s from "@/components/ui/Prose.module.css";
 import p from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Integrations — Tally, Zoho Books, Zoho Inventory",
+  title: "Integrations: Zoho, Tally, Busy, QuickBooks",
   description:
-    "Yukti fits your stack. Two-way Zoho sync, Tally-ready CSV exports, Busy coming soon. Included in every plan, including Lite.",
+    "Start today without connecting anything, then link Zoho, Tally, Busy or QuickBooks when you are ready. Included in every plan, including Lite.",
   path: "/integrations",
 });
 
 /**
- * Not a main-nav item, deliberately. With three connectors live it is too thin
+ * Not a main-nav item, deliberately. With four connectors live it is too thin
  * to hold one of four nav slots — it stays reachable from the home feature
  * section and the footer. Revisit when the depth justifies the click.
  *
@@ -25,32 +25,32 @@ export const metadata = pageMetadata({
  */
 const CONNECTORS = [
   {
-    name: "Zoho Books",
+    name: "Zoho",
     state: "Live · two-way",
     glyph: "✓",
     tone: "success" as const,
-    note: "Items, parties, invoices and estimates sync both ways. Set up in minutes with a connection test before anything moves.",
+    note: "Zoho Books and Zoho Inventory sync both ways: items, parties, invoices, estimates and stock. Set up in minutes with a connection test before anything moves.",
   },
   {
-    name: "Zoho Inventory",
-    state: "Live · two-way",
+    name: "QuickBooks",
+    state: "Live",
     glyph: "✓",
     tone: "success" as const,
-    note: "Stock and item masters stay aligned, so the rate your customer sees is backed by stock that exists.",
+    note: "Items, customers, invoices and orders flow to QuickBooks, so your books stay current without double entry.",
   },
   {
     name: "Tally Prime",
     state: "Live · CSV export",
     glyph: "✓",
     tone: "success" as const,
-    note: "Clean CSV for items, sales vouchers and ledgers that imports without hand-fixing. A direct bridge sync is in progress.",
+    note: "Clean CSV for items, sales vouchers and ledgers that imports without hand-fixing.",
   },
   {
     name: "Busy",
-    state: "Coming soon",
-    glyph: "◷",
-    tone: "info" as const,
-    note: "On the roadmap. Talk to us if this is what stands between you and moving.",
+    state: "Live",
+    glyph: "✓",
+    tone: "success" as const,
+    note: "Connect Busy and orders and items flow across. Talk to us if your setup is unusual.",
   },
 ];
 
@@ -61,8 +61,8 @@ export default function IntegrationsPage() {
       <main id="main">
         <PageHero
           eyebrow="Integrations"
-          title="Yukti fits your stack. Not the other way around."
-          lede="Included in every plan, because your data flowing in is what makes targeting and campaigns work at all."
+          title="Get started today. Connect your ERP when you are ready."
+          lede="Start without connecting anything. Link your accounting when it suits you. Included in every plan, because your data flowing in is what makes targeting and campaigns work at all."
         />
 
         <div className={p.wrap}>

@@ -1,4 +1,6 @@
 import { faq } from "@/content/faq";
+import { LITE } from "@/content/plans";
+import { REGION_LABEL } from "./region";
 import { CONTACT_LANGUAGES, SITE_ORIGIN, WHATSAPP_NUMBER } from "./site";
 
 /**
@@ -6,6 +8,12 @@ import { CONTACT_LANGUAGES, SITE_ORIGIN, WHATSAPP_NUMBER } from "./site";
  * markup and the rendered accordion cannot drift apart — the design export
  * kept two hand-maintained copies and its own handover notes flagged the risk.
  */
+
+const REGION_AREA = {
+  in: "IN",
+  eu: "EU",
+  row: "Worldwide",
+} as const;
 
 export function organizationLd() {
   return {
@@ -29,7 +37,7 @@ export function organizationLd() {
 /**
  * SoftwareApplication.
  *
- * Only Lite carries a public figure, so that is the only price stated. The
+ * Only Lite carries a public figure, so that is the only price stated, once per region. The
  * other tiers are quote-based and are described rather than priced — inventing
  * a number here to satisfy the schema would put a price in search results that
  * the pricing page does not honour.
@@ -48,25 +56,26 @@ export function softwareApplicationLd() {
       "Yukti is the ordering platform for businesses that sell to other businesses: one inbox for WhatsApp and email with buyer and stock context, digital catalogs, customer-specific rates, campaigns, and an ordering app customers use without installing anything.",
     inLanguage: "en-IN",
     publisher: { "@id": `${SITE_ORIGIN}/#organization` },
-    offers: {
+    offers: (["in", "eu", "row"] as const).map((region) => ({
       "@type": "Offer",
-      name: "Lite",
+      name: `Lite (${REGION_LABEL[region]})`,
       description: "WhatsApp engagement, with unlimited contacts.",
-      price: "5000",
-      priceCurrency: "INR",
+      price: LITE[region].amount,
+      priceCurrency: LITE[region].currency,
       url: `${SITE_ORIGIN}/pricing`,
       availability: "https://schema.org/InStock",
+      eligibleRegion: REGION_AREA[region],
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "5000",
-        priceCurrency: "INR",
+        price: LITE[region].amount,
+        priceCurrency: LITE[region].currency,
         referenceQuantity: {
           "@type": "QuantitativeValue",
           value: 1,
           unitCode: "MON",
         },
       },
-    },
+    })),
     featureList: [
       "Multi-channel inbox with buyer history, dues and live stock beside every message",
       "Digital catalogs with customer-specific rates",

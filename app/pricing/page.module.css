@@ -90,3 +90,17 @@
   color: var(--yk-sub);
   text-wrap: pretty;
 }
+
+.region {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 20px 28px;
+  text-align: center;
+  font-size: var(--yk-mk-125);
+  color: var(--yk-sub);
+}
+
+.region a {
+  color: var(--yk-ink);
+  text-decoration: underline;
+}
