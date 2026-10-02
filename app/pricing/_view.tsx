@@ -7,7 +7,7 @@ import { BillingToggle } from "@/components/sections/BillingToggle";
 import { PlanCard } from "@/components/sections/PlanCard";
 import { LITE, plansFor, pricingBlocks } from "@/content/plans";
 import { REGIONS, REGION_LABEL, type Region } from "@/lib/region";
-import { breadcrumbLd } from "@/lib/jsonld";
+import { breadcrumbLd, pricingOffersLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 import s from "./page.module.css";
 
@@ -88,6 +88,7 @@ export function PricingView({ region }: { region: Region }) {
         />
       </main>
       <StickyCta />
+      <JsonLd data={pricingOffersLd()} />
       <JsonLd
         data={breadcrumbLd([
           { name: "Home", path: "/" },

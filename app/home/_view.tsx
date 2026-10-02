@@ -13,9 +13,8 @@ import { PilotProof } from "@/components/sections/PilotProof";
 import { TuesdayStory } from "@/components/sections/TuesdayStory";
 import { featureMocks } from "@/components/sections/featureMocks";
 import { features } from "@/content/features";
-import { faqFor } from "@/content/faq";
+import { faq } from "@/content/faq";
 import { faqLd } from "@/lib/jsonld";
-import type { Region } from "@/lib/region";
 import { pageMetadata } from "@/lib/metadata";
 import s from "../page.module.css";
 
@@ -29,7 +28,7 @@ export const homeMetadata = pageMetadata({
     "One inbox for WhatsApp and email, with buyer history and live stock beside every message. Plus a storefront so half your buyers stop asking.",
 });
 
-export function HomeView({ region }: { region: Region }) {
+export function HomeView() {
   return (
     <>
       <Header />
@@ -54,11 +53,11 @@ export function HomeView({ region }: { region: Region }) {
         <PilotProof />
         <OurPromise />
         <AccountantsBand />
-        <Faq region={region} />
+        <Faq />
         <FinalCta />
       </main>
       <StickyCta />
-      <JsonLd data={faqLd(faqFor(region))} />
+      <JsonLd data={faqLd(faq)} />
     </>
   );
 }

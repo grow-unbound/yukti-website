@@ -34,12 +34,8 @@ export function organizationLd() {
 }
 
 /**
- * SoftwareApplication.
- *
- * Only Lite carries a public figure, so that is the only price stated, once per region. The
- * other tiers are quote-based and are described rather than priced — inventing
- * a number here to satisfy the schema would put a price in search results that
- * the pricing page does not honour.
+ * SoftwareApplication, without prices. This node renders on every page, and
+ * prices belong on /pricing only, so the Offers live in pricingOffersLd().
  */
 export function softwareApplicationLd() {
   return {
@@ -50,11 +46,34 @@ export function softwareApplicationLd() {
     url: `${SITE_ORIGIN}/`,
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "Order management and B2B commerce",
-    operatingSystem: "Web browser, Android, iOS",
+    operatingSystem: "Web browser",
     description:
-      "Yukti is the ordering platform for businesses that sell to other businesses: one inbox for WhatsApp and email with buyer and stock context, digital catalogs, customer-specific rates, campaigns, and an ordering app customers use without installing anything.",
+      "Yukti is the ordering platform for manufacturers, distributors and wholesalers: one inbox for WhatsApp and email with buyer and stock context, digital catalogs, customer-specific rates, campaigns, and an ordering app customers use without installing anything.",
     inLanguage: "en-IN",
     publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+    featureList: [
+      "Multi-channel inbox with buyer history, dues and live stock beside every message",
+      "Digital catalogs with customer-specific rates",
+      "Campaigns with time-limited pricing",
+      "WhatsApp engagement with delivery and open tracking",
+      "Customer ordering app with no install and no password",
+      "Order management from enquiry to delivery",
+      "Zoho, Tally, Busy and QuickBooks integrations",
+    ],
+  };
+}
+
+/**
+ * The same SoftwareApplication node, extended with the one public figure.
+ * Rendered on /pricing only. Only Lite carries a public figure; the other
+ * tiers are quote-based and are described rather than priced.
+ */
+export function pricingOffersLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${SITE_ORIGIN}/#software`,
+    name: "Yukti",
     offers: (["in", "eu", "row"] as const).map((region) => ({
       "@type": "Offer",
       name: `Lite (${REGION_LABEL[region]})`,
@@ -75,15 +94,6 @@ export function softwareApplicationLd() {
         },
       },
     })),
-    featureList: [
-      "Multi-channel inbox with buyer history, dues and live stock beside every message",
-      "Digital catalogs with customer-specific rates",
-      "Campaigns with time-limited pricing",
-      "WhatsApp engagement with delivery and open tracking",
-      "Customer ordering app with no install and no password",
-      "Order management from enquiry to delivery",
-      "Zoho, Tally, Busy and QuickBooks integrations",
-    ],
   };
 }
 
