@@ -7,7 +7,7 @@ import { BillingToggle } from "@/components/sections/BillingToggle";
 import { PlanCard } from "@/components/sections/PlanCard";
 import { LITE, plansFor, pricingBlocks } from "@/content/plans";
 import { REGIONS, REGION_LABEL, type Region } from "@/lib/region";
-import { breadcrumbLd } from "@/lib/jsonld";
+import { breadcrumbLd, pricingOffersLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 import s from "./page.module.css";
 
@@ -59,7 +59,9 @@ export function PricingView({ region }: { region: Region }) {
         </section>
 
         <p className={s.region}>
-          Prices shown for <strong>{REGION_LABEL[region]}</strong>.{" "}
+          Prices shown for <strong>{REGION_LABEL[region]}</strong>. Lite is{" "}
+          {LITE.in.price} a month in India, {LITE.eu.price} in Europe and{" "}
+          {LITE.row.price} elsewhere.{" "}
           {REGIONS.filter((r) => r !== region).map((r, i) => (
             <span key={r}>
               {i > 0 ? " · " : ""}
@@ -88,6 +90,7 @@ export function PricingView({ region }: { region: Region }) {
         />
       </main>
       <StickyCta />
+      <JsonLd data={pricingOffersLd()} />
       <JsonLd
         data={breadcrumbLd([
           { name: "Home", path: "/" },

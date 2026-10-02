@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s · Yukti",
   },
   description:
-    "Every WhatsApp message and email in one inbox, with buyer history, dues and live stock beside it. Plus a storefront so half your buyers stop asking.",
+    "Every WhatsApp message and email in one inbox, with buyer history, dues and live stock beside it. Plus a storefront where each buyer sees their own rates.",
   applicationName: "Yukti",
   formatDetection: { telephone: false },
 };

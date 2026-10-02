@@ -73,7 +73,7 @@
 /* Desktop only. On mobile the sticky bottom bar carries signup and demo, and
    the drawer carries login. The copper CTA manages its own visibility — see
    HeaderCta. */
-@media (max-width: 860px) {
+@media (max-width: 1180px) {
   .login {
     display: none;
   }

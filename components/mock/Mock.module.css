@@ -171,7 +171,32 @@
   padding: 5px 12px;
 }
 
-/* Pseudo-buttons inside the mockups. Not interactive, so they are spans. */
+/* Pseudo-buttons inside the mockups. Spans unless given an onClick. */
+.mockBtnLive {
+  font-family: inherit;
+  cursor: pointer;
+  border: 0;
+  transition: transform 120ms var(--yk-ease), opacity 120ms var(--yk-ease);
+}
+
+.mockBtnLive.mockBtnGhost {
+  border: 1px solid var(--yk-card-line);
+}
+
+.mockBtnLive:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.mockBtnLive:focus-visible {
+  outline: 2px solid var(--yk-copper-fill);
+  outline-offset: 2px;
+}
+
+.mockBtnLive:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
 .mockBtn {
   font-size: var(--yk-mk-11);
   font-weight: var(--yk-weight-semibold);

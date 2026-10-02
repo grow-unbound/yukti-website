@@ -115,18 +115,6 @@
   color: var(--yk-sub);
 }
 
-.sources {
-  margin: 0;
-  padding-left: 1.1em;
-  font-size: var(--yk-mk-125);
-  color: var(--yk-faint);
-  line-height: 1.7;
-}
-
-.sources a {
-  text-decoration: underline;
-}
-
 .cta {
   padding-top: clamp(40px, 6vw, 72px);
 }
