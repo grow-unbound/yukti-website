@@ -27,7 +27,7 @@ export const faq: FaqItem[] = [
   },
   {
     q: "Can it message my existing WhatsApp groups?",
-    a: "No, deliberately. Yukti messages each customer individually so you see delivery, opens, and orders per person. Groups can’t tell you who ignored you. Customers can opt out anytime.",
+    a: "No, deliberately. Yukti messages each customer individually so you see delivery, opens, and orders per person. Groups can’t tell you who ignored you. Customers consent when they first log in, and can opt out anytime.",
   },
   {
     q: "What does it cost?",

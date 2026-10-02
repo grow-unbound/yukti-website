@@ -10,8 +10,8 @@
  */
 
 export const heroCopy = {
-  eyebrow: "The ordering platform for B2B sellers",
-  h1: "Stop losing 3-5 minutes to tab switches on every customer enquiry.",
+  eyebrow: "The ordering platform for manufacturers, distributors and wholesalers",
+  h1: "Answer every buyer enquiry with the full context already in front of you.",
   /**
    * The engagement-led alternate, held for the H1 A/B the brief defers until
    * traffic allows (§13). Kept here so running that test is a config change
@@ -23,7 +23,7 @@ export const heroCopy = {
    * second line of the pitch, so it belongs in the document outline. Styled as
    * lead copy so it still reads as a subhead.
    */
-  sub: "Every WhatsApp message and email, with full buyer and stock context, in one inbox. Plus a storefront so half your buyers stop asking altogether.",
+  sub: "Every WhatsApp message and email, with full buyer and stock context, in one inbox. Plus a storefront where each buyer sees their own rates, so fewer of them need to ask.",
   micro: "Sign up now. Publish your first catalog in as little as 2 hours.",
 };
 

@@ -169,16 +169,39 @@ export function Pill({
   );
 }
 
+/**
+ * A drawn button by default (a span: decorative, aria-hidden by its figure).
+ * Pass onClick and it renders a real <button>, for the one mockup that is
+ * interactive.
+ */
 export function MockButton({
   children,
   tone = "ink",
+  onClick,
+  disabled,
+  pressed,
 }: {
   children: ReactNode;
   tone?: "ink" | "copper" | "ghost";
+  onClick?: () => void;
+  disabled?: boolean;
+  pressed?: boolean;
 }) {
   const toneClass =
     tone === "copper" ? s.mockBtnCopper : tone === "ghost" ? s.mockBtnGhost : s.mockBtnInk;
-  return <span className={`${s.mockBtn} ${toneClass}`}>{children}</span>;
+  const cls = `${s.mockBtn} ${toneClass}`;
+  if (!onClick) return <span className={cls}>{children}</span>;
+  return (
+    <button
+      type="button"
+      className={`${cls} ${s.mockBtnLive}`}
+      onClick={onClick}
+      disabled={disabled}
+      aria-pressed={pressed}
+    >
+      {children}
+    </button>
+  );
 }
 
 /** Funnel bars. Ratios are flex weights, exactly as the export drew them. */

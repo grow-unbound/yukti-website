@@ -22,7 +22,7 @@ export function organizationLd() {
     name: "Yukti",
     url: `${SITE_ORIGIN}/`,
     description:
-      "Software for businesses that sell to businesses: one inbox for WhatsApp and email with buyer and stock context, a customer storefront, rates, campaigns and orders.",
+      "Software for manufacturers, distributors and wholesalers that sell to other businesses: one inbox for WhatsApp and email with buyer and stock context, a customer storefront, rates, campaigns and orders.",
     areaServed: ["IN", "EU", "Worldwide"],
     contactPoint: {
       "@type": "ContactPoint",

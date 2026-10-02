@@ -25,7 +25,7 @@ export const features: Omit<Feature, "mock">[] = [
   {
     id: "feature-inbox",
     eyebrow: "Inbox",
-    h3: "Stop switching tabs to remember who you're talking to",
+    h3: "See who you're talking to before you reply",
     body: "Every WhatsApp message and email lands in one inbox, beside what this buyer usually orders, what they owe you, and what you can promise them right now.",
     bullets: [
       "WhatsApp and email in one place",
@@ -38,8 +38,8 @@ export const features: Omit<Feature, "mock">[] = [
   {
     id: "feature-app",
     eyebrow: "The storefront",
-    h3: "Stop answering the same rate question twenty times a day",
-    body: "Every customer opens a link, verifies with an OTP, and sees their own rate list. Half your buyers stop asking, because the answer is already on their phone.",
+    h3: "Give every customer their own rate list",
+    body: "Every customer opens a link, verifies with an OTP, and sees their own rate list. Fewer buyers need to ask, because the answer is already on their phone.",
     bullets: [
       "Gated pricing: each customer sees only their own rates",
       "Works on any phone, in the browser, nothing to install",
@@ -52,7 +52,7 @@ export const features: Omit<Feature, "mock">[] = [
   {
     id: "feature-orders",
     eyebrow: "Orders",
-    h3: "Stop chasing where an order got stuck",
+    h3: "Know where every order stands",
     body: "Enquiries become orders. Orders move through clear statuses. Invoices are one click.",
     bullets: [
       "Enquiry → order → confirmed → dispatched → delivered",
@@ -65,7 +65,7 @@ export const features: Omit<Feature, "mock">[] = [
   {
     id: "feature-rates",
     eyebrow: "Customers & rates",
-    h3: "Stop quoting the wrong rate to the wrong customer",
+    h3: "Quote the right rate to the right customer, every time",
     body: "Set the rate once per group, by class, city, or brand. Every quote, order, and invoice follows it.",
     bullets: [
       "Customer groups: hand-picked or rule-based",
@@ -79,7 +79,7 @@ export const features: Omit<Feature, "mock">[] = [
   {
     id: "feature-campaigns",
     eyebrow: "Campaigns",
-    h3: "Stop sending the same rate to every customer",
+    h3: "Send each customer the rate meant for them",
     body: "Build a special rate for chosen products on a deadline, and preview exactly what customers will see before you send.",
     bullets: [
       "Inline campaign rate with struck-through base rate",
@@ -92,12 +92,12 @@ export const features: Omit<Feature, "mock">[] = [
   {
     id: "feature-whatsapp",
     eyebrow: "WhatsApp engagement",
-    h3: "Stop blasting groups nobody reads",
+    h3: "Message customers one to one, not in groups nobody reads",
     body: "Message by area, dormant status, or dues. Sent one to one, tracked end to end.",
     bullets: [
       "Targeting: customer group, area, dormant, dues, hand-picked",
       "Pre-approved templates: new stock, campaign, payment reminder, visit alert, re-engagement",
-      "Every customer can opt out anytime. You see exactly who received, opened, ordered",
+      "Customers consent at first login and can opt out anytime. You see exactly who received, opened, ordered",
     ],
     linkLabel: "How WhatsApp targeting works",
     href: "/how-it-works",

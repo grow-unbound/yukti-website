@@ -59,7 +59,9 @@ export function PricingView({ region }: { region: Region }) {
         </section>
 
         <p className={s.region}>
-          Prices shown for <strong>{REGION_LABEL[region]}</strong>.{" "}
+          Prices shown for <strong>{REGION_LABEL[region]}</strong>. Lite is{" "}
+          {LITE.in.price} a month in India, {LITE.eu.price} in Europe and{" "}
+          {LITE.row.price} elsewhere.{" "}
           {REGIONS.filter((r) => r !== region).map((r, i) => (
             <span key={r}>
               {i > 0 ? " · " : ""}
