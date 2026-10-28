@@ -256,3 +256,34 @@
     transform: translateY(8px);
   }
 }
+
+/* Interactive states. */
+.alertDone {
+  border-color: var(--yk-success-rule);
+  border-left-color: var(--yk-success);
+  background: var(--yk-success-wash);
+}
+
+.hint {
+  align-self: center;
+  font-size: var(--yk-mk-11);
+  color: var(--yk-faint);
+}
+
+.reset {
+  align-self: center;
+  padding: 4px 2px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--yk-mk-11);
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-sub);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.reset:focus-visible {
+  outline: 2px solid var(--yk-copper-fill);
+  outline-offset: 2px;
+}

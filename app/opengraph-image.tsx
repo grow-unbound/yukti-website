@@ -63,7 +63,7 @@ export default function OpengraphImage() {
               maxWidth: 940,
             }}
           >
-            Stop losing 3-5 minutes to tab switches on every customer enquiry.
+            Answer every buyer enquiry with the full context already in front of you.
           </span>
           <span style={{ fontSize: 30, fontWeight: 500, color: SUB }}>
             WhatsApp · Email · Buyer and stock context · Storefront

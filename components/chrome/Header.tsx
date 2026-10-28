@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Wordmark } from "@/components/ui/Wordmark";
 import { mainNav, navGroups } from "@/content/nav";
-import { LOGIN_URL } from "@/lib/site";
+import { DEALER_LOGIN_URL, SELLER_LOGIN_URL } from "@/lib/site";
 import { HeaderCta } from "./HeaderCta";
 import { MobileMenu } from "./MobileMenu";
 import { NavMenu } from "./NavMenu";
@@ -37,8 +37,23 @@ export function Header({ current }: { current?: string }) {
         </nav>
 
         <div className={s.actions}>
-          <Button href={LOGIN_URL} variant="outline" size="sm" className={s.login}>
-            Login
+          <Button
+            href={SELLER_LOGIN_URL}
+            variant="outline"
+            size="sm"
+            className={s.login}
+            event="site_login_seller_click"
+          >
+            Login as Seller
+          </Button>
+          <Button
+            href={DEALER_LOGIN_URL}
+            variant="outline"
+            size="sm"
+            className={s.login}
+            event="site_login_dealer_click"
+          >
+            Login as Dealer
           </Button>
           <HeaderCta />
           <MobileMenu />

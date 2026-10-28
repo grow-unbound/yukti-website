@@ -120,24 +120,6 @@ export default async function ComparePage({
           </div>
         </section>
 
-        <section className={s.section}>
-          <div className={s.sectionInner}>
-            <p className={s.sources}>
-              Facts about {c.name} were checked against their public pages in
-              September 2026 and can change:
-            </p>
-            <ul className={s.sources}>
-              {c.sources.map((src) => (
-                <li key={src.url}>
-                  <a href={src.url} rel="noopener noreferrer" target="_blank">
-                    {src.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         <div className={s.cta}>
           <FinalCta heading={c.ctaHeading} body={c.ctaBody} />
         </div>

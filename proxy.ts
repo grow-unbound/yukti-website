@@ -3,9 +3,9 @@ import type { NextRequest } from "next/server";
 import { REGION_COOKIE, isRegion, regionFromCountry } from "@/lib/region";
 
 /**
- * Serves the right regional variant at / and /pricing.
+ * Serves the right regional variant at /pricing, the only page that quotes prices.
  *
- * The three variants of each page are static; this only picks which one. That keeps
+ * The three variants are static; this only picks which one. That keeps
  * every response CDN-cacheable and JS-free, where reading headers inside the
  * page would have made the route dynamic and cost TTFB.
  *
@@ -26,8 +26,7 @@ export function proxy(request: NextRequest) {
       : regionFromCountry(request.headers.get("x-vercel-ip-country"));
 
   const url = request.nextUrl.clone();
-  url.pathname =
-    request.nextUrl.pathname === "/" ? `/home/${region}` : `/pricing/${region}`;
+  url.pathname = `/pricing/${region}`;
   url.search = "";
   const response = NextResponse.rewrite(url);
   response.headers.set("Vary", "Cookie, x-vercel-ip-country");
@@ -35,5 +34,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/pricing"],
+  matcher: ["/pricing"],
 };

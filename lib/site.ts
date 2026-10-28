@@ -14,8 +14,16 @@ export const SITE_ORIGIN =
 export const SIGNUP_URL =
   process.env.NEXT_PUBLIC_SIGNUP_URL ?? "https://app.useyukti.in";
 
-/** Login lands on the same app shell; it routes authenticated users itself. */
-export const LOGIN_URL = process.env.NEXT_PUBLIC_LOGIN_URL ?? SIGNUP_URL;
+/**
+ * Two logins: the seller (the business running Yukti) and the dealer (the
+ * seller's customer, who orders from them). Both default to the app shell,
+ * which routes authenticated users itself. Point either at its own entry
+ * with the env var once the app exposes a separate route.
+ */
+export const SELLER_LOGIN_URL =
+  process.env.NEXT_PUBLIC_SELLER_LOGIN_URL ?? SIGNUP_URL;
+export const DEALER_LOGIN_URL =
+  process.env.NEXT_PUBLIC_DEALER_LOGIN_URL ?? SIGNUP_URL;
 
 /** Digits only, country code included — the wa.me path format. */
 export const WHATSAPP_NUMBER =

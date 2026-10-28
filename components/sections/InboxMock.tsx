@@ -1,5 +1,7 @@
-import type { CSSProperties } from "react";
-import { MockButton, MockFigure, Pill, StatusChip } from "@/components/mock/primitives";
+"use client";
+
+import { useState, type CSSProperties } from "react";
+import { MockButton, Pill, StatusChip } from "@/components/mock/primitives";
 import s from "./InboxMock.module.css";
 
 /**
@@ -7,14 +9,36 @@ import s from "./InboxMock.module.css";
  * attention on the left, and the selected item with buyer and stock context
  * on the right.
  *
+ * It is the one interactive mockup. One scenario, start to finish: MobileMart
+ * emails an order for 500 CAT6 cable, the nearest location holds 498, and the
+ * seller picks how to resolve the shortage before accepting. The WhatsApp
+ * mock in featureMocks.tsx tells the same story about the same buyer.
+ *
  * Names and figures are deliberately generic and currency-free. This is one
  * global site, so the drawing must not read as belonging to one country.
  */
 
+type Fix = "substitute" | "partial" | "move";
+
+const FIX_RESULT: Record<Fix, { title: string; body: string }> = {
+  substitute: {
+    title: "Substitute offered for 2 units",
+    body: "MobileMart sees an equivalent CAT6 cable on the order and confirms it with one tap. The other 498 units stay as ordered.",
+  },
+  partial: {
+    title: "Accepting 498 of 500",
+    body: "The 2 missing units are back-ordered on the same order, so MobileMart sees one order with one open line.",
+  },
+  move: {
+    title: "2 units moved from Warehouse B",
+    body: "The full 500 is now in stock at the buyer's nearest location. 38 units remain at Warehouse B.",
+  },
+};
+
 const QUEUE = [
   { group: "Today" },
   { name: "Riverside Wholesale", meta: "Overdue invoice · 16 days · 22,000", count: 3 },
-  { name: "MobileMart", meta: "New order · 42 minutes · 58,000", selected: true },
+  { name: "MobileMart", selected: true },
   { name: "Northside Supply", meta: "New business account · 3 hours" },
   { group: "Yesterday" },
   { name: "Harbor Traders", meta: "Open enquiry · 2 days · 34,200", count: 2 },
@@ -23,20 +47,32 @@ const QUEUE = [
 ] as const;
 
 export function InboxMock({ className }: { className?: string }) {
+  const [fix, setFix] = useState<Fix | null>(null);
+  const [accepted, setAccepted] = useState(false);
+
+  const reset = () => {
+    setFix(null);
+    setAccepted(false);
+  };
+
+  const result = fix ? FIX_RESULT[fix] : null;
+  const pending = accepted ? 10 : 11;
+
   return (
-    <MockFigure
-      description="The Yukti inbox. A queue shows 11 items needing attention. The selected item is a 58,000 order from MobileMart received by email 42 minutes ago, with its price list and credit headroom beside it, an alert that one product is short by 2 units with 40 available at another warehouse, and buttons to substitute, partially accept, move stock or accept the order."
+    <div
       className={className}
+      role="group"
+      aria-label="Interactive demo of the Yukti inbox: an emailed order from MobileMart for 500 CAT6 cable, 2 units short at the nearest location. Choose how to resolve the shortage, then accept the order."
     >
       <div className={s.window}>
-        <div className={s.queue}>
+        <div className={s.queue} aria-hidden="true">
           <div className={s.queueHead}>
             <span className={s.label}>Today</span>
-            <span className={s.queueTitle}>11 need your attention</span>
+            <span className={s.queueTitle}>{pending} need your attention</span>
           </div>
           <div className={s.filters}>
             <Pill active>Enquiries 3</Pill>
-            <Pill>Orders 2</Pill>
+            <Pill>Orders {accepted ? 1 : 2}</Pill>
             <Pill>Approvals 2</Pill>
             <Pill>Collections 4</Pill>
           </div>
@@ -54,7 +90,13 @@ export function InboxMock({ className }: { className?: string }) {
                 >
                   <span>
                     <span className={s.itemName}>{q.name}</span>
-                    <span className={s.itemMeta}>{q.meta}</span>
+                    <span className={s.itemMeta}>
+                      {"selected" in q
+                        ? accepted
+                          ? "Order accepted · invoice drafted"
+                          : "New order · 42 minutes · 58,000"
+                        : q.meta}
+                    </span>
                   </span>
                   {"count" in q ? <span className={s.count}>{q.count}</span> : null}
                 </li>
@@ -66,9 +108,15 @@ export function InboxMock({ className }: { className?: string }) {
         <div className={s.detail}>
           <div className={s.detailHead}>
             <span className={s.detailName}>MobileMart</span>
-            <StatusChip glyph="✉" tone="info">
-              Email
-            </StatusChip>
+            {accepted ? (
+              <StatusChip glyph="✓" tone="success">
+                Accepted
+              </StatusChip>
+            ) : (
+              <StatusChip glyph="✉" tone="info">
+                Email
+              </StatusChip>
+            )}
           </div>
 
           <div className={s.orderLine}>
@@ -92,25 +140,52 @@ export function InboxMock({ className }: { className?: string }) {
             </div>
           </dl>
 
-          <div className={s.alert}>
-            <strong>CAT6 cable short by 2</strong>
-            <span>
-              40 units available at Warehouse B. Everything else on this order
-              is in stock at the buyer&apos;s nearest location.
-            </span>
-            <span className={s.alertActions}>
-              <MockButton tone="ghost">Substitute</MockButton>
-              <MockButton tone="ghost">Partial accept</MockButton>
-              <MockButton tone="ghost">Move stock</MockButton>
-            </span>
+          <div className={`${s.alert} ${result ? s.alertDone : ""}`} aria-live="polite">
+            {result ? (
+              <>
+                <strong>{result.title}</strong>
+                <span>{result.body}</span>
+              </>
+            ) : (
+              <>
+                <strong>CAT6 cable short by 2</strong>
+                <span>
+                  The order is for 500 and the buyer&apos;s nearest location holds
+                  498. 40 units are available at Warehouse B. Everything else
+                  on this order is in stock.
+                </span>
+                <span className={s.alertActions}>
+                  <MockButton tone="ghost" onClick={() => setFix("substitute")}>
+                    Substitute
+                  </MockButton>
+                  <MockButton tone="ghost" onClick={() => setFix("partial")}>
+                    Partial accept
+                  </MockButton>
+                  <MockButton tone="ghost" onClick={() => setFix("move")}>
+                    Move stock
+                  </MockButton>
+                </span>
+              </>
+            )}
           </div>
 
           <div className={s.actions}>
-            <MockButton>Accept order</MockButton>
-            <MockButton tone="ghost">Contact buyer</MockButton>
+            <MockButton
+              onClick={() => setAccepted(true)}
+              disabled={fix === null || accepted}
+            >
+              {accepted ? "Order accepted" : "Accept order"}
+            </MockButton>
+            {fix || accepted ? (
+              <button type="button" className={s.reset} onClick={reset}>
+                Reset demo
+              </button>
+            ) : (
+              <span className={s.hint}>Resolve the shortage to accept.</span>
+            )}
           </div>
         </div>
       </div>
-    </MockFigure>
+    </div>
   );
 }

@@ -7,13 +7,9 @@
  *  - Never overstate. Where a competitor is better, cheaper or simpler, the
  *    page says so in `wins`. Credibility compounds across all seven pages; one
  *    page that oversells poisons the rest.
- *  - Only state a competitor fact that was read on their own pages (or, for
- *    IndiaMART's MDC, its own help centre) and is listed in `sources`. Where
- *    a price or feature was not published, the row says "Not published".
- *  - Yukti's own Lite price is WhatsApp engagement only. The full platform is
- *    quoted to catalog size. No row may imply Lite includes the storefront.
- *
- * Facts last checked: September 2026. Re-check before republishing.
+ *  - Only state a competitor fact that was read on their own pages. Where a
+ *    feature was not stated, the row says "Not stated".
+ *  - No prices, for Yukti or anyone else. Pricing lives on /pricing only.
  */
 
 export type CompareRow = { label: string; yukti: string; them: string };
@@ -37,13 +33,9 @@ export type Competitor = {
   yuktiWins: string[];
   rows: CompareRow[];
   faq: { q: string; a: string }[];
-  sources: { label: string; url: string }[];
   ctaHeading: string;
   ctaBody: string;
 };
-
-const YUKTI_PRICE =
-  "Lite from ₹5,000 (India), €300 (EU) or $300 (rest of world) a month, for WhatsApp engagement. The full platform is priced to your catalog size.";
 
 export const competitors: Competitor[] = [
   {
@@ -81,7 +73,6 @@ export const competitors: Competitor[] = [
       "WhatsApp and email land in one inbox, beside the buyer's history, dues and live stock.",
     ],
     rows: [
-      { label: "Cost", yukti: YUKTI_PRICE, them: "Free" },
       { label: "Price per customer", yukti: "Each customer sees only their own rates", them: "One price per product, visible to everyone" },
       { label: "Ordering", yukti: "Orders with statuses, from enquiry to delivered", them: "Cart sent as a message, no checkout" },
       { label: "Buyer and stock context", yukti: "Order history, dues and live stock beside every message", them: "None" },
@@ -99,10 +90,6 @@ export const competitors: Competitor[] = [
         a: "Yes, the catalog in the WhatsApp Business app costs nothing. What it does not give you is customer-specific pricing, checkout, or stock and order tracking.",
       },
     ],
-    sources: [
-      { label: "WhatsApp Business catalog limits, as documented by Meta partners", url: "https://docs.360dialog.com/docs/messaging/catalogs" },
-      { label: "WhatsApp catalog overview", url: "https://respond.io/blog/whatsapp-catalog-whatsapp-shopping-catalog" },
-    ],
     ctaHeading: "Outgrown one price for everyone?",
     ctaBody: "Bring your rate list. We will set up per-customer rates and show you the inbox with your own buyers in it.",
   },
@@ -111,15 +98,15 @@ export const competitors: Competitor[] = [
     name: "WizCommerce",
     what: "An AI platform for wholesale sales: rep app, storefront, CRM and payments.",
     category: "Wholesale platform",
-    metaTitle: "Yukti vs WizCommerce: a published price and every channel in one inbox",
+    metaTitle: "Yukti vs WizCommerce: every channel in one inbox, with buyer context",
     metaDescription:
-      "WizCommerce is a broad wholesale suite. Yukti is narrower on purpose: one inbox with buyer and stock context, a storefront, and a price you can read before you book a call.",
+      "WizCommerce is a broad wholesale suite. Yukti is narrower on purpose: one inbox with buyer and stock context, and a storefront that needs no install.",
     h1: "A bigger suite is not a faster reply.",
     lede: "WizCommerce is the closest thing to Yukti in ambition: wholesale ordering, a storefront and a rep app in one place. If you want a full sales suite, it is a serious option. If your daily pain is answering buyers quickly, the difference is narrower than the feature list suggests.",
     problems: [
       {
-        h: "Pricing you cannot see until you talk to sales",
-        p: "WizCommerce does not publish its plans on its website. You can only compare it to your budget after a conversation, which makes early evaluation slow for a small team.",
+        h: "A long road to a first evaluation",
+        p: "WizCommerce is a wide suite with several modules and a stated setup of under 30 days. That is reasonable for a rep-led operation, and slow for a small team that wants to see something working this week.",
       },
       {
         h: "Capture is not context",
@@ -136,12 +123,11 @@ export const competitors: Competitor[] = [
       "Strong fit for rep-led wholesale across furnishing, gifts, food and industrial goods.",
     ],
     yuktiWins: [
-      "Pricing you can read: Lite is published per region, and the full platform is quoted to catalog size.",
+      "Narrower on purpose: one inbox, one storefront, nothing to configure that you will not use.",
       "WhatsApp and email land beside the buyer's history, dues and live stock.",
       "Self-serve setup: publish your first catalog in as little as 2 hours.",
     ],
     rows: [
-      { label: "Entry price", yukti: YUKTI_PRICE, them: "Not published" },
       { label: "Inbox with buyer and stock context", yukti: "Core of the product", them: "Not stated on their site" },
       { label: "Channels named", yukti: "WhatsApp and email", them: "Email, PDFs, spreadsheets, scans and voice notes for order intake" },
       { label: "Storefront", yukti: "Per-customer rate lists, no install", them: "WizShop B2B storefront" },
@@ -155,13 +141,9 @@ export const competitors: Competitor[] = [
         a: "For sellers whose main problem is answering buyers fast with the right context, yes. If you need a rep app, CRM and payments in one suite, WizCommerce covers more ground.",
       },
       {
-        q: "Does Yukti publish its pricing?",
-        a: "Lite is published in three regions. The full platform is priced to your catalog size and migration scope, so it is quoted after one call.",
+        q: "How long does Yukti take to set up compared with WizCommerce?",
+        a: "Publish your first catalog in as little as 2 hours with self-serve setup, or have our team migrate your stock and customers within 2 days.",
       },
-    ],
-    sources: [
-      { label: "WizCommerce", url: "https://wizcommerce.com/" },
-      { label: "WizCommerce comparisons", url: "https://wizcommerce.com/wizcommerce-vs-others/" },
     ],
     ctaHeading: "See the inbox with your own buyers in it",
     ctaBody: "Bring a rate list and a few real buyers. We will show you a message arriving with their history and your stock beside it.",
@@ -202,7 +184,6 @@ export const competitors: Competitor[] = [
     ],
     rows: [
       { label: "Main job", yukti: "Run orders, rates and replies for existing buyers", them: "Bring new buyer enquiries" },
-      { label: "Entry price", yukti: YUKTI_PRICE, them: "Mini Dynamic Catalog from ₹35,000 a year, excluding taxes" },
       { label: "What you get", yukti: "Storefront, inbox, orders, campaigns, integrations", them: "Catalog listing and buyer enquiries (10 weekly plus 1 daily on MDC)" },
       { label: "Per-customer pricing", yukti: "Yes, each customer sees their own rates", them: "Public listing" },
       { label: "Order management", yukti: "Enquiry to delivered, with invoices", them: "Not stated" },
@@ -217,9 +198,6 @@ export const competitors: Competitor[] = [
         q: "Can Yukti bring me new buyers?",
         a: "Yukti is not a marketplace. It helps you run the customers you already have, and campaigns help bring lapsed ones back. New-buyer discovery is what IndiaMART is for.",
       },
-    ],
-    sources: [
-      { label: "IndiaMART Mini Dynamic Catalog, IndiaMART help centre", url: "https://help.indiamart.com/knowledge-base/mdc" },
     ],
     ctaHeading: "Keep the buyers you worked to win",
     ctaBody: "Bring your regular customers. We will set up their rates and an ordering link they can use from any phone.",
@@ -241,17 +219,17 @@ export const competitors: Competitor[] = [
       },
       {
         h: "The channel list grows the bill",
-        p: "Turis prices the storefront, email order capture (Vision) and each EDI chain separately, plus sales seats. That suits a growing operation, and it is worth adding up before you commit.",
+        p: "Turis sells the storefront, email order capture (Vision) and each EDI chain as separate modules, plus sales seats. That suits a growing operation, and it is worth adding up what you actually need before you commit.",
       },
       {
         h: "Built around volume tiers",
-        p: "Plans are sized by monthly order volume. That is fair, but a seller with a few hundred active buyers and modest volume may be paying for capacity that the daily inbox does not need.",
+        p: "Plans are sized by monthly order volume. That is fair, but a seller with a few hundred active buyers and modest volume may be buying capacity that the daily inbox does not need.",
       },
     ],
     wins: [
       "EDI for retail chains, with certification and maintenance handled.",
       "Vision reads PDFs, spreadsheets and plain text into orders.",
-      "Clear volume-based tiers up to enterprise scale, and a 14-day trial.",
+      "Volume-based tiers up to enterprise scale, and a 14-day trial.",
     ],
     yuktiWins: [
       "Buyer history, dues and live stock beside every WhatsApp message and email.",
@@ -259,12 +237,11 @@ export const competitors: Competitor[] = [
       "Per-customer rates, campaigns and a storefront in one product.",
     ],
     rows: [
-      { label: "Entry price", yukti: YUKTI_PRICE, them: "From €299 a month for up to €50k monthly order volume" },
-      { label: "Email order capture", yukti: "Emails land in the inbox with buyer context", them: "Vision, from €199 a month, priced by order count" },
-      { label: "EDI", yukti: "Not the focus", them: "Turnkey EDI, from €200 a month per retail chain" },
+      { label: "Email order capture", yukti: "Emails land in the inbox with buyer context", them: "Vision, a separate add-on" },
+      { label: "EDI", yukti: "Not the focus", them: "Turnkey EDI, priced per retail chain" },
       { label: "WhatsApp", yukti: "First-class channel", them: "Not listed among channels" },
       { label: "Buyer and stock context at message time", yukti: "Core of the product", them: "Not stated" },
-      { label: "Sales seats", yukti: "Not the focus", them: "Orbit, €49 a seat a month, minimum 3" },
+      { label: "Sales seats", yukti: "Not the focus", them: "Orbit, priced per seat" },
       { label: "Trial", yukti: "Self-serve signup", them: "14 days, no card" },
     ],
     faq: [
@@ -277,7 +254,6 @@ export const competitors: Competitor[] = [
         a: "Yes. They land in the same inbox as WhatsApp messages, with the buyer's history, dues and live stock beside them.",
       },
     ],
-    sources: [{ label: "Turis pricing", url: "https://turis.app/pricing/" }],
     ctaHeading: "See a message arrive with its context",
     ctaBody: "Bring an emailed PO and a WhatsApp enquiry. We will show both in one inbox with the buyer's history and your stock beside them.",
   },
@@ -316,7 +292,6 @@ export const competitors: Competitor[] = [
       "Integrations with Zoho, Tally, Busy and QuickBooks included in every plan.",
     ],
     rows: [
-      { label: "Entry price", yukti: YUKTI_PRICE, them: "£270 a month for Pro (listed at £135 for the first 3 months)" },
       { label: "Products and price lists", yukti: "Sized to your plan", them: "Pro: 20,000 products, 20 price lists" },
       { label: "Users", yukti: "Sized to your plan", them: "Pro: up to 10 users" },
       { label: "Inbox with buyer and stock context", yukti: "Core of the product", them: "Not stated" },
@@ -334,7 +309,6 @@ export const competitors: Competitor[] = [
         a: "You can, but most sellers find the Yukti storefront covers ordering, so a second portal adds cost without adding much.",
       },
     ],
-    sources: [{ label: "B2B Wave pricing", url: "https://www.b2bwave.com/pricing" }],
     ctaHeading: "Put the conversation next to the order",
     ctaBody: "Bring your price lists. We will show the storefront and the inbox side by side with your own buyers.",
   },
@@ -343,15 +317,15 @@ export const competitors: Competitor[] = [
     name: "Shopify B2B",
     what: "B2B catalogs and company accounts inside the Shopify platform.",
     category: "Commerce platform",
-    metaTitle: "Yukti vs Shopify B2B: the cost of real B2B, and the part it skips",
+    metaTitle: "Yukti vs Shopify B2B: real B2B, and the part it skips",
     metaDescription:
-      "Shopify supports B2B catalogs, but its unlimited tier starts in the thousands a month. See when a purpose-built ordering and inbox tool fits a distributor better.",
+      "Shopify supports B2B catalogs, but unlimited catalogs need its top tier. See when a purpose-built ordering and inbox tool fits a distributor better.",
     h1: "Shopify sells your goods online. It does not run your wholesale desk.",
     lede: "Shopify has real B2B features, a huge app ecosystem and excellent checkout. If you are building a web store, it is hard to beat. A distributor running orders through WhatsApp and email has a different problem, and it is the one Shopify does not try to solve.",
     problems: [
       {
-        h: "Real B2B scale costs real money",
-        p: "B2B catalogs are on every paid Shopify plan, but capped at 3 catalogs below Plus. Unlimited catalogs need Shopify Plus, which public pricing pages put at roughly $2,300 to $2,500 a month before apps and payments.",
+        h: "Real B2B scale means a higher platform tier",
+        p: "B2B catalogs are on every paid Shopify plan, but capped at 3 catalogs below Plus. Unlimited catalogs need Shopify Plus, and apps and payments sit on top of that.",
       },
       {
         h: "It starts from a web store",
@@ -370,10 +344,9 @@ export const competitors: Competitor[] = [
     yuktiWins: [
       "Built for sellers who serve known accounts, not anonymous visitors.",
       "One inbox for WhatsApp and email, with history, dues and stock beside each message.",
-      "A published entry price for Lite, and a full-platform quote sized to your catalog, not a platform tier.",
+      "Sized to your catalog and active customers, not to a platform tier.",
     ],
     rows: [
-      { label: "Entry price", yukti: YUKTI_PRICE, them: "Paid plans start well under $100 a month with B2B catalogs limited to 3. Plus starts around $2,300 a month" },
       { label: "B2B catalogs", yukti: "Per-customer rate lists", them: "Up to 3 on Basic, Grow and Advanced, unlimited on Plus" },
       { label: "Inbox with buyer and stock context", yukti: "Core of the product", them: "Not part of the platform" },
       { label: "WhatsApp and email in one place", yukti: "Yes", them: "Via third-party apps" },
@@ -390,12 +363,8 @@ export const competitors: Competitor[] = [
         a: "Shopify offers B2B catalogs on every paid plan, limited to three. Unlimited catalogs need Plus. Whether you need more than three depends on how many rate tiers you run.",
       },
     ],
-    sources: [
-      { label: "Shopify pricing", url: "https://www.shopify.com/pricing" },
-      { label: "Shopify Plus pricing, third-party analysis", url: "https://useamp.com/blog/how-much-does-shopify-plus-cost/" },
-    ],
     ctaHeading: "Run wholesale without a platform bill",
-    ctaBody: "Tell us how many rate tiers you run. We will show what that looks like on Yukti and what it would cost.",
+    ctaBody: "Tell us how many rate tiers you run. We will show what that looks like on Yukti.",
   },
   {
     slug: "wati",
@@ -417,12 +386,12 @@ export const competitors: Competitor[] = [
         p: "Wati offers a catalog and order templates, and connects to Shopify. Rates per customer, order statuses and invoices for a distributor are not what it is built around.",
       },
       {
-        h: "Message costs stack on top",
-        p: "Subscription fees, WhatsApp message fees and add-ons are billed separately. That is normal for API platforms, and it is worth modelling against your monthly volume.",
+        h: "Messaging and selling stay separate",
+        p: "A WhatsApp API platform handles the conversation layer. Rates, stock, dues and order status live in other systems, so every quote still means a trip out of the inbox.",
       },
     ],
     wins: [
-      "Simpler and usually cheaper if all you need is WhatsApp messaging.",
+      "Simpler and lighter if all you need is WhatsApp messaging.",
       "Chatbot builder, broadcasts and omnichannel messaging across WhatsApp and social channels.",
       "Fast to adopt, with no full ordering system to configure.",
     ],
@@ -433,7 +402,6 @@ export const competitors: Competitor[] = [
     ],
     rows: [
       { label: "Main job", yukti: "Order-to-cash with an inbox that has context", them: "WhatsApp messaging, inbox and automation" },
-      { label: "Entry price", yukti: YUKTI_PRICE, them: "Growth, Pro and Business plans, plus message fees. See their pricing page" },
       { label: "Shared team inbox", yukti: "Yes, with buyer and stock context", them: "Yes" },
       { label: "Chatbots", yukti: "Not the focus", them: "No-code chatbot builder" },
       { label: "Per-customer rates and orders", yukti: "Yes", them: "Catalog and order templates" },
@@ -442,15 +410,14 @@ export const competitors: Competitor[] = [
     ],
     faq: [
       {
-        q: "Is Wati cheaper than Yukti?",
-        a: "For pure WhatsApp messaging, it is typically a lighter tool and a lighter bill. Yukti covers more of the job, including rates, orders and buyer context, so the comparison is between different scopes.",
+        q: "Is Wati simpler than Yukti?",
+        a: "For pure WhatsApp messaging, it is typically a lighter tool. Yukti covers more of the job, including rates, orders and buyer context, so the comparison is between different scopes.",
       },
       {
         q: "Can I use Wati and Yukti together?",
         a: "You could, but running two inboxes brings back the tab-switching Yukti is meant to remove. Most sellers pick one home for conversations.",
       },
     ],
-    sources: [{ label: "Wati pricing", url: "https://www.wati.io/pricing/" }],
     ctaHeading: "Quote with the answer in front of you",
     ctaBody: "Bring a real WhatsApp thread. We will show it with the buyer's rate, dues and stock beside it.",
   },

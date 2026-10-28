@@ -50,7 +50,7 @@ export async function generateMetadata({
   });
 }
 
-const SHOWN = ["feature-inbox", "feature-app", "feature-campaigns"];
+const SHOWN = ["feature-inbox", "feature-app", "feature-campaigns"] as const;
 const MOCKS = {
   "feature-inbox": <ContextMock />,
   "feature-campaigns": <CampaignsMock />,
@@ -76,7 +76,7 @@ export default async function IndustryPage({
             down to the product sections. */}
         <PageHero
           eyebrow={industry.name}
-          title={industry.title}
+          title={industry.h1}
           lede={industry.lede}
           width="wide"
           spacious
@@ -96,11 +96,12 @@ export default async function IndustryPage({
         <section className={s.features}>
           <div className={s.featuresInner}>
             {features
-              .filter((f) => SHOWN.includes(f.id))
+              .filter((f) => (SHOWN as readonly string[]).includes(f.id))
               .map((feature) => (
                 <FeatureRow
                   key={feature.id}
                   {...feature}
+                  {...industry.featureCopy[feature.id as (typeof SHOWN)[number]]}
                   mock={MOCKS[feature.id as keyof typeof MOCKS]}
                 />
               ))}

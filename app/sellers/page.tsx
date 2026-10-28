@@ -9,13 +9,13 @@ import { pageMetadata } from "@/lib/metadata";
 import s from "@/components/ui/Prose.module.css";
 
 export const metadata = pageMetadata({
-  title: "For B2B sellers: distributors, wholesalers and stockists",
+  title: "For manufacturers, distributors and wholesalers",
   description:
-    "If you sell to other businesses on relationships, rates and repeat orders, Yukti is the side of the product you run. Catalog, rates, campaigns and orders in one place.",
+    "If you manufacture, distribute or wholesale to other businesses on relationships, rates and repeat orders, Yukti is the side of the product you run. Catalog, rates, campaigns and orders in one place.",
   path: "/sellers",
   ogTitle: "Yukti for the business doing the selling",
   ogDescription:
-    "Distributors, wholesalers and stockists. Your catalog, your rates, your customers, your orders, in one place.",
+    "Manufacturers, distributors and wholesalers. Your catalog, your rates, your customers, your orders, in one place.",
 });
 
 /**
@@ -38,7 +38,7 @@ export default function SellersPage() {
         <PageHero
           eyebrow="For B2B sellers"
           title="You're the business doing the selling"
-          lede="Distributors, wholesalers and stockists who sell to other businesses on relationships, rates and repeat orders. Yukti is the side of the product you run, your catalog, your rates, your customers, your orders."
+          lede="Manufacturers, distributors, wholesalers and stockists who sell in bulk to other businesses on relationships, rates and repeat orders. Yukti is the side of the product you run, your catalog, your rates, your customers, your orders."
         />
 
         <div className={s.prose}>
@@ -48,6 +48,10 @@ export default function SellersPage() {
               <li>
                 You carry several brands and sell them on to retailers,
                 electricians, mechanics, salons, contractors or other trades.
+              </li>
+              <li>
+                You make the product yourself and sell it through dealers and
+                resellers, each on their own terms.
               </li>
               <li>
                 Different customers pay different rates, and those rates live

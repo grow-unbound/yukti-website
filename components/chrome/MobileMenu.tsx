@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { mainNav, navGroups } from "@/content/nav";
-import { LOGIN_URL } from "@/lib/site";
+import { DEALER_LOGIN_URL, SELLER_LOGIN_URL } from "@/lib/site";
 import s from "./MobileMenu.module.css";
 
 /**
@@ -105,12 +105,22 @@ export function MobileMenu() {
 
         <div className={s.group}>
           <a
-            href={LOGIN_URL}
+            href={SELLER_LOGIN_URL}
             className={s.link}
             target="_blank"
             rel="noopener noreferrer"
+            data-yk-event="site_login_seller_click"
           >
-            Login
+            Login as Seller
+          </a>
+          <a
+            href={DEALER_LOGIN_URL}
+            className={s.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-yk-event="site_login_dealer_click"
+          >
+            Login as Dealer
           </a>
         </div>
       </nav>

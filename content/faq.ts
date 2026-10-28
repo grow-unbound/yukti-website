@@ -10,16 +10,9 @@
  * Copy is verbatim from the export, which is the approved source of truth.
  */
 
-import { LITE } from "@/content/plans";
-import type { Region } from "@/lib/region";
+export type FaqItem = { q: string; a: string };
 
-export type FaqItem = {
-  q: string;
-  /** A fixed answer, or one written for the visitor's region. */
-  a: string | ((region: Region) => string);
-};
-
-const items: FaqItem[] = [
+export const faq: FaqItem[] = [
   {
     q: "Do my customers need to install an app?",
     a: "No. They open a link from WhatsApp or email, verify with an OTP, and order in the browser. Any phone works.",
@@ -34,12 +27,11 @@ const items: FaqItem[] = [
   },
   {
     q: "Can it message my existing WhatsApp groups?",
-    a: "No, deliberately. Yukti messages each customer individually so you see delivery, opens, and orders per person. Groups can’t tell you who ignored you. Customers can opt out anytime.",
+    a: "No, deliberately. Yukti messages each customer individually so you see delivery, opens, and orders per person. Groups can’t tell you who ignored you. Customers consent when they first log in, and can opt out anytime.",
   },
   {
     q: "What does it cost?",
-    a: (r) =>
-      `Plans are sized by how many of your customers actively use Yukti each month. You pay as adoption grows, not before. Lite starts at ${LITE[r].price} a month, or ${LITE[r].annualPrice} a year. For the rest, talk to us for a number. Most businesses compare it to a fraction of one salesperson’s salary.`,
+    a: "Plans are sized by how many of your customers actively use Yukti each month. You pay as adoption grows, not before. See the pricing page for the current plans, or talk to us for a number sized to your catalog.",
   },
   {
     q: "How fast is setup?",
@@ -67,12 +59,6 @@ const items: FaqItem[] = [
   },
   {
     q: "Does pricing change by region or currency?",
-    a: (r) =>
-      `Yes. Pricing is set by region and shown in your local currency. For you, Lite is ${LITE[r].price} a month, or ${LITE[r].annualPrice} a year. Other plans are quoted to your catalog size. You can switch region on the pricing page.`,
+    a: "Yes. Pricing is set by region and shown in your local currency. You can switch region on the pricing page.",
   },
 ];
-
-/** The FAQ as the visitor's region should read it: every answer a plain string. */
-export function faqFor(region: Region): { q: string; a: string }[] {
-  return items.map(({ q, a }) => ({ q, a: typeof a === "function" ? a(region) : a }));
-}

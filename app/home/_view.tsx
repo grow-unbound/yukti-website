@@ -13,23 +13,22 @@ import { PilotProof } from "@/components/sections/PilotProof";
 import { TuesdayStory } from "@/components/sections/TuesdayStory";
 import { featureMocks } from "@/components/sections/featureMocks";
 import { features } from "@/content/features";
-import { faqFor } from "@/content/faq";
+import { faq } from "@/content/faq";
 import { faqLd } from "@/lib/jsonld";
-import type { Region } from "@/lib/region";
 import { pageMetadata } from "@/lib/metadata";
 import s from "../page.module.css";
 
 export const homeMetadata = pageMetadata({
   title: "Yukti: One inbox for every buyer enquiry, with full context",
   description:
-    "Every WhatsApp message and email in one inbox, with buyer history, dues and live stock beside it. Plus a storefront so half your buyers stop asking.",
+    "Every WhatsApp message and email in one inbox, with buyer history, dues and live stock beside it. Plus a storefront where each buyer sees their own rates.",
   path: "/",
-  ogTitle: "Stop losing 3-5 minutes to tab switches on every customer enquiry.",
+  ogTitle: "Answer every buyer enquiry with the full context already in front of you.",
   ogDescription:
-    "One inbox for WhatsApp and email, with buyer history and live stock beside every message. Plus a storefront so half your buyers stop asking.",
+    "One inbox for WhatsApp and email, with buyer history and live stock beside every message. Plus a storefront where each buyer sees their own rates.",
 });
 
-export function HomeView({ region }: { region: Region }) {
+export function HomeView() {
   return (
     <>
       <Header />
@@ -54,11 +53,11 @@ export function HomeView({ region }: { region: Region }) {
         <PilotProof />
         <OurPromise />
         <AccountantsBand />
-        <Faq region={region} />
+        <Faq />
         <FinalCta />
       </main>
       <StickyCta />
-      <JsonLd data={faqLd(faqFor(region))} />
+      <JsonLd data={faqLd(faq)} />
     </>
   );
 }

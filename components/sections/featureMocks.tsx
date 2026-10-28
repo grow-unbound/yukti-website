@@ -218,7 +218,7 @@ export function IntegrationsMock() {
 export function ContextMock() {
   return (
     <MockFigure
-      description="A WhatsApp message from MobileMart asking for 500 units of CAT6 cable at the usual rate, shown beside what they usually order, what they owe, their price list and live stock."
+      description="A WhatsApp message from MobileMart asking whether the 500 units of CAT6 cable on their open order can ship by Friday, shown beside what they usually order, their open order, their rate and live stock: 498 at the nearest location and 40 at Warehouse B."
       className={f.mockShell}
     >
       <div className={s.head}>
@@ -229,16 +229,16 @@ export function ContextMock() {
       </div>
       <div className={s.card}>
         <div className={s.bubble}>
-          Can you do 500 CAT6 cable at the usual rate? Need it by Friday.
+          Can the 500 CAT6 cable on my order go out by Friday?
         </div>
       </div>
       <div className={s.card}>
         <MockRow label="Usually orders" value="Cables, adapters" />
-        <MockRow label="Owes you" value={<Price value="22,000" />} />
+        <MockRow label="Open order" value={<Price value="58,000" unit="· 14 items" />} />
         <MockRow label="Their rate" value={<Price value="41" unit="/ unit" />} />
         <MockRow
-          label="In stock now"
-          value={<span className={s.tnum}>460 (40 at Warehouse B)</span>}
+          label="In stock nearby"
+          value={<span className={s.tnum}>498 (40 at Warehouse B)</span>}
           bordered={false}
         />
       </div>
