@@ -17,7 +17,7 @@ import { ImageResponse } from "next/og";
  */
 
 export const alt =
-  "Yukti: one inbox for every buyer enquiry, with full context.";
+  "Yukti: AI sales operations for manufacturers, wholesalers and distributors.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -63,7 +63,7 @@ export default function OpengraphImage() {
               maxWidth: 940,
             }}
           >
-            Answer every buyer enquiry with the full context already in front of you.
+            AI sales operations for manufacturers, wholesalers, and distributors
           </span>
           <span style={{ fontSize: 30, fontWeight: 500, color: SUB }}>
             WhatsApp · Email · Buyer and stock context · Storefront

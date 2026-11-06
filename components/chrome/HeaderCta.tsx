@@ -2,11 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { SIGNUP_URL } from "@/lib/site";
+import { TALK_EVENT, talkUrl } from "@/lib/site";
 import s from "./HeaderCta.module.css";
 
 /**
- * The header's copper "Use Yukti now".
+ * The header's copper "Talk to us".
  *
  * The design system allows at most one copper CTA per viewport. This one would
  * otherwise sit alongside the hero's. The design export solved that by hiding
@@ -54,12 +54,12 @@ export function HeaderCta() {
   return (
     <span ref={wrapRef} className={`${s.wrap} ${show ? s.show : ""}`}>
       <Button
-        href={SIGNUP_URL}
+        href={talkUrl("header")}
         variant="accent"
         size="sm"
-        event="site_signup_click"
+        event={TALK_EVENT}
       >
-        Use Yukti now
+        Talk to us
       </Button>
     </span>
   );

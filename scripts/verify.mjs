@@ -16,7 +16,7 @@ import { chromium } from "playwright-core";
 const BASE = process.env.VERIFY_ORIGIN ?? "http://localhost:3100";
 const ROUTES = [
   "/",
-  "/pricing",
+  "/case-study",
   "/how-it-works",
   "/integrations",
   "/accountants",
@@ -100,7 +100,7 @@ console.log("\n== Structured data ==");
     if (!types.includes(want)) fail(`${want} JSON-LD missing`);
   }
   const faq = ld.find((d) => d["@type"] === "FAQPage");
-  ok(faq?.mainEntity?.length === 7, `FAQPage has 7 questions`);
+  ok(faq?.mainEntity?.length === 8, `FAQPage has 8 questions`);
   await page.close();
 }
 
@@ -108,7 +108,7 @@ console.log("\n== Structured data ==");
 console.log("\n== One copper CTA per viewport ==");
 {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-  for (const route of ["/", "/pricing", "/how-it-works", "/about", "/industries/hardware"]) {
+  for (const route of ["/", "/case-study", "/how-it-works", "/about", "/industries/hardware"]) {
     await page.goto(BASE + route, { waitUntil: "load" });
     await page.waitForTimeout(300);
     const height = await page.evaluate(() => document.body.scrollHeight);

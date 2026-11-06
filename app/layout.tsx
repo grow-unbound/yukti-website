@@ -14,11 +14,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
   title: {
-    default: "Yukti: One inbox for every buyer enquiry, with full context",
+    default: "Yukti: AI sales operations for distributors",
     template: "%s · Yukti",
   },
   description:
-    "Every WhatsApp message and email in one inbox, with buyer history, dues and live stock beside it. Plus a storefront where each buyer sees their own rates.",
+    "AI sales operations for manufacturers, wholesalers and distributors. Quote, answer and invoice from one inbox, across every channel.",
   applicationName: "Yukti",
   formatDetection: { telephone: false },
 };

@@ -74,9 +74,7 @@ export default function AboutPage() {
               Alongside real operators, not in a lab. The campaign builder
               exists because a distributor described the spreadsheet it
               replaced. The one-message-per-customer-per-day cap exists because
-              a customer told us what receiving five felt like. The pricing
-              model is usage-based because charging for seats would have meant
-              charging before the value showed up.
+              a customer told us what receiving five felt like.
             </p>
             <p>
               India-first, and built to travel. Lakh and crore, GST and

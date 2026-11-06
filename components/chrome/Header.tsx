@@ -30,7 +30,7 @@ export function Header({ current }: { current?: string }) {
               key={group.label}
               group={group}
               active={
-                group.label === "Industries" && current === "/industries"
+                group.label === "Examples by trade" && current === "/industries"
               }
             />
           ))}
