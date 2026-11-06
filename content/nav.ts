@@ -28,27 +28,19 @@ export const industryNavItems: NavItem[] = industries.map((i) => ({
 }));
 
 /**
- * Persona labels. "For your customers" was ambiguous — whose customers? These
- * name both sides of the transaction instead. Note this breaks the brief's ban
- * on "buyers" in customer-facing copy, deliberately: the clarity of naming the
- * two personas next to each other is worth more here than the vocabulary rule,
- * which exists to stop the product sounding like it is about the wrong person.
+ * "Who it's for" now holds the two pages written for the people around the
+ * seller. The seller page itself is Solutions, a main-nav item.
  */
 export const audienceNavItems: NavItem[] = [
   {
-    href: "/sellers",
-    label: "For B2B sellers",
-    note: "Distributors, wholesalers and stockists, the business running Yukti.",
-  },
-  {
     href: "/buyers",
-    label: "For B2B buyers",
+    label: "For your customers",
     note: "The page to share with a customer who asks what this Yukti link is.",
   },
   {
     href: "/accountants",
     label: "For accountants",
-    note: "What lands in Tally and Zoho, and what Yukti deliberately does not do.",
+    note: "What lands in Zoho, and what Yukti deliberately does not do.",
   },
 ];
 
@@ -61,14 +53,15 @@ export const audienceNavItems: NavItem[] = [
  * that earns the traffic.
  */
 export const mainNav: NavItem[] = [
-  { href: "/how-it-works", label: "How it works" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/how-it-works", label: "Product" },
+  { href: "/sellers", label: "Solutions" },
+  { href: "/case-study", label: "Case study" },
   { href: "/#faq", label: "FAQ" },
 ];
 
 /** Grouped links, rendered as popovers on desktop and sections in the drawer. */
 export const navGroups: NavGroup[] = [
-  { label: "Industries", items: industryNavItems },
+  { label: "Examples by trade", items: industryNavItems },
   { label: "Who it's for", items: audienceNavItems },
 ];
 
@@ -76,16 +69,16 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
   {
     heading: "Product",
     items: [
-      { href: "/how-it-works", label: "How it works" },
-      { href: "/pricing", label: "Pricing" },
+      { href: "/how-it-works", label: "Product" },
+      { href: "/sellers", label: "Solutions" },
+      { href: "/case-study", label: "Case study" },
       { href: "/integrations", label: "Integrations" },
-      { href: "/compare", label: "Compare" },
       { href: "/#faq", label: "FAQ" },
       { href: "/about", label: "About" },
     ],
   },
   {
-    heading: "Industries",
+    heading: "By trade",
     items: industryNavItems.map(({ href, label }) => ({ href, label })),
   },
   {

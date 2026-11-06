@@ -1,0 +1,134 @@
+.section {
+  padding: clamp(56px, 8vw, 96px) 20px;
+  background: var(--yk-paper);
+  border-top: 1px solid var(--yk-card-line);
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-12);
+  font-weight: var(--yk-weight-medium);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--yk-copper-text);
+}
+
+.intro {
+  margin: 14px 0 0;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.65;
+  color: var(--yk-sub);
+  max-width: 660px;
+  text-wrap: pretty;
+}
+
+/* States the elevated figure in words as well as in the grid — the number is
+   the proof, this is what it means. */
+.headline {
+  margin: 18px 0 0;
+  font-size: var(--yk-mk-lead);
+  font-weight: var(--yk-weight-bold);
+  line-height: 1.5;
+  color: var(--yk-ink);
+  max-width: 660px;
+  border-left: 3px solid var(--yk-copper-text);
+  padding-left: 16px;
+  text-wrap: pretty;
+}
+
+/* Six cards, so 1 / 2 / 3 columns all divide evenly and no row is orphaned. */
+.grid {
+  margin-top: clamp(28px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 620px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--yk-card);
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-lg);
+  padding: 20px;
+}
+
+/* The repeat-ordering card. Copper here is decoration, not a CTA and not text
+   — the wash sits behind ink, and the value uses the AA text copper. */
+.featured {
+  background: var(--yk-copper-banner);
+  border: 1.5px solid var(--yk-copper-banner-rule);
+  box-shadow: var(--yk-shadow-card-lift);
+}
+
+.value {
+  margin: 0;
+  font-family: var(--yk-font-mono);
+  font-size: 30px;
+  font-weight: var(--yk-weight-medium);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--yk-tracking-mono);
+  line-height: 1.1;
+  color: var(--yk-ink);
+}
+
+.featured .value {
+  font-size: 40px;
+  color: var(--yk-copper-text);
+}
+
+.label {
+  margin: 0;
+  font-size: var(--yk-mk-135);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-body);
+  color: var(--yk-ink);
+}
+
+.note {
+  margin: 4px 0 0;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.5;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}
+
+/* Shown on the one figure that is calculated rather than counted. */
+.derivation {
+  margin: 8px 0 0;
+  font-size: var(--yk-mk-115);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-faint);
+}
+
+.footnote {
+  margin: clamp(20px, 3vw, 28px) 0 0;
+  font-size: var(--yk-mk-125);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.55;
+  color: var(--yk-faint);
+  max-width: 700px;
+  text-wrap: pretty;
+}

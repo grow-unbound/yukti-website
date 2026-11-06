@@ -4,140 +4,111 @@ import { StickyCta } from "@/components/chrome/StickyCta";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { FinalCta } from "@/components/sections/FinalCta";
-import { breadcrumbLd } from "@/lib/jsonld";
+import { Faq } from "@/components/sections/Faq";
+import { industries } from "@/content/industries";
+import { faq } from "@/content/faq";
+import { breadcrumbLd, faqLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
 import s from "@/components/ui/Prose.module.css";
 
 export const metadata = pageMetadata({
-  title: "For manufacturers, distributors and wholesalers",
+  title: "Solutions: manufacturers, wholesalers, distributors",
   description:
-    "If you manufacture, distribute or wholesale to other businesses on relationships, rates and repeat orders, Yukti is the side of the product you run. Catalog, rates, campaigns and orders in one place.",
+    "How Yukti works for manufacturers (RFQs, part numbers, quotes), wholesalers (rates, stock, repeat orders) and distributors (WhatsApp orders, dues, campaigns).",
   path: "/sellers",
-  ogTitle: "Yukti for the business doing the selling",
+  ogTitle: "Yukti for manufacturers, wholesalers and distributors",
   ogDescription:
-    "Manufacturers, distributors and wholesalers. Your catalog, your rates, your customers, your orders, in one place.",
+    "RFQs and part numbers, rates and repeat orders, WhatsApp orders and dues. One inbox.",
 });
 
 /**
- * The seller persona page, paired with /buyers.
+ * Solutions: one page, three anchors. Verticals appear only as examples and
+ * link to their own pages. No GCC regional copy until the languages and
+ * formats the product handles are confirmed (brief §4).
  *
- * These two exist because "For your customers" told a visitor nothing about
- * whose customers were meant. Naming both sides removes the ambiguity: this is
- * the page for the business running Yukti, /buyers is the page for the
- * business ordering from them.
- *
- * This is deliberately not a second homepage. The homepage sells the outcome;
- * this page answers "is this meant for me, and which side of it am I on".
- * Keep it short — every link out of here goes somewhere that sells properly.
+ * Route kept as /sellers so existing links hold.
  */
-export default function SellersPage() {
+export default function SolutionsPage() {
   return (
     <>
-      <Header />
+      <Header current="/sellers" />
       <main id="main">
         <PageHero
-          eyebrow="For B2B sellers"
-          title="You're the business doing the selling"
-          lede="Manufacturers, distributors, wholesalers and stockists who sell in bulk to other businesses on relationships, rates and repeat orders. Yukti is the side of the product you run, your catalog, your rates, your customers, your orders."
+          eyebrow="Solutions"
+          title="Built for the people who sell"
+          lede="Manufacturers, wholesalers and distributors run on conversations. Yukti puts them in one inbox, with the customer's rate, stock and dues beside every message."
         />
 
         <div className={s.prose}>
-          <section>
-            <h2>This is you if</h2>
-            <ul>
-              <li>
-                You carry several brands and sell them on to retailers,
-                electricians, mechanics, salons, contractors or other trades.
-              </li>
-              <li>
-                You make the product yourself and sell it through dealers and
-                resellers, each on their own terms.
-              </li>
-              <li>
-                Different customers pay different rates, and those rates live
-                partly in a spreadsheet and partly in someone&apos;s head.
-              </li>
-              <li>
-                A large share of your orders and enquiries arrive on WhatsApp,
-                and some of them quietly never become orders.
-              </li>
-              <li>
-                Your books are in Tally, Busy or Zoho, and you have no intention
-                of moving them.
-              </li>
-            </ul>
+          <section id="manufacturers">
+            <h2>Manufacturers</h2>
+            <p>
+              Customers send part numbers and ask for quotes, usually over email
+              and WhatsApp. Yukti matches product names, part numbers and SKUs
+              from the message and turns it into a draft quote you approve.
+              PDF and Excel RFQs are next.
+            </p>
           </section>
 
-          <section>
-            <h2>What you run in Yukti</h2>
-            <ul>
-              <li>
-                <strong>Your catalog and rates.</strong> Every product, every
-                customer group, every pricelist, with validity windows. Set the
-                rate once and every quote, order and invoice follows it.
-              </li>
-              <li>
-                <strong>Campaigns.</strong> Chosen products at a chosen rate,
-                for a chosen group of customers, for a limited time. You see the
-                average discount before you publish.
-              </li>
-              <li>
-                <strong>WhatsApp engagement.</strong> Reach everyone in an area,
-                everyone who hasn&apos;t ordered in 30 days, or everyone with
-                dues, computed from your own data, sent one to one, tracked.
-              </li>
-              <li>
-                <strong>Orders.</strong> Enquiry to delivered in one queue with
-                clear statuses, and an invoice in one click.
-              </li>
-            </ul>
+          <section id="wholesalers">
+            <h2>Wholesalers</h2>
             <p>
-              <Link href="/how-it-works">
-                See a full day of it, start to finish
-              </Link>
-              .
+              Different customers pay different rates, and the answer lives in
+              a spreadsheet or someone&apos;s head. Each customer sees their own
+              rate on a storefront they can order from, repeat orders take two
+              taps, and your team sees live stock beside every enquiry.
+            </p>
+          </section>
+
+          <section id="distributors">
+            <h2>Distributors</h2>
+            <p>
+              Orders arrive on WhatsApp, dues need chasing, and new stock needs
+              announcing. Yukti keeps WhatsApp and email in one inbox, sends
+              payment reminders on WhatsApp, and runs WhatsApp campaigns you can
+              track one customer at a time.
             </p>
           </section>
 
           <section>
-            <h2>What your customers get</h2>
+            <h2>Examples by trade</h2>
             <p>
-              Their own rate list on their phone. A link and a one-time code,
-              nothing to install, no password. They reorder in two taps and
-              check their own order status instead of calling to ask.
+              The same inbox works across trades. A few we have written up:
             </p>
-            <p>
-              If a customer of yours is wondering what the Yukti link you sent
-              them is, send them{" "}
-              <Link href="/buyers">the page written for them</Link>.
-            </p>
+            <ul>
+              {industries.map((i) => (
+                <li key={i.slug}>
+                  <Link href={`/industries/${i.slug}`}>{i.name}</Link>:{" "}
+                  {i.note}
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section>
             <h2>What stays where it is</h2>
             <p>
-              Your accounting. Yukti runs your selling and feeds clean,
-              structured data to Tally, Busy, Zoho Books and Zoho Inventory. It
-              is not accounting software, makes no journal entries and files
-              nothing on your behalf.{" "}
+              Your accounting. Yukti runs your selling and syncs with Zoho. It
+              is not accounting software and files nothing on your behalf.{" "}
               <Link href="/accountants">
-                The page for your accountant explains exactly what lands in the
-                books
+                The page for your accountant explains what lands in the books
               </Link>
               .
             </p>
           </section>
         </div>
 
-        <FinalCta />
+        <Faq />
+        <FinalCta source="solutions-closing" />
       </main>
       <StickyCta />
       <JsonLd
         data={breadcrumbLd([
           { name: "Home", path: "/" },
-          { name: "For B2B sellers", path: "/sellers" },
+          { name: "Solutions", path: "/sellers" },
         ])}
       />
+      <JsonLd data={faqLd(faq)} />
     </>
   );
 }

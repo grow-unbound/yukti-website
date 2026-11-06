@@ -9,14 +9,14 @@ type Props = {
   h3: string;
   body: string;
   bullets: string[];
-  linkLabel: string;
-  href: string;
+  linkLabel?: string;
+  href?: string;
   reverse?: boolean;
-  mock: ReactNode;
+  mock?: ReactNode;
 };
 
 /**
- * One alternating image-and-text feature row, used six times on the home page.
+ * One alternating image-and-text feature row, used on the product page.
  *
  * The reversal uses direction:rtl on the grid with direction:ltr restored on
  * the children. That is not a quirk to clean up — it is what lets the row
@@ -36,15 +36,17 @@ export function FeatureRow({
 }: Props) {
   return (
     <div id={id} className={`${s.row} ${reverse ? s.reverse : ""}`}>
-      <div className={s.child}>{mock}</div>
+      {mock ? <div className={s.child}>{mock}</div> : null}
       <div className={s.child}>
         <p className={s.eyebrow}>{eyebrow}</p>
         <h3 className={s.h3}>{h3}</h3>
         <p className={s.body}>{body}</p>
         <CheckList items={bullets} />
-        <Link href={href} className={s.link}>
-          {linkLabel}&nbsp;→
-        </Link>
+        {href && linkLabel ? (
+          <Link href={href} className={s.link}>
+            {linkLabel}&nbsp;→
+          </Link>
+        ) : null}
       </div>
     </div>
   );

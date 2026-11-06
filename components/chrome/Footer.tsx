@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/ui/Wordmark";
 import { footerNav } from "@/content/nav";
-import { WHATSAPP_DISPLAY } from "@/lib/site";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/site";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import s from "./Footer.module.css";
 
@@ -25,6 +25,10 @@ export function Footer() {
           >
             <span className={s.whatsappLabel}>WhatsApp</span>
             <span className={s.whatsappNumber}>{WHATSAPP_DISPLAY}</span>
+          </a>
+          <a href={`mailto:${CONTACT_EMAIL}`} className={s.whatsapp}>
+            <span className={s.whatsappLabel}>Email</span>
+            <span className={s.whatsappNumber}>{CONTACT_EMAIL}</span>
           </a>
         </div>
 

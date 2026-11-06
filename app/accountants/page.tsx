@@ -4,13 +4,13 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
 import { breadcrumbLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
-import { DEMO_URL } from "@/lib/whatsapp";
+import { TALK_EVENT, talkUrl } from "@/lib/site";
 import s from "@/components/ui/Prose.module.css";
 
 export const metadata = pageMetadata({
   title: "For accountants: less punching, more reviewing",
   description:
-    "Yukti is where your client runs their selling. You get the output: clean items, parties and vouchers, synced to Zoho or exported for Tally. It is not accounting software.",
+    "Yukti is where your client runs their selling. You get the output: clean items, parties and vouchers, synced to Zoho. It is not accounting software.",
   path: "/accountants",
 });
 
@@ -62,9 +62,8 @@ export default function AccountantsPage() {
               </li>
             </ul>
             <p>
-              Zoho Books and Zoho Inventory sync directly, two-way. Tally takes
-              clean CSV for items, sales vouchers and ledgers. Busy is coming.
-              Integrations are included in every plan, including Lite.
+              Zoho Books and Zoho Inventory sync directly, two-way.
+              QuickBooks and Tally are coming soon.
             </p>
           </section>
 
@@ -106,8 +105,8 @@ export default function AccountantsPage() {
               harder.
             </p>
             <p style={{ marginTop: 22 }}>
-              <Button href={DEMO_URL} variant="primary" size="md" event="site_demo_click">
-                Introduce us
+              <Button href={talkUrl("accountants")} variant="primary" size="md" event={TALK_EVENT}>
+                Talk to us
               </Button>
             </p>
           </section>

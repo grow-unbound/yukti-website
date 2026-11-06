@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { competitors } from "@/content/compare";
 import { industries } from "@/content/industries";
+import { caseStudyReady } from "@/content/proof";
 import { SITE_ORIGIN } from "@/lib/site";
 
 /**
@@ -10,7 +10,6 @@ import { SITE_ORIGIN } from "@/lib/site";
  */
 const ROUTES: { path: string; priority: number; changeFrequency: "weekly" | "monthly" }[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
-  { path: "/pricing", priority: 0.9, changeFrequency: "monthly" },
   { path: "/how-it-works", priority: 0.8, changeFrequency: "monthly" },
   // Industry pages derive from content, so adding one cannot leave the
   // sitemap behind.
@@ -19,17 +18,15 @@ const ROUTES: { path: string; priority: number; changeFrequency: "weekly" | "mon
     priority: 0.8,
     changeFrequency: "monthly" as const,
   })),
-  { path: "/compare", priority: 0.7, changeFrequency: "monthly" },
-  ...competitors.map((c) => ({
-    path: `/compare/${c.slug}`,
-    priority: 0.7,
-    changeFrequency: "monthly" as const,
-  })),
   { path: "/integrations", priority: 0.7, changeFrequency: "monthly" },
   { path: "/sellers", priority: 0.7, changeFrequency: "monthly" },
   { path: "/buyers", priority: 0.6, changeFrequency: "monthly" },
   { path: "/accountants", priority: 0.6, changeFrequency: "monthly" },
   { path: "/about", priority: 0.5, changeFrequency: "monthly" },
+  // Held out until the placeholders are filled (content/proof.ts).
+  ...(caseStudyReady
+    ? [{ path: "/case-study", priority: 0.8, changeFrequency: "monthly" as const }]
+    : []),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

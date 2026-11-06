@@ -60,7 +60,7 @@ export const industries: Industry[] = [
     slug: "electricals",
     name: "Electricals",
     longName: "electricals distribution",
-    note: "Scheme-heavy brand pricing, rates that differ by customer class.",
+    note: "Scheme-heavy brand rates that differ by customer class.",
     icon: "electricals",
     title: "Electricals distribution software",
     h1: "Every customer on this week's scheme, from the first quote",
