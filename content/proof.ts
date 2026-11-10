@@ -25,7 +25,7 @@ export const proofHeader =
   "What one multi-outlet distributor in India did with Yukti, Aug to Nov 2026";
 
 export const proofIntro =
-  "A multi-outlet electronics distributor in India put its customers on the Yukti storefront. These are live numbers from its own system, not a pilot.";
+  "A multi-outlet electronics distributor in India put its customers on the Yukti storefront. These are live numbers from its own system.";
 
 /** Six cards: 1, 2 and 3 columns all divide evenly. */
 export const proofStats = [

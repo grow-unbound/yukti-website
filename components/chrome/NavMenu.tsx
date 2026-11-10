@@ -8,10 +8,11 @@ import s from "./NavMenu.module.css";
 /**
  * A desktop nav popover.
  *
- * Deliberately a real button + panel rather than a CSS hover menu: hover-only
- * menus are unreachable by keyboard and unusable on touch, and this site's
- * primary viewport is a phone. Opens on click, closes on Escape, on outside
- * click, and on navigating — with focus returned to the trigger on Escape.
+ * A real button + panel, so it stays reachable by keyboard and touch, with
+ * hover added on top for mouse users: a mouse pointer entering the menu opens
+ * it, and leaving closes it after a short grace period so the pointer can
+ * cross the gap to the panel. Click still toggles (touch, keyboard), Escape
+ * and outside click close, and focus returns to the trigger on Escape.
  *
  * The panel stays in the DOM and is toggled with `hidden`, so its links are
  * still crawlable and present without JS.
@@ -27,6 +28,23 @@ export function NavMenu({
   const panelId = useId();
   const wrapRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = null;
+  };
+  const hoverOpen = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    cancelClose();
+    setOpen(true);
+  };
+  const hoverClose = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    cancelClose();
+    closeTimer.current = setTimeout(() => setOpen(false), 140);
+  };
+  useEffect(() => cancelClose, []);
 
   useEffect(() => {
     if (!open) return;
@@ -56,7 +74,12 @@ export function NavMenu({
   }, [open]);
 
   return (
-    <div className={s.wrap} ref={wrapRef}>
+    <div
+      className={s.wrap}
+      ref={wrapRef}
+      onPointerEnter={hoverOpen}
+      onPointerLeave={hoverClose}
+    >
       <button
         ref={triggerRef}
         type="button"
@@ -69,23 +92,34 @@ export function NavMenu({
         <span className={s.chevron} aria-hidden="true" />
       </button>
 
-      <div id={panelId} className={s.panel} hidden={!open}>
-        <ul className={s.list}>
-          {group.items.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={s.item}
-                onClick={() => setOpen(false)}
-              >
-                <span className={s.itemLabel}>{item.label}</span>
-                {item.note ? (
-                  <span className={s.itemNote}>{item.note}</span>
-                ) : null}
-              </Link>
-            </li>
+      <div
+        id={panelId}
+        className={`${s.panel} ${group.sections.length > 1 ? s.panelWide : ""}`}
+        hidden={!open}
+      >
+        <div className={s.cols}>
+          {group.sections.map((sec, i) => (
+            <div key={sec.heading ?? i} className={s.col}>
+              {sec.heading ? <p className={s.heading}>{sec.heading}</p> : null}
+              <ul className={s.list}>
+                {sec.items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={s.item}
+                      onClick={() => setOpen(false)}
+                    >
+                      <span className={s.itemLabel}>{item.label}</span>
+                      {item.note ? (
+                        <span className={s.itemNote}>{item.note}</span>
+                      ) : null}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );

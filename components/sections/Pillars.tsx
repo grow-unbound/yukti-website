@@ -10,6 +10,7 @@ export function Pillars() {
         <Heading level={2} size="h2">
           {pillarsCopy.title}
         </Heading>
+        <p className={s.lede}>{pillarsCopy.lede}</p>
         <ol className={s.pillarGrid}>
           {pillarsCopy.pillars.map((p, i) => (
             <li key={p.id} className={s.pillar}>

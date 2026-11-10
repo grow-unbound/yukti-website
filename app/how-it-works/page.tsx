@@ -21,11 +21,11 @@ import g from "../page.module.css";
 export const metadata = pageMetadata({
   title: "Product: AI sales operations in one inbox",
   description:
-    "Capture, Respond, Process. One inbox for WhatsApp and email, AI answers on price, stock and dues, quotes and orders you approve, and Zoho sync.",
+    "Capture, Process, Respond. One inbox for WhatsApp and email, AI-prepared drafts you approve, answers on price, stock and dues, and Zoho sync.",
   path: "/how-it-works",
 });
 
-const PILLARS: Pillar[] = ["capture", "respond", "process"];
+const PILLARS: Pillar[] = ["capture", "process", "respond"];
 
 export default function ProductPage() {
   return (
@@ -35,7 +35,7 @@ export default function ProductPage() {
         <PageHero
           eyebrow="Product"
           title="One platform. Three jobs."
-          lede="Capture orders and enquiries, respond to customers, and process the work, from one inbox."
+          lede="Capture every enquiry in one inbox. Process it with AI and the full context, so a draft is ready. Respond by approving and sending it."
           ledeAs="h2"
         />
 
@@ -45,7 +45,7 @@ export default function ProductPage() {
           <section
             key={p}
             id={p}
-            className={`${s.section} ${p === "respond" ? s.paper : ""}`}
+            className={`${s.section} ${p === "process" ? s.paper : ""}`}
             data-yk-section={`pillar-${p}`}
           >
             <div className={s.inner}>

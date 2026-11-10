@@ -17,7 +17,31 @@ export const faq: FaqItem[] = [
   },
   {
     q: "Do I approve before anything is sent?",
-    a: "Your team stays in control. A customer's message becomes a draft quote that you approve, and rate changes go through approval.",
+    a: "Your team stays in control. A customer's message becomes a draft quote that you approve, and rate changes go through approval. Replies that go out without a click are coming, and you will choose when to switch them on.",
+  },
+  {
+    q: "What does the AI actually do?",
+    a: "It reads each enquiry with the customer's rate, stock, dues and history beside it, matches product names, part numbers and SKUs, and has the draft ready. It also answers customer questions on price, stock, order status and dues.",
+  },
+  {
+    q: "Where does the AI get its answers?",
+    a: "From your own rates, catalog, stock and order data in Yukti, for that customer.",
+  },
+  {
+    q: "What happens to questions the AI cannot answer?",
+    a: "They stay in the inbox for your team, with the customer's context beside them. Your team handles the exceptions.",
+  },
+  {
+    q: "Will my team still be involved?",
+    a: "Yes. Yukti prepares the work and your team approves it, so people spend their time on the exceptions and the relationships rather than on retyping enquiries.",
+  },
+  {
+    q: "Can I start small and let the AI do more later?",
+    a: "Yes. Start with the inbox and approved drafts. Replies without a click are coming, and you decide when, and for which questions, to turn them on.",
+  },
+  {
+    q: "Which languages does the AI work in?",
+    a: "English today. Other languages will be added based on interest. Tell us what you need on the call.",
   },
   {
     q: "Which accounting systems does it work with?",

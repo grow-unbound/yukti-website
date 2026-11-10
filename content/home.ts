@@ -21,13 +21,21 @@ export const heroCopy = {
 };
 
 export type Pillar = {
-  id: "capture" | "respond" | "process";
+  id: "capture" | "process" | "respond";
   name: string;
   body: string;
 };
 
+/**
+ * The order is the work: Capture, then Process, then Respond. The value is in
+ * the middle step. AI reads each enquiry with the full context (the customer's
+ * rate, stock, dues and history) and has a draft ready; Respond is the team
+ * approving and sending it. Replies that go out without a click are direction
+ * (tier C): never worded as working.
+ */
 export const pillarsCopy = {
   title: "One platform. Three jobs.",
+  lede: "Yukti does the work with the full context. You approve the draft.",
   pillars: [
     {
       id: "capture",
@@ -35,14 +43,14 @@ export const pillarsCopy = {
       body: "Orders and enquiries from WhatsApp, email or your storefront land in one inbox as structured orders. PDF and Excel RFQs are next.",
     },
     {
-      id: "respond",
-      name: "Respond",
-      body: "AI answers customers on price, stock, order status and dues, using your own rates and data. Your team stays in control.",
-    },
-    {
       id: "process",
       name: "Process",
-      body: "Turn enquiries into quotes and orders, apply your approvals, and book to Zoho. Rules to invoice routine orders without the wait are coming.",
+      body: "AI reads each enquiry with the customer's rate, stock, dues and history beside it, and has the quote or order ready as a draft. Rules to invoice routine orders without the wait are coming.",
+    },
+    {
+      id: "respond",
+      name: "Respond",
+      body: "Approve and send the ready draft in one step. AI answers customers on price, stock, order status and dues, using your own rates and data. Replies without a click are coming, switched on only when you are ready.",
     },
   ] satisfies Pillar[],
 };
@@ -69,40 +77,59 @@ export const audienceCopy = {
 };
 
 /**
- * The loop, as a diagram. Seven steps, no status chips. Copy follows the
- * tiers: present tense for A and B, intent language for C.
+ * The loop, as a timeline of seven steps in three phases that match the three
+ * jobs. No status chips. Copy follows the tiers: present tense for A and B,
+ * intent language for C.
  */
 export const loopCopy = {
   title: "How it fits together",
-  lede: "Every enquiry follows the same loop. Your team handles the exceptions.",
-  steps: [
+  lede: "Every enquiry follows the same path, and the draft is ready before your team opens it.",
+  phases: [
     {
+      id: "capture",
       name: "Capture",
-      body: "A message or order arrives from WhatsApp, email or your storefront and lands in one inbox.",
+      steps: [
+        {
+          name: "Capture",
+          body: "A message or order arrives from WhatsApp, email or your storefront and lands in one inbox.",
+        },
+        {
+          name: "Resolve",
+          body: "Yukti matches product names, part numbers and SKUs from the message to your catalog.",
+        },
+      ],
     },
     {
-      name: "Resolve",
-      body: "Yukti matches product names, part numbers and SKUs from the message to your catalog.",
+      id: "process",
+      name: "Process",
+      steps: [
+        {
+          name: "Price",
+          body: "The draft carries the customer's own rate, with live stock and dues beside it.",
+        },
+        {
+          name: "Approve",
+          body: "You review and approve the ready draft. Rate changes go through approval.",
+        },
+        {
+          name: "Book",
+          body: "The order syncs to Zoho. Rules to invoice routine orders without the wait are coming.",
+        },
+      ],
     },
     {
-      name: "Price",
-      body: "Each customer sees their own rate, with live stock and dues beside it.",
-    },
-    {
-      name: "Approve",
-      body: "You approve the draft. Rate changes go through approval.",
-    },
-    {
-      name: "Confirm",
-      body: "The customer gets the confirmation and can track the order.",
-    },
-    {
-      name: "Book",
-      body: "The order syncs to Zoho. Rules to invoice routine orders without the wait are coming.",
-    },
-    {
-      name: "Grow",
-      body: "WhatsApp campaigns and payment reminders bring customers back and keep dues moving.",
+      id: "respond",
+      name: "Respond",
+      steps: [
+        {
+          name: "Confirm",
+          body: "The customer gets the reply and the confirmation, and can track the order.",
+        },
+        {
+          name: "Grow",
+          body: "WhatsApp campaigns and payment reminders bring customers back and keep dues moving.",
+        },
+      ],
     },
   ],
 };

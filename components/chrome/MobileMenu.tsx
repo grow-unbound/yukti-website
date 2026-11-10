@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { mainNav, navGroups } from "@/content/nav";
+import { headerLeading, headerTrailing, navGroups } from "@/content/nav";
 import { DEALER_LOGIN_URL, SELLER_LOGIN_URL } from "@/lib/site";
 import s from "./MobileMenu.module.css";
 
@@ -76,7 +76,7 @@ export function MobileMenu() {
         hidden={!open}
         aria-label="Main"
       >
-        {mainNav.map((item) => (
+        {headerLeading.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -90,17 +90,35 @@ export function MobileMenu() {
         {navGroups.map((group) => (
           <div key={group.label} className={s.group}>
             <p className={s.groupLabel}>{group.label}</p>
-            {group.items.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={s.link}
-                onClick={close}
-              >
-                {item.label}
-              </Link>
+            {group.sections.map((sec, i) => (
+              <div key={sec.heading ?? i}>
+                {sec.heading ? (
+                  <p className={s.groupLabel}>{sec.heading}</p>
+                ) : null}
+                {sec.items.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={s.link}
+                    onClick={close}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             ))}
           </div>
+        ))}
+
+        {headerTrailing.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={s.link}
+            onClick={close}
+          >
+            {item.label}
+          </Link>
         ))}
 
         <div className={s.group}>

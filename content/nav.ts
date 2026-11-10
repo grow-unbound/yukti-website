@@ -14,11 +14,14 @@ import { industries } from "./industries";
 
 export type NavItem = { href: string; label: string; note?: string };
 
+export type NavSection = { heading?: string; items: NavItem[] };
+
 export type NavGroup = {
   label: string;
   /** Where the group's own label points, if anywhere. */
   href?: string;
-  items: NavItem[];
+  /** One or more headed columns of links in the panel. */
+  sections: NavSection[];
 };
 
 export const industryNavItems: NavItem[] = industries.map((i) => ({
@@ -27,42 +30,60 @@ export const industryNavItems: NavItem[] = industries.map((i) => ({
   note: i.note,
 }));
 
-/**
- * "Who it's for" now holds the two pages written for the people around the
- * seller. The seller page itself is Solutions, a main-nav item.
- */
+/** Seller types: anchors on the Solutions page. */
+export const sellerNavItems: NavItem[] = [
+  {
+    href: "/sellers#manufacturers",
+    label: "Manufacturers",
+    note: "RFQs, part numbers, quotes.",
+  },
+  {
+    href: "/sellers#wholesalers",
+    label: "Wholesalers",
+    note: "Rates, stock, repeat orders.",
+  },
+  {
+    href: "/sellers#distributors",
+    label: "Distributors",
+    note: "WhatsApp orders, dues, campaigns.",
+  },
+];
+
+/** The two pages written for the people around the seller. */
 export const audienceNavItems: NavItem[] = [
   {
-    href: "/buyers",
-    label: "For your customers",
-    note: "The page to share with a customer who asks what this Yukti link is.",
+    href: "/accountants",
+    label: "Accountants",
+    note: "How Yukti sits on top of your books.",
   },
   {
-    href: "/accountants",
-    label: "For accountants",
-    note: "What lands in Zoho, and what Yukti deliberately does not do.",
+    href: "/buyers",
+    label: "B2B buyers",
+    note: "The page to share with a customer who asks what this Yukti link is.",
   },
 ];
 
 /**
- * Flat links in the header.
- *
- * FAQ points at the home page section rather than a page of its own: the
- * answers are the FAQPage structured data source, and splitting them onto a
- * separate route would either duplicate that markup or move it off the page
- * that earns the traffic.
+ * Header: Product, Solutions (two grouped columns), Industries (a dropdown),
+ * Case Studies. FAQ lives on the home and Solutions pages and in the footer,
+ * not in the header, to keep the bar uncrowded.
  */
-export const mainNav: NavItem[] = [
-  { href: "/how-it-works", label: "Product" },
-  { href: "/sellers", label: "Solutions" },
-  { href: "/case-study", label: "Case study" },
-  { href: "/#faq", label: "FAQ" },
+export const headerLeading: NavItem[] = [{ href: "/how-it-works", label: "Product" }];
+
+export const navGroups: NavGroup[] = [
+  {
+    label: "Solutions",
+    href: "/sellers",
+    sections: [
+      { heading: "By seller type", items: sellerNavItems },
+      { heading: "Around the business", items: audienceNavItems },
+    ],
+  },
+  { label: "Industries", sections: [{ items: industryNavItems }] },
 ];
 
-/** Grouped links, rendered as popovers on desktop and sections in the drawer. */
-export const navGroups: NavGroup[] = [
-  { label: "Examples by trade", items: industryNavItems },
-  { label: "Who it's for", items: audienceNavItems },
+export const headerTrailing: NavItem[] = [
+  { href: "/case-study", label: "Case Studies" },
 ];
 
 export const footerNav: { heading: string; items: NavItem[] }[] = [
@@ -71,19 +92,19 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
     items: [
       { href: "/how-it-works", label: "Product" },
       { href: "/sellers", label: "Solutions" },
-      { href: "/case-study", label: "Case study" },
+      { href: "/case-study", label: "Case Studies" },
       { href: "/integrations", label: "Integrations" },
       { href: "/#faq", label: "FAQ" },
       { href: "/about", label: "About" },
     ],
   },
   {
-    heading: "By trade",
+    heading: "Industries",
     items: industryNavItems.map(({ href, label }) => ({ href, label })),
   },
   {
-    heading: "Who it's for",
-    items: audienceNavItems.map(({ href, label }) => ({ href, label })),
+    heading: "Solutions",
+    items: [...sellerNavItems, ...audienceNavItems].map(({ href, label }) => ({ href, label })),
   },
   {
     heading: "Legal",

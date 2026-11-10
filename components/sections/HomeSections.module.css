@@ -191,3 +191,65 @@
   line-height: 1.55;
   color: var(--yk-ink);
 }
+
+.audienceIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+  border-radius: var(--yk-radius-md);
+  background: var(--yk-paper);
+  border: 1px solid var(--yk-card-line);
+  color: var(--yk-copper-text);
+}
+
+/* Integration logos: clickable tiles. */
+.logoRow {
+  list-style: none;
+  margin: clamp(20px, 3vw, 28px) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.logoTile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 168px;
+  height: 104px;
+  background: var(--yk-card);
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-lg);
+  text-decoration: none;
+  transition:
+    box-shadow var(--yk-duration-base) var(--yk-ease),
+    transform var(--yk-duration-fast) var(--yk-ease);
+}
+
+.logoTile:hover {
+  box-shadow: var(--yk-shadow-md);
+  transform: translateY(-2px);
+}
+
+.logoImg {
+  max-width: 110px;
+  max-height: 34px;
+  width: auto;
+  height: auto;
+}
+
+.logoState {
+  font-size: var(--yk-mk-12);
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-sub);
+}
+
+.logoLive {
+  color: var(--yk-success);
+}

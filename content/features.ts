@@ -14,7 +14,7 @@ import type { ReactNode } from "react";
  * lets these rows respond with no media query.
  */
 
-export type Pillar = "capture" | "respond" | "process";
+export type Pillar = "capture" | "process" | "respond";
 
 export type Feature = {
   id: string;
@@ -34,13 +34,13 @@ export const pillarIntro: Record<Pillar, { name: string; lede: string }> = {
     name: "Capture",
     lede: "Orders and enquiries from WhatsApp, email or your storefront land in one inbox as structured orders.",
   },
-  respond: {
-    name: "Respond",
-    lede: "AI answers customers on price, stock, order status and dues, using your own rates and data. Your team stays in control.",
-  },
   process: {
     name: "Process",
-    lede: "Turn enquiries into quotes and orders, apply your approvals, and book to Zoho.",
+    lede: "AI reads each enquiry with the customer's rate, stock, dues and history beside it, and has the quote or order ready as a draft. You approve, and the order books to Zoho.",
+  },
+  respond: {
+    name: "Respond",
+    lede: "Approve and send the ready draft in one step. AI answers customers on price, stock, order status and dues, using your own rates and data. Your team stays in control.",
   },
 };
 
@@ -75,27 +75,13 @@ export const features: Omit<Feature, "mock">[] = [
     reverse: true,
   },
 
-  // ── Respond ── (no screenshot: text only)
-  {
-    id: "feature-respond",
-    pillar: "respond",
-    eyebrow: "AI replies",
-    h3: "Answers customer questions on price, stock, order status and dues",
-    body: "Customers ask the same questions all day. Yukti answers them from your own rates, stock and order data, and your team stays in control.",
-    bullets: [
-      "Suggests alternates when an item is out of stock",
-      "Matches product names, part numbers and SKUs from the message",
-      "Uses each customer's own rate and your live stock",
-    ],
-  },
-
   // ── Process ──
   {
     id: "feature-orders",
     pillar: "process",
     eyebrow: "Quotes and orders",
-    h3: "Turn a customer's message into a draft quote you approve",
-    body: "Enquiries become draft quotes, and quotes become orders. Orders move through clear statuses, and every change is on record.",
+    h3: "Turn a customer's message into a draft quote, ready for you to approve",
+    body: "AI reads the enquiry with the customer's rate, stock, dues and history beside it, and has the draft quote ready. Orders then move through clear statuses, and every change is on record.",
     bullets: [
       "Enquiry → order → confirmed → dispatched → delivered",
       "Rate changes go through approval",
@@ -118,8 +104,36 @@ export const features: Omit<Feature, "mock">[] = [
     reverse: true,
   },
   {
-    id: "feature-campaigns",
+    id: "feature-integrations",
     pillar: "process",
+    eyebrow: "Integrations",
+    h3: "Works with Zoho. Coming soon: QuickBooks, Tally.",
+    body: "Yukti runs your selling. Start without connecting anything, then link Zoho when it suits you. Orders, invoices, items, and parties flow across.",
+    bullets: [
+      "Syncs with Zoho, two-way, minutes to set up",
+    ],
+    linkLabel: "See integrations",
+    href: "/integrations",
+  },
+  // ── Respond ──
+  {
+    id: "feature-respond",
+    pillar: "respond",
+    eyebrow: "AI replies",
+    h3: "Answers customer questions on price, stock, order status and dues",
+    body: "Customers ask the same questions all day. Yukti answers them from your own rates, stock and order data, and your team stays in control.",
+    bullets: [
+      "Approve and send a ready draft in one step",
+      "Suggests alternates when an item is out of stock",
+      "Matches product names, part numbers and SKUs from the message",
+      "Uses each customer's own rate and your live stock",
+      "Autonomous replies for routine questions are coming, switched on only when you are ready",
+    ],
+  },
+
+  {
+    id: "feature-campaigns",
+    pillar: "respond",
     eyebrow: "Campaigns",
     h3: "Send each customer the rate meant for them",
     body: "Build a special rate for chosen products on a deadline, and preview exactly what customers will see before you send.",
@@ -131,7 +145,7 @@ export const features: Omit<Feature, "mock">[] = [
   },
   {
     id: "feature-whatsapp",
-    pillar: "process",
+    pillar: "respond",
     eyebrow: "WhatsApp engagement",
     h3: "Message customers one to one, not in groups nobody reads",
     body: "Message by area, dormant status, or dues. Sent one to one, tracked end to end.",
@@ -142,18 +156,6 @@ export const features: Omit<Feature, "mock">[] = [
       "Customers consent at first login and can opt out anytime. You see exactly who received, opened, ordered",
     ],
     reverse: true,
-  },
-  {
-    id: "feature-integrations",
-    pillar: "process",
-    eyebrow: "Integrations",
-    h3: "Works with Zoho. Coming soon: QuickBooks, Tally.",
-    body: "Yukti runs your selling. Start without connecting anything, then link Zoho when it suits you. Orders, invoices, items, and parties flow across.",
-    bullets: [
-      "Syncs with Zoho, two-way, minutes to set up",
-    ],
-    linkLabel: "See integrations",
-    href: "/integrations",
   },
 ];
 
@@ -167,6 +169,7 @@ export const headed = {
     "Rules to invoice routine orders without the wait are coming.",
     "Payment terms, MOQs and approval limits on quotes are coming.",
     "Coming soon: QuickBooks, Tally.",
+    "Autonomous replies for routine questions are coming, switched on only when you are ready.",
     "Payments in the order flow are on the way.",
   ],
 };

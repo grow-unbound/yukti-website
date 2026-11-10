@@ -2,14 +2,23 @@ import Link from "next/link";
 import { Header } from "@/components/chrome/Header";
 import { StickyCta } from "@/components/chrome/StickyCta";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { Heading } from "@/components/ui/Heading";
+import { IndustryIcon } from "@/components/ui/IndustryIcon";
 import { PageHero } from "@/components/ui/PageHero";
-import { FinalCta } from "@/components/sections/FinalCta";
 import { Faq } from "@/components/sections/Faq";
-import { industries } from "@/content/industries";
+import { FinalCta } from "@/components/sections/FinalCta";
+import { SellerIcon } from "@/components/sections/SellerIcon";
 import { faq } from "@/content/faq";
+import { industries } from "@/content/industries";
+import {
+  industriesCopy,
+  layerCopy,
+  sellerTypes,
+} from "@/content/solutions";
 import { breadcrumbLd, faqLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
-import s from "@/components/ui/Prose.module.css";
+import w from "@/components/sections/WithWithout.module.css";
+import h from "@/components/sections/HomeSections.module.css";
 
 export const metadata = pageMetadata({
   title: "Solutions: manufacturers, wholesalers, distributors",
@@ -22,11 +31,11 @@ export const metadata = pageMetadata({
 });
 
 /**
- * Solutions: one page, three anchors. Verticals appear only as examples and
- * link to their own pages. No GCC regional copy until the languages and
- * formats the product handles are confirmed (brief §4).
- *
- * Route kept as /sellers so existing links hold.
+ * Solutions. Route kept as /sellers so existing links hold. Three seller
+ * types, each shown with and without Yukti; an explainer of how Yukti works
+ * as an operating layer on top of any books (not tied to one ERP); and a
+ * "works across industries" grid. No GCC regional copy: the product is
+ * English, left to right only today.
  */
 export default function SolutionsPage() {
   return (
@@ -36,67 +45,121 @@ export default function SolutionsPage() {
         <PageHero
           eyebrow="Solutions"
           title="Built for the people who sell"
-          lede="Manufacturers, wholesalers and distributors run on conversations. Yukti puts them in one inbox, with the customer's rate, stock and dues beside every message."
+          lede="Manufacturers, wholesalers and distributors run on conversations. Yukti puts them in one inbox, has the draft ready with the customer's rate, stock and dues beside it, and your team approves."
         />
 
-        <div className={s.prose}>
-          <section id="manufacturers">
-            <h2>Manufacturers</h2>
-            <p>
-              Customers send part numbers and ask for quotes, usually over email
-              and WhatsApp. Yukti matches product names, part numbers and SKUs
-              from the message and turns it into a draft quote you approve.
-              PDF and Excel RFQs are next.
-            </p>
+        {sellerTypes.map((t, i) => (
+          <section
+            key={t.id}
+            id={t.id}
+            className={`${w.block} ${i % 2 === 1 ? h.paper : ""}`}
+            data-yk-section={`solution-${t.id}`}
+          >
+            <div className={w.inner}>
+              <div className={w.head}>
+                <span className={w.icon}>
+                  <SellerIcon name={t.id} />
+                </span>
+                <div>
+                  <h2 className={w.title}>{t.name}</h2>
+                  <p className={w.line}>{t.line}</p>
+                </div>
+              </div>
+              <div className={w.table}>
+                {t.rows.map((r) => (
+                  <div key={r.with} className={w.row}>
+                    <p className={`${w.cell} ${w.without}`}>
+                      <span className={w.tag}>Without Yukti</span>
+                      {r.without}
+                    </p>
+                    <p className={`${w.cell} ${w.with}`}>
+                      <span className={w.tag}>With Yukti</span>
+                      {r.with}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </section>
+        ))}
 
-          <section id="wholesalers">
-            <h2>Wholesalers</h2>
-            <p>
-              Different customers pay different rates, and the answer lives in
-              a spreadsheet or someone&apos;s head. Each customer sees their own
-              rate on a storefront they can order from, repeat orders take two
-              taps, and your team sees live stock beside every enquiry.
-            </p>
-          </section>
+        <section id="layer" className={w.block} data-yk-section="solution-layer">
+          <div className={w.inner}>
+            <Heading level={2} size="h2">
+              {layerCopy.title}
+            </Heading>
+            <p className={h.lede}>{layerCopy.lede}</p>
 
-          <section id="distributors">
-            <h2>Distributors</h2>
-            <p>
-              Orders arrive on WhatsApp, dues need chasing, and new stock needs
-              announcing. Yukti keeps WhatsApp and email in one inbox, sends
-              payment reminders on WhatsApp, and runs WhatsApp campaigns you can
-              track one customer at a time.
-            </p>
-          </section>
+            <div className={w.stack} aria-label="Where Yukti sits">
+              <div className={`${w.layer} ${w.layerTop}`}>
+                Your customers
+                <span className={w.layerSub}>
+                  WhatsApp, email, your storefront
+                </span>
+              </div>
+              <div className={`${w.layer} ${w.layerMid}`}>
+                Yukti
+                <span className={w.layerSub}>
+                  Enquiries, quotes, orders, approvals
+                </span>
+              </div>
+              <div className={`${w.layer} ${w.layerBottom}`}>
+                Your books: your ERP or accounting system
+                <span className={w.layerSub}>
+                  Stays the system of record
+                </span>
+              </div>
+            </div>
 
-          <section>
-            <h2>Examples by trade</h2>
-            <p>
-              The same inbox works across trades. A few we have written up:
-            </p>
-            <ul>
-              {industries.map((i) => (
-                <li key={i.slug}>
-                  <Link href={`/industries/${i.slug}`}>{i.name}</Link>:{" "}
-                  {i.note}
+            <ul className={w.layerGrid}>
+              {layerCopy.points.map((p) => (
+                <li key={p.h} className={w.layerCard}>
+                  <h3>{p.h}</h3>
+                  <p>{p.p}</p>
                 </li>
               ))}
             </ul>
-          </section>
-
-          <section>
-            <h2>What stays where it is</h2>
-            <p>
-              Your accounting. Yukti runs your selling and syncs with Zoho. It
-              is not accounting software and files nothing on your behalf.{" "}
-              <Link href="/accountants">
-                The page for your accountant explains what lands in the books
-              </Link>
-              .
+            <p className={w.outro}>
+              <Link href="/accountants">For your accountant</Link> ·{" "}
+              <Link href="/integrations">Integrations</Link>
             </p>
-          </section>
-        </div>
+          </div>
+        </section>
+
+        <section
+          id="industries"
+          className={`${w.block} ${h.paper}`}
+          data-yk-section="solution-industries"
+        >
+          <div className={w.inner}>
+            <Heading level={2} size="h2">
+              {industriesCopy.title}
+            </Heading>
+            <p className={h.lede}>{industriesCopy.lede}</p>
+            <ul className={w.indGrid}>
+              {industries.map((ind) => (
+                <li key={ind.slug}>
+                  <Link href={`/industries/${ind.slug}`} className={w.indCard}>
+                    <span className={h.audienceIcon}>
+                      <IndustryIcon name={ind.icon} />
+                    </span>
+                    <span className={w.indName}>{ind.name}</span>
+                    <span className={w.indNote}>{ind.note}</span>
+                    <ul className={w.indList}>
+                      {ind.pains.slice(0, 3).map((p) => (
+                        <li key={p.h}>{p.h}</li>
+                      ))}
+                    </ul>
+                    <span className={w.indMore}>
+                      See {ind.name}&nbsp;→
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className={w.outro}>{industriesCopy.outro}</p>
+          </div>
+        </section>
 
         <Faq />
         <FinalCta source="solutions-closing" />

@@ -18,7 +18,7 @@ export function ProofBlock() {
   return (
     <section id="proof" className={s.section} data-yk-section="proof">
       <div className={s.inner}>
-        <p className={s.eyebrow}>Live results</p>
+        <p className={s.eyebrow}>Impact metrics</p>
         <Heading level={2} size="h2">
           {proofHeader}
         </Heading>

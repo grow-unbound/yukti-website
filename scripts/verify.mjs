@@ -100,7 +100,7 @@ console.log("\n== Structured data ==");
     if (!types.includes(want)) fail(`${want} JSON-LD missing`);
   }
   const faq = ld.find((d) => d["@type"] === "FAQPage");
-  ok(faq?.mainEntity?.length === 8, `FAQPage has 8 questions`);
+  ok(faq?.mainEntity?.length === 14, `FAQPage has 14 questions`);
   await page.close();
 }
 
@@ -140,6 +140,9 @@ console.log("\n== Contrast (rendered pixels, AA) ==");
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   for (const route of ROUTES) {
     await page.goto(BASE + route, { waitUntil: "load" });
+    // Entrance animations (hero, mock flow) end by about 2.5s; measuring
+    // mid-fade reads as low contrast.
+    await page.waitForTimeout(2800);
     const bad = await page.evaluate(() => {
       const lin = (c) => {
         c /= 255;
