@@ -1,0 +1,255 @@
+.section {
+  padding: clamp(56px, 8vw, 96px) 20px;
+}
+
+.paper {
+  background: var(--yk-paper);
+  border-top: 1px solid var(--yk-card-line);
+  border-bottom: 1px solid var(--yk-card-line);
+}
+
+.inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.lede {
+  margin: 14px 0 0;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.6;
+  color: var(--yk-sub);
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
+.center .lede {
+  margin-inline: auto;
+}
+
+.more {
+  margin: 14px 0 0;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-semibold);
+}
+
+.more a {
+  color: var(--yk-copper-text);
+}
+
+/* Three pillars: 1 / 3 columns divide evenly. */
+.pillarGrid {
+  list-style: none;
+  margin: clamp(24px, 4vw, 36px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 820px) {
+  .pillarGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillar {
+  background: var(--yk-card);
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-lg);
+  padding: 22px;
+  box-shadow: var(--yk-shadow-xs);
+}
+
+.pillarNum,
+.loopNum {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--yk-radius-full);
+  background: var(--yk-ink);
+  color: var(--yk-on-dark);
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-12);
+  font-weight: var(--yk-weight-semibold);
+}
+
+.pillarName {
+  margin: 12px 0 0;
+  font-size: var(--yk-mk-h3);
+  font-weight: var(--yk-weight-bold);
+  letter-spacing: var(--yk-tracking-heading);
+  color: var(--yk-ink);
+}
+
+.pillarBody {
+  margin: 8px 0 0;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.55;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}
+
+.audienceGrid {
+  list-style: none;
+  margin: clamp(24px, 4vw, 36px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 720px) {
+  .audienceGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.audienceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  background: var(--yk-card);
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-lg);
+  padding: 20px;
+  text-decoration: none;
+  transition:
+    box-shadow var(--yk-duration-base) var(--yk-ease),
+    transform var(--yk-duration-fast) var(--yk-ease);
+}
+
+.audienceCard:hover {
+  box-shadow: var(--yk-shadow-md);
+  transform: translateY(-2px);
+}
+
+.audienceName {
+  font-size: var(--yk-mk-h3);
+  font-weight: var(--yk-weight-bold);
+  color: var(--yk-ink);
+}
+
+.audienceBody {
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  color: var(--yk-sub);
+}
+
+/* Seven steps: a single column that becomes a wrapping grid. */
+.loop {
+  list-style: none;
+  margin: clamp(24px, 4vw, 36px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.loopStep {
+  background: var(--yk-paper);
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-lg);
+  padding: 18px;
+}
+
+.loopName {
+  margin: 10px 0 0;
+  font-size: var(--yk-mk-16, 16px);
+  font-weight: var(--yk-weight-bold);
+  color: var(--yk-ink);
+}
+
+.loopBody {
+  margin: 6px 0 0;
+  font-size: var(--yk-mk-14);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.5;
+  color: var(--yk-sub);
+  text-wrap: pretty;
+}
+
+.pillarHead {
+  max-width: 660px;
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.headedList {
+  margin: 18px 0 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  font-size: var(--yk-mk-15);
+  font-weight: var(--yk-weight-medium);
+  line-height: 1.55;
+  color: var(--yk-ink);
+}
+
+.audienceIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+  border-radius: var(--yk-radius-md);
+  background: var(--yk-paper);
+  border: 1px solid var(--yk-card-line);
+  color: var(--yk-copper-text);
+}
+
+/* Integration logos: clickable tiles. */
+.logoRow {
+  list-style: none;
+  margin: clamp(20px, 3vw, 28px) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.logoTile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 168px;
+  height: 104px;
+  background: var(--yk-card);
+  border: 1px solid var(--yk-card-line);
+  border-radius: var(--yk-radius-lg);
+  text-decoration: none;
+  transition:
+    box-shadow var(--yk-duration-base) var(--yk-ease),
+    transform var(--yk-duration-fast) var(--yk-ease);
+}
+
+.logoTile:hover {
+  box-shadow: var(--yk-shadow-md);
+  transform: translateY(-2px);
+}
+
+.logoImg {
+  max-width: 110px;
+  max-height: 34px;
+  width: auto;
+  height: auto;
+}
+
+.logoState {
+  font-size: var(--yk-mk-12);
+  font-weight: var(--yk-weight-semibold);
+  color: var(--yk-sub);
+}
+
+.logoLive {
+  color: var(--yk-success);
+}

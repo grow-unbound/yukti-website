@@ -44,7 +44,8 @@
 
 .panel {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
+  margin-top: 2px;
   left: 0;
   z-index: var(--yk-z-modal);
   min-width: 296px;
@@ -53,6 +54,29 @@
   border-radius: var(--yk-radius-lg);
   box-shadow: var(--yk-shadow-lg);
   padding: 8px;
+}
+
+.panelWide {
+  min-width: 560px;
+}
+
+.cols {
+  display: flex;
+  gap: 8px;
+}
+
+.col {
+  flex: 1;
+  min-width: 0;
+}
+
+.heading {
+  margin: 4px 10px 6px;
+  font-family: var(--yk-font-mono);
+  font-size: var(--yk-mk-11);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--yk-faint);
 }
 
 .panel[hidden] {

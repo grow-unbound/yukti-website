@@ -10,14 +10,14 @@ import s from "@/components/ui/Prose.module.css";
 import p from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Integrations: Zoho, Tally, Busy, QuickBooks",
+  title: "Integrations: Zoho now, QuickBooks and Tally soon",
   description:
-    "Start today without connecting anything, then link Zoho, Tally, Busy or QuickBooks when you are ready. Included in every plan, including Lite.",
+    "Yukti works with Zoho. QuickBooks and Tally are coming soon. Start without connecting anything and link Zoho when you are ready.",
   path: "/integrations",
 });
 
 /**
- * Not a main-nav item, deliberately. With four connectors live it is too thin
+ * Not a main-nav item, deliberately. With one connector live it is too thin
  * to hold one of four nav slots — it stays reachable from the home feature
  * section and the footer. Revisit when the depth justifies the click.
  *
@@ -33,24 +33,17 @@ const CONNECTORS = [
   },
   {
     name: "QuickBooks",
-    state: "Live",
-    glyph: "✓",
-    tone: "success" as const,
-    note: "Items, customers, invoices and orders flow to QuickBooks, so your books stay current without double entry.",
+    state: "Coming soon",
+    glyph: "◇",
+    tone: "info" as const,
+    note: "On the way. Tell us if it is what you run, so we can build in the right order.",
   },
   {
-    name: "Tally Prime",
-    state: "Live · CSV export",
-    glyph: "✓",
-    tone: "success" as const,
-    note: "Clean CSV for items, sales vouchers and ledgers that imports without hand-fixing.",
-  },
-  {
-    name: "Busy",
-    state: "Live",
-    glyph: "✓",
-    tone: "success" as const,
-    note: "Connect Busy and orders and items flow across. Talk to us if your setup is unusual.",
+    name: "Tally",
+    state: "Coming soon",
+    glyph: "◇",
+    tone: "info" as const,
+    note: "On the way. Tell us if it is what you run, so we can build in the right order.",
   },
 ];
 
@@ -61,8 +54,8 @@ export default function IntegrationsPage() {
       <main id="main">
         <PageHero
           eyebrow="Integrations"
-          title="Get started today. Connect your ERP when you are ready."
-          lede="Start without connecting anything. Link your accounting when it suits you. Included in every plan, because your data flowing in is what makes targeting and campaigns work at all."
+          title="Works with Zoho. Coming soon: QuickBooks, Tally."
+          lede="Start without connecting anything. Link Zoho when it suits you. QuickBooks and Tally are coming soon."
         />
 
         <div className={p.wrap}>
@@ -123,7 +116,7 @@ export default function IntegrationsPage() {
           </section>
         </div>
 
-        <FinalCta />
+        <FinalCta source="integrations-closing" />
       </main>
       <StickyCta />
       <JsonLd

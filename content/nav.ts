@@ -14,11 +14,14 @@ import { industries } from "./industries";
 
 export type NavItem = { href: string; label: string; note?: string };
 
+export type NavSection = { heading?: string; items: NavItem[] };
+
 export type NavGroup = {
   label: string;
   /** Where the group's own label points, if anywhere. */
   href?: string;
-  items: NavItem[];
+  /** One or more headed columns of links in the panel. */
+  sections: NavSection[];
 };
 
 export const industryNavItems: NavItem[] = industries.map((i) => ({
@@ -27,59 +30,70 @@ export const industryNavItems: NavItem[] = industries.map((i) => ({
   note: i.note,
 }));
 
-/**
- * Persona labels. "For your customers" was ambiguous — whose customers? These
- * name both sides of the transaction instead. Note this breaks the brief's ban
- * on "buyers" in customer-facing copy, deliberately: the clarity of naming the
- * two personas next to each other is worth more here than the vocabulary rule,
- * which exists to stop the product sounding like it is about the wrong person.
- */
+/** Seller types: anchors on the Solutions page. */
+export const sellerNavItems: NavItem[] = [
+  {
+    href: "/sellers#manufacturers",
+    label: "Manufacturers",
+    note: "RFQs, part numbers, quotes.",
+  },
+  {
+    href: "/sellers#wholesalers",
+    label: "Wholesalers",
+    note: "Rates, stock, repeat orders.",
+  },
+  {
+    href: "/sellers#distributors",
+    label: "Distributors",
+    note: "WhatsApp orders, dues, campaigns.",
+  },
+];
+
+/** The two pages written for the people around the seller. */
 export const audienceNavItems: NavItem[] = [
   {
-    href: "/sellers",
-    label: "For B2B sellers",
-    note: "Distributors, wholesalers and stockists, the business running Yukti.",
+    href: "/accountants",
+    label: "Accountants",
+    note: "How Yukti sits on top of your books.",
   },
   {
     href: "/buyers",
-    label: "For B2B buyers",
+    label: "B2B buyers",
     note: "The page to share with a customer who asks what this Yukti link is.",
-  },
-  {
-    href: "/accountants",
-    label: "For accountants",
-    note: "What lands in Tally and Zoho, and what Yukti deliberately does not do.",
   },
 ];
 
 /**
- * Flat links in the header.
- *
- * FAQ points at the home page section rather than a page of its own: the
- * answers are the FAQPage structured data source, and splitting them onto a
- * separate route would either duplicate that markup or move it off the page
- * that earns the traffic.
+ * Header: Product, Solutions (two grouped columns), Industries (a dropdown),
+ * Case Studies. FAQ lives on the home and Solutions pages and in the footer,
+ * not in the header, to keep the bar uncrowded.
  */
-export const mainNav: NavItem[] = [
-  { href: "/how-it-works", label: "How it works" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/#faq", label: "FAQ" },
+export const headerLeading: NavItem[] = [{ href: "/how-it-works", label: "Product" }];
+
+export const navGroups: NavGroup[] = [
+  {
+    label: "Solutions",
+    href: "/sellers",
+    sections: [
+      { heading: "By seller type", items: sellerNavItems },
+      { heading: "Around the business", items: audienceNavItems },
+    ],
+  },
+  { label: "Industries", sections: [{ items: industryNavItems }] },
 ];
 
-/** Grouped links, rendered as popovers on desktop and sections in the drawer. */
-export const navGroups: NavGroup[] = [
-  { label: "Industries", items: industryNavItems },
-  { label: "Who it's for", items: audienceNavItems },
+export const headerTrailing: NavItem[] = [
+  { href: "/case-study", label: "Case Studies" },
 ];
 
 export const footerNav: { heading: string; items: NavItem[] }[] = [
   {
     heading: "Product",
     items: [
-      { href: "/how-it-works", label: "How it works" },
-      { href: "/pricing", label: "Pricing" },
+      { href: "/how-it-works", label: "Product" },
+      { href: "/sellers", label: "Solutions" },
+      { href: "/case-study", label: "Case Studies" },
       { href: "/integrations", label: "Integrations" },
-      { href: "/compare", label: "Compare" },
       { href: "/#faq", label: "FAQ" },
       { href: "/about", label: "About" },
     ],
@@ -89,8 +103,8 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
     items: industryNavItems.map(({ href, label }) => ({ href, label })),
   },
   {
-    heading: "Who it's for",
-    items: audienceNavItems.map(({ href, label }) => ({ href, label })),
+    heading: "Solutions",
+    items: [...sellerNavItems, ...audienceNavItems].map(({ href, label }) => ({ href, label })),
   },
   {
     heading: "Legal",

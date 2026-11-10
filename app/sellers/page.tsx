@@ -2,142 +2,176 @@ import Link from "next/link";
 import { Header } from "@/components/chrome/Header";
 import { StickyCta } from "@/components/chrome/StickyCta";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { Heading } from "@/components/ui/Heading";
+import { IndustryIcon } from "@/components/ui/IndustryIcon";
 import { PageHero } from "@/components/ui/PageHero";
+import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
-import { breadcrumbLd } from "@/lib/jsonld";
+import { SellerIcon } from "@/components/sections/SellerIcon";
+import { faq } from "@/content/faq";
+import { industries } from "@/content/industries";
+import {
+  industriesCopy,
+  layerCopy,
+  sellerTypes,
+} from "@/content/solutions";
+import { breadcrumbLd, faqLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/metadata";
-import s from "@/components/ui/Prose.module.css";
+import w from "@/components/sections/WithWithout.module.css";
+import h from "@/components/sections/HomeSections.module.css";
 
 export const metadata = pageMetadata({
-  title: "For manufacturers, distributors and wholesalers",
+  title: "Solutions: manufacturers, wholesalers, distributors",
   description:
-    "If you manufacture, distribute or wholesale to other businesses on relationships, rates and repeat orders, Yukti is the side of the product you run. Catalog, rates, campaigns and orders in one place.",
+    "How Yukti works for manufacturers (RFQs, part numbers, quotes), wholesalers (rates, stock, repeat orders) and distributors (WhatsApp orders, dues, campaigns).",
   path: "/sellers",
-  ogTitle: "Yukti for the business doing the selling",
+  ogTitle: "Yukti for manufacturers, wholesalers and distributors",
   ogDescription:
-    "Manufacturers, distributors and wholesalers. Your catalog, your rates, your customers, your orders, in one place.",
+    "RFQs and part numbers, rates and repeat orders, WhatsApp orders and dues. One inbox.",
 });
 
 /**
- * The seller persona page, paired with /buyers.
- *
- * These two exist because "For your customers" told a visitor nothing about
- * whose customers were meant. Naming both sides removes the ambiguity: this is
- * the page for the business running Yukti, /buyers is the page for the
- * business ordering from them.
- *
- * This is deliberately not a second homepage. The homepage sells the outcome;
- * this page answers "is this meant for me, and which side of it am I on".
- * Keep it short — every link out of here goes somewhere that sells properly.
+ * Solutions. Route kept as /sellers so existing links hold. Three seller
+ * types, each shown with and without Yukti; an explainer of how Yukti works
+ * as an operating layer on top of any books (not tied to one ERP); and a
+ * "works across industries" grid. No GCC regional copy: the product is
+ * English, left to right only today.
  */
-export default function SellersPage() {
+export default function SolutionsPage() {
   return (
     <>
-      <Header />
+      <Header current="/sellers" />
       <main id="main">
         <PageHero
-          eyebrow="For B2B sellers"
-          title="You're the business doing the selling"
-          lede="Manufacturers, distributors, wholesalers and stockists who sell in bulk to other businesses on relationships, rates and repeat orders. Yukti is the side of the product you run, your catalog, your rates, your customers, your orders."
+          eyebrow="Solutions"
+          title="Built for the people who sell"
+          lede="Manufacturers, wholesalers and distributors run on conversations. Yukti puts them in one inbox, has the draft ready with the customer's rate, stock and dues beside it, and your team approves."
         />
 
-        <div className={s.prose}>
-          <section>
-            <h2>This is you if</h2>
-            <ul>
-              <li>
-                You carry several brands and sell them on to retailers,
-                electricians, mechanics, salons, contractors or other trades.
-              </li>
-              <li>
-                You make the product yourself and sell it through dealers and
-                resellers, each on their own terms.
-              </li>
-              <li>
-                Different customers pay different rates, and those rates live
-                partly in a spreadsheet and partly in someone&apos;s head.
-              </li>
-              <li>
-                A large share of your orders and enquiries arrive on WhatsApp,
-                and some of them quietly never become orders.
-              </li>
-              <li>
-                Your books are in Tally, Busy or Zoho, and you have no intention
-                of moving them.
-              </li>
+        {sellerTypes.map((t, i) => (
+          <section
+            key={t.id}
+            id={t.id}
+            className={`${w.block} ${i % 2 === 1 ? h.paper : ""}`}
+            data-yk-section={`solution-${t.id}`}
+          >
+            <div className={w.inner}>
+              <div className={w.head}>
+                <span className={w.icon}>
+                  <SellerIcon name={t.id} />
+                </span>
+                <div>
+                  <h2 className={w.title}>{t.name}</h2>
+                  <p className={w.line}>{t.line}</p>
+                </div>
+              </div>
+              <div className={w.table}>
+                {t.rows.map((r) => (
+                  <div key={r.with} className={w.row}>
+                    <p className={`${w.cell} ${w.without}`}>
+                      <span className={w.tag}>Without Yukti</span>
+                      {r.without}
+                    </p>
+                    <p className={`${w.cell} ${w.with}`}>
+                      <span className={w.tag}>With Yukti</span>
+                      {r.with}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        ))}
+
+        <section id="layer" className={w.block} data-yk-section="solution-layer">
+          <div className={w.inner}>
+            <Heading level={2} size="h2">
+              {layerCopy.title}
+            </Heading>
+            <p className={h.lede}>{layerCopy.lede}</p>
+
+            <div className={w.stack} aria-label="Where Yukti sits">
+              <div className={`${w.layer} ${w.layerTop}`}>
+                Your customers
+                <span className={w.layerSub}>
+                  WhatsApp, email, your storefront
+                </span>
+              </div>
+              <div className={`${w.layer} ${w.layerMid}`}>
+                Yukti
+                <span className={w.layerSub}>
+                  Enquiries, quotes, orders, approvals
+                </span>
+              </div>
+              <div className={`${w.layer} ${w.layerBottom}`}>
+                Your books: your ERP or accounting system
+                <span className={w.layerSub}>
+                  Stays the system of record
+                </span>
+              </div>
+            </div>
+
+            <ul className={w.layerGrid}>
+              {layerCopy.points.map((p) => (
+                <li key={p.h} className={w.layerCard}>
+                  <h3>{p.h}</h3>
+                  <p>{p.p}</p>
+                </li>
+              ))}
             </ul>
-          </section>
+            <p className={w.outro}>
+              <Link href="/accountants">For your accountant</Link> ·{" "}
+              <Link href="/integrations">Integrations</Link>
+            </p>
+          </div>
+        </section>
 
-          <section>
-            <h2>What you run in Yukti</h2>
-            <ul>
-              <li>
-                <strong>Your catalog and rates.</strong> Every product, every
-                customer group, every pricelist, with validity windows. Set the
-                rate once and every quote, order and invoice follows it.
-              </li>
-              <li>
-                <strong>Campaigns.</strong> Chosen products at a chosen rate,
-                for a chosen group of customers, for a limited time. You see the
-                average discount before you publish.
-              </li>
-              <li>
-                <strong>WhatsApp engagement.</strong> Reach everyone in an area,
-                everyone who hasn&apos;t ordered in 30 days, or everyone with
-                dues, computed from your own data, sent one to one, tracked.
-              </li>
-              <li>
-                <strong>Orders.</strong> Enquiry to delivered in one queue with
-                clear statuses, and an invoice in one click.
-              </li>
+        <section
+          id="industries"
+          className={`${w.block} ${h.paper}`}
+          data-yk-section="solution-industries"
+        >
+          <div className={w.inner}>
+            <Heading level={2} size="h2">
+              {industriesCopy.title}
+            </Heading>
+            <p className={h.lede}>{industriesCopy.lede}</p>
+            <ul className={w.indGrid}>
+              {industries.map((ind) => (
+                <li key={ind.slug}>
+                  <Link href={`/industries/${ind.slug}`} className={w.indCard}>
+                    <span className={h.audienceIcon}>
+                      <IndustryIcon name={ind.icon} />
+                    </span>
+                    <span className={w.indName}>{ind.name}</span>
+                    <span className={w.indNote}>{ind.note}</span>
+                    <ul className={w.indList}>
+                      {ind.pains.slice(0, 3).map((p) => (
+                        <li key={p.h}>{p.h}</li>
+                      ))}
+                    </ul>
+                    <span className={w.indMore}>
+                      See {ind.name}&nbsp;→
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
-            <p>
-              <Link href="/how-it-works">
-                See a full day of it, start to finish
-              </Link>
-              .
-            </p>
-          </section>
+            <p className={w.outro}>{industriesCopy.outro}</p>
+          </div>
+        </section>
 
-          <section>
-            <h2>What your customers get</h2>
-            <p>
-              Their own rate list on their phone. A link and a one-time code,
-              nothing to install, no password. They reorder in two taps and
-              check their own order status instead of calling to ask.
-            </p>
-            <p>
-              If a customer of yours is wondering what the Yukti link you sent
-              them is, send them{" "}
-              <Link href="/buyers">the page written for them</Link>.
-            </p>
-          </section>
-
-          <section>
-            <h2>What stays where it is</h2>
-            <p>
-              Your accounting. Yukti runs your selling and feeds clean,
-              structured data to Tally, Busy, Zoho Books and Zoho Inventory. It
-              is not accounting software, makes no journal entries and files
-              nothing on your behalf.{" "}
-              <Link href="/accountants">
-                The page for your accountant explains exactly what lands in the
-                books
-              </Link>
-              .
-            </p>
-          </section>
-        </div>
-
-        <FinalCta />
+        <Faq />
+        <FinalCta source="solutions-closing" />
       </main>
       <StickyCta />
       <JsonLd
         data={breadcrumbLd([
           { name: "Home", path: "/" },
-          { name: "For B2B sellers", path: "/sellers" },
+          { name: "Solutions", path: "/sellers" },
         ])}
       />
+      <JsonLd data={faqLd(faq)} />
     </>
   );
 }

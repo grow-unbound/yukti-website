@@ -35,3 +35,29 @@ export const WHATSAPP_DISPLAY = "+91 94907 44841";
 export const SITE_NAME = "Yukti";
 
 export const CONTACT_LANGUAGES = ["en", "hi", "te"];
+
+/**
+ * "Talk to us" goes to Calendly, in a new tab (Button opens every external
+ * link that way; no embed is used, so there is no third-party script on the
+ * site). The `campaign` UTM names the placement so bookings can be attributed
+ * to a page and a button.
+ *
+ * Outreach links (LinkedIn, email, WhatsApp) use the same base URL with their
+ * own utm_source and utm_medium, set by hand per message.
+ */
+export const CALENDLY_URL = "https://calendly.com/phani-krovvidi";
+
+/** Plain-email fallback for people who will not book. Footer only. */
+export const CONTACT_EMAIL = "phani@useyukti.in";
+
+export function talkUrl(campaign: string): string {
+  const q = new URLSearchParams({
+    utm_source: "website",
+    utm_medium: "cta",
+    utm_campaign: campaign,
+  });
+  return `${CALENDLY_URL}?${q.toString()}`;
+}
+
+/** PostHog event fired by every "Talk to us" button. */
+export const TALK_EVENT = "site_talk_click";

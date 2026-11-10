@@ -188,10 +188,10 @@ export function RatesMock() {
 export function IntegrationsMock() {
   return (
     <MockFigure
-      description="Integration status: Zoho connected with two-way sync, QuickBooks connected, Tally exporting clean CSV, and Busy connected."
+      description="Integration status: Zoho connected with two-way sync. QuickBooks and Tally are marked coming soon."
       className={f.mockShell}
     >
-      <div className={s.headTitle}>Connected</div>
+      <div className={s.headTitle}>Integrations</div>
       <div className={s.card}>
         <MockRow
           label="Zoho"
@@ -199,17 +199,16 @@ export function IntegrationsMock() {
         />
         <MockRow
           label="QuickBooks"
-          value={<StatusChip glyph="✓" tone="success">Connected</StatusChip>}
+          value={<StatusChip glyph="◇" tone="info">Coming soon</StatusChip>}
         />
-        <MockRow label="Tally Prime" value={<MockButton tone="ghost">Download CSV</MockButton>} />
         <MockRow
-          label="Busy"
-          value={<StatusChip glyph="✓" tone="success">Connected</StatusChip>}
+          label="Tally"
+          value={<StatusChip glyph="◇" tone="info">Coming soon</StatusChip>}
           bordered={false}
         />
       </div>
       <p className={s.footNote}>
-        Items, parties, orders, invoices and estimates. Included in every plan.
+        Items, parties, orders, invoices and estimates sync with Zoho.
       </p>
     </MockFigure>
   );

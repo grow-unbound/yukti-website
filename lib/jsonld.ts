@@ -22,8 +22,8 @@ export function organizationLd() {
     name: "Yukti",
     url: `${SITE_ORIGIN}/`,
     description:
-      "Software for manufacturers, distributors and wholesalers that sell to other businesses: one inbox for WhatsApp and email with buyer and stock context, a customer storefront, rates, campaigns and orders.",
-    areaServed: ["IN", "EU", "Worldwide"],
+      "AI sales operations for manufacturers, wholesalers and distributors: one inbox for WhatsApp and email with rates, stock and dues beside every message, a customer storefront, and quotes and orders your team approves.",
+    areaServed: ["IN", "Worldwide"],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
@@ -34,8 +34,8 @@ export function organizationLd() {
 }
 
 /**
- * SoftwareApplication, without prices. This node renders on every page, and
- * prices belong on /pricing only, so the Offers live in pricingOffersLd().
+ * SoftwareApplication, without prices. Pricing is hidden (v2.2): no price in
+ * schema, and pricingOffersLd() below is unused while app/_pricing is parked.
  */
 export function softwareApplicationLd() {
   return {
@@ -45,20 +45,19 @@ export function softwareApplicationLd() {
     name: "Yukti",
     url: `${SITE_ORIGIN}/`,
     applicationCategory: "BusinessApplication",
-    applicationSubCategory: "Order management and B2B commerce",
+    applicationSubCategory: "AI sales operations",
     operatingSystem: "Web browser",
     description:
-      "Yukti is the ordering platform for manufacturers, distributors and wholesalers: one inbox for WhatsApp and email with buyer and stock context, digital catalogs, customer-specific rates, campaigns, and an ordering app customers use without installing anything.",
+      "Yukti is AI sales operations for manufacturers, wholesalers and distributors: one inbox for WhatsApp and email, AI answers on price, stock, order status and dues, customer-specific rates, quotes and orders you approve, and Zoho sync.",
     inLanguage: "en-IN",
     publisher: { "@id": `${SITE_ORIGIN}/#organization` },
     featureList: [
-      "Multi-channel inbox with buyer history, dues and live stock beside every message",
-      "Digital catalogs with customer-specific rates",
-      "Campaigns with time-limited pricing",
-      "WhatsApp engagement with delivery and open tracking",
-      "Customer ordering app with no install and no password",
-      "Order management from enquiry to delivery",
-      "Zoho, Tally, Busy and QuickBooks integrations",
+      "One inbox for WhatsApp and email with rates, stock and dues beside every message",
+      "AI answers to customer questions on price, stock, order status and dues",
+      "Customer storefront with each customer's own rates",
+      "Draft quotes you approve, and approvals on rate changes",
+      "WhatsApp campaigns and payment reminders with tracking",
+      "Zoho sync",
     ],
   };
 }
